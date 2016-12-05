@@ -5,7 +5,7 @@
 [Trello link][trello]
 
 [heroku]: https://notebinder.herokuapp.com/
-[trello]: https://trello.com
+[trello]: https://trello.com/b/zdG27beB/notebinder
 
 ## Minimum Viable Product
 
