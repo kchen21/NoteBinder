@@ -1,16 +1,14 @@
+```js
 {
-
   currentUser: {
     id: 1,
     username: "John Doe"
   },
-
   forms: {
     signUp: {errors: []},
     logIn: {errors: []},
     createNote: {errors: ["title can't be blank"]}
   },
-
   notebooks: {
     1: {
       title: "Sample Notebook",
@@ -18,7 +16,6 @@
       author_id: 1
     }
   },
-
   notes: {
     1: {
       title: "Sample Note",
@@ -32,8 +29,6 @@
         }
       }
     }
-  },
-
-  tagFilters: [1, 4, 9] // used to track all selected Tags for filtering of Notes
-
+  }
 }
+```

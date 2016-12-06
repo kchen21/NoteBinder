@@ -3,13 +3,10 @@
 **AuthFormContainer**
  - AuthForm
 
-**HomeContainer**
- - Home
+**NoteContainer**
  - Sidebar
-
-**NotesContainer**
  - NotesHeader
- * NotesIndex
+ - NotesIndex
 
 **NotebookContainer**
  - NotebookHeader
@@ -26,19 +23,21 @@
 **NotesIndex**
  - NotesIndexItem
   + NoteDetail
-    + NoteTools
-    - NotebookSearch
+    - NoteTools
+    - NotebooksSearch
     - Tags
-      - Tag
-    * Note
+      + Tag
+    - RTETools
+    - Note
 
 **NewNoteContainer**
  - NewNote
-  - NotebookSearch
+  - NotebooksSearch
   - Tags
-    - Tag
+    + Tag
   - RTETools
-  - NewNoteButton
+  - Note
+  - PostButton
 
 **Search**
 
@@ -48,13 +47,17 @@
 **NewTag**
  - NewTag
 
-**NotebookSearch**
- + AutoSearch
- * AutoSearchResults
+**NotebooksSearch**
+ - AutoSearch
+ - AutoSearchResults
 
 **TagsSearch**
- + AutoSearch
- * AutoSearchResults
+ - AutoSearch
+ - AutoSearchResults
+
+**AccountMenu**
+
+**UpdateAccount**
 
 ## Routes
 
@@ -62,14 +65,15 @@
 |-------|-------------|
 | "/sign-up" | "AuthFormContainer" |
 | "/sign-in" | "AuthFormContainer" |
-| "/home" | "HomeContainer" |
-| "/home/note/:noteId" | "NotesContainer" |
-| "/home/notebook/:notebookId/note/:noteId" | "NotebookContainer" |
-| "/home/tag/:tagId/note/:notedId" | "TagContainer" |
-| "/home/search-results" | "SearchResultsContainer"
+| "/notes/:noteId" | "NoteContainer" |
+| "/notebooks/:notebookId/notes/:noteId" | "NotebookContainer" |
+| "/tags/:tagId/notes/:notedId" | "TagContainer" |
+| "/search-results" | "SearchResultsContainer" |
 | "/new-note" | "NewNoteContainer" |
 | "/search" | "Search" |
 | "/new-notebook" | "NewNotebook" |
 | "/new-tag" | "NewTag" |
-| "/tag-search" | "TagSearch" |
-| "/notebook-search" | "NotebookSearch" |
+| "/tags-search" | "TagsSearch" |
+| "/notebooks-search" | "NotebooksSearch" |
+| "/account-menu" | "AccountMenu" |
+| "/update-account" | "UpdateAccount" |

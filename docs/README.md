@@ -53,13 +53,14 @@ and proper Evernote-inspired CSS styling:
 
 **Objective:** Notes can be tagged with multiple tags, and tags are searchable.
 
-### Phase 5: Allow Complex Styling in Notes (1 day, W2 Th 6pm)
+### Phase 5: Allow Complex Styling in Notes (1 day)
 
 **objective:** Allow rich text editing of notes.
 
-### Phase 6: - Pagination / infinite scroll for Notes Index (1 day, W2 F 6pm)
+### Phase 6: Account Menu Popup and Update Account Details Page (1 day)
 
-**objective:** Add bonus features; start with adding an infinite scroll to Notes Index.
+**objective:** The account menu popup will show the user's avatar, full name, and two buttons:
+one that links to an Update Account Details page and another to log out.
 
 ### Bonus Features (TBD)
 - [ ] Infinite Scroll

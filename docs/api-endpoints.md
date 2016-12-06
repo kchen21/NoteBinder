@@ -23,7 +23,6 @@
 - `GET /api/notes`
   - Notes index/search
   - accepts `tag_name` query param to list notes by tag
-  - accepts pagination params (if I get there)
 - `POST /api/notes`
 - `GET /api/notes/:id`
 - `PATCH /api/notes/:id`
@@ -37,7 +36,6 @@
 - `DELETE /api/notebooks/:id`
 - `GET /api/notebooks/:id/notes`
   - index of all notes for a notebook
-  - accepts pagination params (if I get there)
 
 ### Tags
 
