@@ -1,12 +1,15 @@
 ```js
 {
-  currentUser: {
-    id: 1,
-    username: "John Doe"
+  session: {
+    currentUser: {
+      id: 1,
+      full_name: "John Doe"
+      email: "johndoe@example.com"
+      username: "JohnDoe123"
+    },
+    errors: []
   },
   forms: {
-    signUp: {errors: []},
-    logIn: {errors: []},
     createNote: {errors: ["title can't be blank"]}
   },
   notebooks: {
