@@ -54,68 +54,137 @@ class AuthForm extends React.Component {
   render() {
     let header;
     let form;
+    let footer;
+    const logo = <img className="logo" src={window.assets.logo} />;
     const errors = this.props.errors.map((error, index) => {
-      return <li key={index}>{error}</li>;
+      return <li className="form-error" key={index}>{error}</li>;
     });
 
     if (this.props.path === "/sign-up") {
       header = [
-        <h1 key="0">Sign Up</h1>,
-        <Link key="1" to="/sign-in">Sign In</Link>,
-        <button key="2" onClick={this.signInGuest}>Sign In As Guest</button>
+        <li key="0">
+          { logo }
+        </li>,
+        <li key="1">
+          <h1>Sign Up</h1>
+        </li>
       ];
       form = [
-        <form key="0" onSubmit={this.handleSubmit}>
-          <label>Full Name
-            <input type="text" onChange={this.handleChange("full_name")}
-              value={this.state.full_name}></input>
-          </label>
+        <li key="0">
+          <form className="sign-up-form" onSubmit={this.handleSubmit}>
+            <div className="form-input">
+              <label for="sign-up-full-name">Full Name</label>
+              <input id="sign-up-full-name"
+                type="text"
+                onChange={this.handleChange("full_name")}
+                value={this.state.full_name}>
+              </input>
+            </div>
 
-          <label>Email
-            <input type="text" onChange={this.handleChange("email")}
-              value={this.state.email}></input>
-          </label>
+            <div className="form-input">
+              <label for="sign-up-email">Email</label>
+              <input id="sign-up-email"
+                type="text"
+                onChange={this.handleChange("email")}
+                value={this.state.email}>
+              </input>
+            </div>
 
-          <label>Create a Username
-            <input type="text" onChange={this.handleChange("username")}
-              value={this.state.username}></input>
-          </label>
+            <div className="form-input">
+              <label for="sign-up-username">Create a Username</label>
+              <input id="sign-up-username"
+                type="text"
+                onChange={this.handleChange("username")}
+                value={this.state.username}>
+              </input>
+            </div>
 
-          <label>Create a Password
-            <input type="password" onChange={this.handleChange("password")}
-              value={this.state.password}></input>
-          </label>
+            <div className="form-input">
+              <label for="sign-up-password">Create a Password</label>
+              <input id="sign-up-password"
+                type="password"
+                onChange={this.handleChange("password")}
+                value={this.state.password}>
+              </input>
+            </div>
 
-          <input type="submit" value="Create Account"></input>
-        </form>
+            <input className="submit-button" type="submit" value="Create Account"></input>
+          </form>
+      </li>
+      ];
+      footer = [
+        <li key="0">
+          <button className="guest-button" onClick={this.signInGuest}>Sign In As Guest</button>
+        </li>,
+        <li key="1">
+          <p>{"Have an account?"}</p>
+        </li>,
+        <li key="2">
+          <Link className="page-change" to="/sign-in">Sign In</Link>
+        </li>
       ];
     } else if (this.props.path === "/sign-in") {
       header = [
-        <h1 key="0">Sign In</h1>,
-        <Link key="1" to="/sign-up">Sign Up</Link>
+        <li key="0">
+          { logo }
+        </li>,
+        <li key="1">
+          <h1>Sign In</h1>
+        </li>
       ];
       form = [
-        <form key="0" onSubmit={this.handleSubmit}>
-          <label>Username
-            <input type="text" onChange={this.handleChange("username")}
-              value={this.state.username}></input>
-          </label>
+        <li key="0">
+          <form className="sign-in-form" onSubmit={this.handleSubmit}>
+            <div className="form-input">
+              <label for="sign-in_username">Username</label>
+              <input id="sign-in_username"
+                type="text"
+                onChange={this.handleChange("username")}
+                value={this.state.username}>
+              </input>
+            </div>
 
-          <label>Password
-            <input type="password" onChange={this.handleChange("password")}
-              value={this.state.password}></input>
-          </label>
+            <div className="form-input">
+              <label for="sign-in-password">Password</label>
+              <input id="sign-in-password"
+                type="password"
+                onChange={this.handleChange("password")}
+                value={this.state.password}>
+              </input>
+            </div>
 
-          <input type="submit" value="Sign In"></input>
-        </form>
+            <input className="submit-button" type="submit" value="Sign In"></input>
+          </form>
+        </li>
+      ];
+      footer = [
+        <li key="0">
+          <p>{"Don't have an account?"}</p>
+        </li>,
+        <li key="1">
+          <Link className="page-change" to="/sign-up">Create Account</Link>
+        </li>
       ];
     }
 
     return (
-      <div>
-        { header }
-        { form }
-        { errors }
+      <div className="auth-form">
+        <section className="form-header">
+          <ul>
+            { header }
+          </ul>
+        </section>
+        <section className="form-main">
+          <ul>
+            { form }
+            { errors }
+          </ul>
+        </section>
+        <section className="form-footer">
+          <ul>
+            { footer }
+          </ul>
+        </section>
       </div>
     );
   }

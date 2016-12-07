@@ -13,3 +13,151 @@
  *= require_tree .
  *= require_self
  */
+
+ /* --- RESET --- */
+
+html, body, header, nav, h1, a, ul, li,
+strong, main, section, img, div, h2, p,
+form, fieldset, label, input, textarea,
+button, article, footer, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  box-sizing: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+/* --- ELEMENTS --- */
+
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.1666666666;
+  background: #fff;
+  color #000;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* --- CLEARFIX --- */
+
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+/* --- AUTH FORM --- */
+
+.auth-form {
+  vertical-align: middle;
+}
+
+.form-header {
+  display: block;
+  margin: 20px;
+  font-size: 28px;
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+}
+
+.form-main {
+  display: block;
+  width: 500px;
+  border: 1px solid #aaa;
+  margin: 0 auto;
+}
+
+.form-footer {
+  display: block;
+  text-align: center;
+  margin: 40px 0;
+  font-size: 14px;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  height: 180px;
+}
+
+.form-input {
+  display: block;
+  padding: 20px 0 0 0;
+  width: 320px;
+  margin: 0 auto;
+}
+
+.form-input > input {
+  display: block;
+  border: 1px solid #aaa;
+  border-radius: 7px;
+  width: 100%;
+  padding: 5px;
+}
+
+.submit-button {
+  display: block;
+  border: 1px solid #1fae52;
+  border-radius: 7px;
+  text-align: center;
+  color: #fff;
+  background: #2dbe60;
+  width: 320px;
+  padding: 20px 40px;
+  margin: 20px auto 20px auto;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.form-error {
+  text-align: center;
+  color: #2dbe60;
+}
+
+.form-error:last-of-type {
+  margin: 0 0 20px 0;
+}
+
+.guest-button {
+  border: 1px solid #2dbe60;
+  border-radius: 7x;
+  padding: 5px;
+  background: #2dbe60;
+  color: white;
+  border-radius: 7px;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.guest-button:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.page-change {
+  color: #2dbe60;
+}
+
+.page-change:hover {
+  opacity: 0.75;
+}
