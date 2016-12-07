@@ -13,6 +13,7 @@ class AuthForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.signInGuest = this.signInGuest.bind(this);
   }
 
   handleChange(prop) {
@@ -36,6 +37,20 @@ class AuthForm extends React.Component {
     }
   }
 
+  signInGuest(e) {
+    e.preventDefault();
+    const user = {
+      full_name: "",
+      email: "",
+      username: "Guest",
+      password: "123456"
+    };
+
+    this.props.signIn(user).then(() => {
+      this.props.router.push('/');
+    });
+  }
+
   render() {
     let header;
     let form;
@@ -46,7 +61,8 @@ class AuthForm extends React.Component {
     if (this.props.path === "/sign-up") {
       header = [
         <h1 key="0">Sign Up</h1>,
-        <Link key="1" to="/sign-in">Sign In</Link>
+        <Link key="1" to="/sign-in">Sign In</Link>,
+        <button key="2" onClick={this.signInGuest}>Sign In As Guest</button>
       ];
       form = [
         <form key="0" onSubmit={this.handleSubmit}>
