@@ -16,6 +16,12 @@ class AuthForm extends React.Component {
     this.signInGuest = this.signInGuest.bind(this);
   }
 
+  componentWillUpdate() {
+    if (this.props.path !== arguments[0].location.pathname) {
+      this.props.clearErrors();
+    }
+  }
+
   handleChange(prop) {
     return (e) => {
       return this.setState({ [prop]: e.currentTarget.value });
@@ -73,7 +79,7 @@ class AuthForm extends React.Component {
         <li key="0">
           <form className="sign-up-form" onSubmit={this.handleSubmit}>
             <div className="form-input">
-              <label for="sign-up-full-name">Full Name</label>
+              <label htmlFor="sign-up-full-name">Full Name</label>
               <input id="sign-up-full-name"
                 type="text"
                 onChange={this.handleChange("full_name")}
@@ -82,7 +88,7 @@ class AuthForm extends React.Component {
             </div>
 
             <div className="form-input">
-              <label for="sign-up-email">Email</label>
+              <label htmlFor="sign-up-email">Email</label>
               <input id="sign-up-email"
                 type="text"
                 onChange={this.handleChange("email")}
@@ -91,7 +97,7 @@ class AuthForm extends React.Component {
             </div>
 
             <div className="form-input">
-              <label for="sign-up-username">Create a Username</label>
+              <label htmlFor="sign-up-username">Create a Username</label>
               <input id="sign-up-username"
                 type="text"
                 onChange={this.handleChange("username")}
@@ -100,7 +106,7 @@ class AuthForm extends React.Component {
             </div>
 
             <div className="form-input">
-              <label for="sign-up-password">Create a Password</label>
+              <label htmlFor="sign-up-password">Create a Password</label>
               <input id="sign-up-password"
                 type="password"
                 onChange={this.handleChange("password")}
@@ -136,7 +142,7 @@ class AuthForm extends React.Component {
         <li key="0">
           <form className="sign-in-form" onSubmit={this.handleSubmit}>
             <div className="form-input">
-              <label for="sign-in_username">Username</label>
+              <label htmlFor="sign-in_username">Username</label>
               <input id="sign-in_username"
                 type="text"
                 onChange={this.handleChange("username")}
@@ -145,7 +151,7 @@ class AuthForm extends React.Component {
             </div>
 
             <div className="form-input">
-              <label for="sign-in-password">Password</label>
+              <label htmlFor="sign-in-password">Password</label>
               <input id="sign-in-password"
                 type="password"
                 onChange={this.handleChange("password")}

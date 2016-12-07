@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { signIn, logOut, signUp } from '../../actions/session_actions';
+import { signIn, logOut, signUp, clearErrors } from '../../actions/session_actions';
 import AuthForm from './auth_form';
 
 const mapStateToProps = (state) => {
@@ -13,7 +13,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     signIn: (user) => dispatch(signIn(user)),
     signUp: (user) => dispatch(signUp(user)),
-    path: ownProps.location.pathname // will be either "/sign-up" or "/sign-in"
+    path: ownProps.location.pathname, // will be either "/sign-up" or "/sign-in"
+    clearErrors: () => dispatch(clearErrors())
   };
 };
 
