@@ -40,7 +40,7 @@ export const logOut = () => {
       return dispatch(receiveErrors(xhr.responseJSON));
     };
 
-    return SessionAPIUtil.logOut.then(successCallback, errorCallback);
+    return SessionAPIUtil.logOut().then(successCallback, errorCallback);
   };
 };
 

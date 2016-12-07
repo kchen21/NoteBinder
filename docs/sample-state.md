@@ -4,8 +4,8 @@
     currentUser: {
       id: 1,
       full_name: "John Doe"
-      email: "johndoe@example.com"
-      username: "JohnDoe123"
+      email: "john.doe@example.com"
+      username: "JohnD"
     },
     errors: []
   },

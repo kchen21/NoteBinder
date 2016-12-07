@@ -69,6 +69,8 @@ class AuthForm extends React.Component {
             <input type="password" onChange={this.handleChange("password")}
               value={this.state.password}></input>
           </label>
+
+          <input type="submit" value="Create Account"></input>
         </form>
       ];
     } else if (this.props.path === "/sign-in") {
@@ -87,6 +89,8 @@ class AuthForm extends React.Component {
             <input type="password" onChange={this.handleChange("password")}
               value={this.state.password}></input>
           </label>
+
+          <input type="submit" value="Sign In"></input>
         </form>
       ];
     }

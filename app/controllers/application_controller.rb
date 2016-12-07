@@ -22,6 +22,6 @@ class ApplicationController < ActionController::Base
   end
 
   def require_signed_in!
-    render json: ["Session not found"], status 404 unless signed_in? # need to change
+    render json: ["Session not found"] unless signed_in?
   end
 end
