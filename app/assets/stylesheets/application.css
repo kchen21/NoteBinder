@@ -140,7 +140,7 @@ img {
 
 .guest-button {
   margin: 0 0 10px 0;
-  border: 1px solid #2dbe60;
+  border: 1px solid #1fae52;
   border-radius: 7px;
   padding: 5px;
   background: #2dbe60;
@@ -158,6 +158,81 @@ img {
 }
 
 .page-change:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* --- HOME --- */
+
+.home {
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+}
+
+.home-sidebar {
+  display: block;
+  float: left;
+  width: 100px;
+  padding: 20px;
+}
+
+.home-main {
+  display: block;
+  float: left;
+  height: 100vh;
+  border-left: 1px solid #aaa;
+  position: relative;
+}
+
+.sidebar-logo {
+  width: 60px;
+  height: 60px;
+}
+
+.sidebar-tools {
+  margin: 50px auto;
+}
+
+.sidebar-options {
+  margin: 50px auto;
+}
+
+.sidebar-tool > img {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #aaa;
+}
+
+.sidebar-tool > img:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.sidebar-option > img {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #aaa;
+}
+
+.sidebar-option > img:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.logout-button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  border: 1px solid #1fae52;
+  background: #2dbe60;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.logout-button:hover {
   cursor: pointer;
   opacity: 0.75;
 }

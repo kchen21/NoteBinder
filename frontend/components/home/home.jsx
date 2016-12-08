@@ -17,10 +17,12 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="home group">
         <Sidebar />
-        <button onClick={this.handleLogout}>Log Out</button>
-        { this.props.children }
+        <section className="home-main">
+          <button className="logout-button" onClick={this.handleLogout}>Log Out</button>
+          { this.props.children }
+        </section>
       </div>
     );
   }

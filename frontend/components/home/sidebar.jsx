@@ -3,10 +3,10 @@ import { Link } from 'react-router';
 
 const Sidebar = () => {
   return (
-    <div>
-      <img className="sidebar-logo" src={window.assets.logo} />
+    <div className="home-sidebar">
+      <img className="sidebar-logo" src={window.assets.wordless_logo} />
 
-      <ul>
+      <ul className="sidebar-tools">
         <Link className="sidebar-tool" to="/new-note">
           <img src={window.assets.new_note} />
         </Link>
@@ -16,7 +16,7 @@ const Sidebar = () => {
         </Link>
       </ul>
 
-      <ul>
+      <ul className="sidebar-options">
         <Link className="sidebar-option" to="/">
           <img src={window.assets.notes} />
         </Link>
@@ -35,5 +35,4 @@ const Sidebar = () => {
 
 export default Sidebar;
 
-// I should make this a class so that I can get props I need from
-// Home in order to get the note, notebook, and tag IDs.
+// Get props from Home in order to get the note, notebook, and tag IDs.
