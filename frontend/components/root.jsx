@@ -2,12 +2,13 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
+import HomeContainer from './home/home_container';
 import AuthFormContainer from './auth_form/auth_form_container';
 
 const Root = ({ store }) => {
-  const redirectIfLoggedIn = (nextState, replace) => {
+  const redirectIfSignedIn = (nextState, replace) => {
     if (store.getState().session.currentUser) {
-      replace('/');
+      replace('/home');
     }
   };
 
@@ -15,9 +16,10 @@ const Root = ({ store }) => {
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
-          <Route path="/sign-in" onEnter={ redirectIfLoggedIn }
+          <Route path="/home" component= { HomeContainer }></Route>
+          <Route path="/sign-in" onEnter={ redirectIfSignedIn }
             component={ AuthFormContainer } />
-          <Route path="/sign-up" onEnter={ redirectIfLoggedIn }
+          <Route path="/sign-up" onEnter={ redirectIfSignedIn }
             component={ AuthFormContainer } />
         </Route>
       </Router>

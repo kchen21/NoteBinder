@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 
-class LogoutButton extends React.Component {
+class Home extends React.Component {
   constructor(props) {
     super(props);
 
@@ -29,4 +29,4 @@ class LogoutButton extends React.Component {
   }
 }
 
-export default withRouter(LogoutButton);
+export default withRouter(Home);

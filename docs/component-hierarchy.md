@@ -3,8 +3,11 @@
 **AuthFormContainer**
  - AuthForm
 
-**NoteContainer**
+**HomeContainer**
+ - Home
  - Sidebar
+
+**NoteContainer**
  - NotesHeader
  - NotesIndex
 
@@ -65,10 +68,11 @@
 |-------|-------------|
 | "/sign-up" | "AuthFormContainer" |
 | "/sign-in" | "AuthFormContainer" |
-| "/notes/:noteId" | "NoteContainer" |
-| "/notebooks/:notebookId/notes/:noteId" | "NotebookContainer" |
-| "/tags/:tagId/notes/:notedId" | "TagContainer" |
-| "/search-results" | "SearchResultsContainer" |
+| "/home" | "HomeContainer" |
+| "/home/notes/:noteId" | "NoteContainer" |
+| "/home/notebooks/:notebookId/notes/:noteId" | "NotebookContainer" |
+| "/home/tags/:tagId/notes/:notedId" | "TagContainer" |
+| "/home/search-results" | "SearchResultsContainer" |
 | "/new-note" | "NewNoteContainer" |
 | "/search" | "Search" |
 | "/new-notebook" | "NewNotebook" |

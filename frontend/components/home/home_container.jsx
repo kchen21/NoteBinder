@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { signIn, logOut, signUp } from '../../actions/session_actions';
-import LogoutButton from './logout_button';
+import { logOut } from '../../actions/session_actions';
+import Home from './home';
 
 const mapStateToProps = (state) => {
   return {
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LogoutButton);
+)(Home);

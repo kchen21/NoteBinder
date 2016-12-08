@@ -34,11 +34,11 @@ class AuthForm extends React.Component {
 
     if (this.props.path === "/sign-up") {
       this.props.signUp(user).then(() => {
-        this.props.router.push('/');
+        this.props.router.push('/home');
       });
     } else if (this.props.path === "/sign-in") {
       this.props.signIn(user).then(() => {
-        this.props.router.push('/');
+        this.props.router.push('/home');
       });
     }
   }
@@ -80,7 +80,8 @@ class AuthForm extends React.Component {
           <form className="sign-up-form" onSubmit={this.handleSubmit}>
             <div className="form-input">
               <label htmlFor="sign-up-full-name">Full Name</label>
-              <input id="sign-up-full-name"
+              <input
+                id="sign-up-full-name"
                 type="text"
                 onChange={this.handleChange("full_name")}
                 value={this.state.full_name}>
@@ -89,7 +90,8 @@ class AuthForm extends React.Component {
 
             <div className="form-input">
               <label htmlFor="sign-up-email">Email</label>
-              <input id="sign-up-email"
+              <input
+                id="sign-up-email"
                 type="text"
                 onChange={this.handleChange("email")}
                 value={this.state.email}>
@@ -98,7 +100,8 @@ class AuthForm extends React.Component {
 
             <div className="form-input">
               <label htmlFor="sign-up-username">Create a Username</label>
-              <input id="sign-up-username"
+              <input
+                id="sign-up-username"
                 type="text"
                 onChange={this.handleChange("username")}
                 value={this.state.username}>
@@ -107,14 +110,19 @@ class AuthForm extends React.Component {
 
             <div className="form-input">
               <label htmlFor="sign-up-password">Create a Password</label>
-              <input id="sign-up-password"
+              <input
+                id="sign-up-password"
                 type="password"
                 onChange={this.handleChange("password")}
                 value={this.state.password}>
               </input>
             </div>
 
-            <input className="submit-button" type="submit" value="Create Account"></input>
+            <input
+              className="submit-button"
+              type="submit"
+              value="Create Account">
+            </input>
           </form>
       </li>
       ];
@@ -143,7 +151,8 @@ class AuthForm extends React.Component {
           <form className="sign-in-form" onSubmit={this.handleSubmit}>
             <div className="form-input">
               <label htmlFor="sign-in_username">Username</label>
-              <input id="sign-in_username"
+              <input
+                id="sign-in_username"
                 type="text"
                 onChange={this.handleChange("username")}
                 value={this.state.username}>
@@ -152,14 +161,19 @@ class AuthForm extends React.Component {
 
             <div className="form-input">
               <label htmlFor="sign-in-password">Password</label>
-              <input id="sign-in-password"
+              <input
+                id="sign-in-password"
                 type="password"
                 onChange={this.handleChange("password")}
                 value={this.state.password}>
               </input>
             </div>
 
-            <input className="submit-button" type="submit" value="Sign In"></input>
+            <input
+              className="submit-button"
+              type="submit"
+              value="Sign In">
+            </input>
           </form>
         </li>
       ];
