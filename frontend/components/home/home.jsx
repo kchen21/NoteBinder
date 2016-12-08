@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import Sidebar from './sidebar';
 
 class Home extends React.Component {
   constructor(props) {
@@ -15,18 +16,16 @@ class Home extends React.Component {
   }
 
   render() {
-    if (this.props.currentUser) {
-      return (
-        <div>
-          <button onClick={this.handleLogout}>Log Out</button>
-        </div>
-      );
-    } else {
-      return (
-        <div></div>
-      );
-    }
+    return (
+      <div>
+        <Sidebar />
+        <button onClick={this.handleLogout}>Log Out</button>
+        { this.props.children }
+      </div>
+    );
   }
 }
 
 export default withRouter(Home);
+
+// Bootstrapping assures that currentUser exists before /home can be accessed.

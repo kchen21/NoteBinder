@@ -68,11 +68,11 @@
 |-------|-------------|
 | "/sign-up" | "AuthFormContainer" |
 | "/sign-in" | "AuthFormContainer" |
-| "/home" | "HomeContainer" |
-| "/home/notes/:noteId" | "NoteContainer" |
-| "/home/notebooks/:notebookId/notes/:noteId" | "NotebookContainer" |
-| "/home/tags/:tagId/notes/:notedId" | "TagContainer" |
-| "/home/search-results" | "SearchResultsContainer" |
+| "/" | "HomeContainer" |
+| "/notes/:noteId" | "NoteContainer" |
+| "/notebooks/:notebookId/notes/:noteId" | "NotebookContainer" |
+| "/tags/:tagId/notes/:notedId" | "TagContainer" |
+| "/search-results" | "SearchResultsContainer" |
 | "/new-note" | "NewNoteContainer" |
 | "/search" | "Search" |
 | "/new-notebook" | "NewNotebook" |

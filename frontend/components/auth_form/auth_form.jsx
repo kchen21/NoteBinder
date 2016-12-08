@@ -34,11 +34,11 @@ class AuthForm extends React.Component {
 
     if (this.props.path === "/sign-up") {
       this.props.signUp(user).then(() => {
-        this.props.router.push('/home');
+        this.props.router.push('/');
       });
     } else if (this.props.path === "/sign-in") {
       this.props.signIn(user).then(() => {
-        this.props.router.push('/home');
+        this.props.router.push('/');
       });
     }
   }
