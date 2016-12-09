@@ -61,9 +61,9 @@ class AuthForm extends React.Component {
     let header;
     let form;
     let footer;
-    const logo = <img className="logo" src={window.assets.logo} />;
+    const logo = <img className="logo" src={ window.assets.logo } />;
     const errors = this.props.errors.map((error, index) => {
-      return <li className="form-error" key={index}>{error}</li>;
+      return <li className="form-error" key={ index }>{ error }</li>;
     });
 
     if (this.props.path === "/sign-up") {
@@ -77,14 +77,14 @@ class AuthForm extends React.Component {
       ];
       form = [
         <li key="0">
-          <form className="sign-up-form" onSubmit={this.handleSubmit}>
+          <form className="sign-up-form" onSubmit={ this.handleSubmit }>
             <div className="form-input">
               <label htmlFor="sign-up-full-name">Full Name</label>
               <input
                 id="sign-up-full-name"
                 type="text"
-                onChange={this.handleChange("full_name")}
-                value={this.state.full_name}>
+                onChange={ this.handleChange("full_name") }
+                value={ this.state.full_name }>
               </input>
             </div>
 
@@ -93,8 +93,8 @@ class AuthForm extends React.Component {
               <input
                 id="sign-up-email"
                 type="text"
-                onChange={this.handleChange("email")}
-                value={this.state.email}>
+                onChange={ this.handleChange("email") }
+                value={ this.state.email }>
               </input>
             </div>
 
@@ -103,8 +103,8 @@ class AuthForm extends React.Component {
               <input
                 id="sign-up-username"
                 type="text"
-                onChange={this.handleChange("username")}
-                value={this.state.username}>
+                onChange={ this.handleChange("username") }
+                value={ this.state.username }>
               </input>
             </div>
 
@@ -113,8 +113,8 @@ class AuthForm extends React.Component {
               <input
                 id="sign-up-password"
                 type="password"
-                onChange={this.handleChange("password")}
-                value={this.state.password}>
+                onChange={ this.handleChange("password") }
+                value={ this.state.password }>
               </input>
             </div>
 
@@ -128,10 +128,10 @@ class AuthForm extends React.Component {
       ];
       footer = [
         <li key="0">
-          <button className="guest-button" onClick={this.signInGuest}>Sign In As Guest</button>
+          <button className="guest-button" onClick={ this.signInGuest }>Sign In As Guest</button>
         </li>,
         <li key="1">
-          <p>{"Have an account?"}</p>
+          <p>{ "Have an account?" }</p>
         </li>,
         <li key="2">
           <Link className="page-change" to="/sign-in">Sign In</Link>
@@ -148,14 +148,14 @@ class AuthForm extends React.Component {
       ];
       form = [
         <li key="0">
-          <form className="sign-in-form" onSubmit={this.handleSubmit}>
+          <form className="sign-in-form" onSubmit={ this.handleSubmit }>
             <div className="form-input">
               <label htmlFor="sign-in_username">Username</label>
               <input
                 id="sign-in_username"
                 type="text"
-                onChange={this.handleChange("username")}
-                value={this.state.username}>
+                onChange={ this.handleChange("username") }
+                value={ this.state.username }>
               </input>
             </div>
 
@@ -164,8 +164,8 @@ class AuthForm extends React.Component {
               <input
                 id="sign-in-password"
                 type="password"
-                onChange={this.handleChange("password")}
-                value={this.state.password}>
+                onChange={ this.handleChange("password") }
+                value={ this.state.password }>
               </input>
             </div>
 
@@ -179,7 +179,7 @@ class AuthForm extends React.Component {
       ];
       footer = [
         <li key="0">
-          <p>{"Don't have an account?"}</p>
+          <p>{ "Don't have an account?" }</p>
         </li>,
         <li key="1">
           <Link className="page-change" to="/sign-up">Create Account</Link>

@@ -38,27 +38,27 @@ class Note extends React.Component {
           <NotesHeader />
           <NotesIndex />
           <section className="note">
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={ this.handleSubmit }>
               <label htmlFor="note-title"></label>
               <input
                 id="note-title"
                 type="text"
-                onChange={this.handleChange("title")}
+                onChange={ this.handleChange("title") }
                 value={this.state.title}>
               </input>
               <label htmlFor="note-body"></label>
               <input
                 id="note-body"
                 type="text"
-                onChange={this.handleChange("body")}
-                value={this.state.body}>
+                onChange={ this.handleChange("body") }
+                value={ this.state.body }>
               </input>
               <label htmlFor="note-notebook_id"></label>
               <input
                 id="note-notebook_id"
                 type="text"
-                onChange={this.handleChange("notebook_id")}
-                value={this.state.notebook_id}>
+                onChange={ this.handleChange("notebook_id") }
+                value={ this.state.notebook_id }>
               </input>
               <input type="submit" value="Save"></input>
             </form>

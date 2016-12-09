@@ -45,7 +45,10 @@ class Api::NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:title, :body, :notebook_id)
+    new_params = params.require(:note).permit(:title, :body, :notebook_title)
+    new_params[notebook_id] = Notebook.find_by(title: new_params[:notebook_title]).id
+    new_params.delete(:notebook_title)
+    new_params
   end
 
   def add_to_note(note)

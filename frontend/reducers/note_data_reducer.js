@@ -16,6 +16,7 @@ const noteDataReducer = (state = _defaultState, action) => {
     case RECEIVE_NOTE:
       const newState = merge({}, state);
       newState.notes[action.note.id] = action.note;
+      newState.currentNote = action.note;
       return newState;
     case SELECT_NOTE:
       return merge({}, state, { currentNote: state.notes[action.id] });
