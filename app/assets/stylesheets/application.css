@@ -165,29 +165,29 @@ img {
 /* --- HOME --- */
 
 .home {
-  margin: 0 auto;
-  width: auto;
-  height: auto;
+  width: 100vw;
+  height: 100vh;
 }
 
 .home-sidebar {
   display: block;
   float: left;
-  width: 100px;
-  padding: 20px;
+  width: 5%;
+  padding: 20px 0.75%;
 }
 
 .home-main {
   display: block;
   float: left;
+  width: 95%;
   height: 100vh;
   border-left: 1px solid #aaa;
   position: relative;
 }
 
 .sidebar-logo {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
 }
 
 .sidebar-tools {
@@ -199,8 +199,8 @@ img {
 }
 
 .sidebar-tool > img {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border: 1px solid #aaa;
 }
 
@@ -210,8 +210,8 @@ img {
 }
 
 .sidebar-option > img {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border: 1px solid #aaa;
 }
 
