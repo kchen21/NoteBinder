@@ -14,9 +14,8 @@ export const receiveErrors = (errors) => ({
   errors
 });
 
-export const clearErrors = (errors) => ({
-  type: CLEAR_ERRORS,
-  errors
+export const clearErrors = () => ({
+  type: CLEAR_ERRORS
 });
 
 // thunk action creators

@@ -9,30 +9,43 @@
     },
     errors: []
   },
-  notebook_data: {
+  notebookData: {
     notebooks: {
       1: {
+        id: 1,
         title: "Sample Notebook",
         description: "contains planning notes",
-        author_id: 1,
-        author_name: "John Doe"
+        author_id: 1
       }
     },
     errors: ["title can't be blank"]
   },
-  note_data: {
+  noteData: {
     notes: {
       1: {
+        id: 1,
         title: "Sample Note",
         body: "for planning purposes",
         author_id: 1,
-        author_name: "John Doe",
         notebook_id: 1,
         tags: {
           1: {
             id: 1,
             name: "Planning"
           }
+        }
+      }
+    },
+    currentNote: {
+      id: 1,
+      title: "Sample Note",
+      body: "for planning purposes",
+      author_id: 1,
+      notebook_id: 1,
+      tags: {
+        1: {
+          id: 1,
+          name: "Planning"
         }
       }
     },
