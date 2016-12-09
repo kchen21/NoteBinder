@@ -2,14 +2,14 @@ class Api::NotesController < ApplicationController
   before_action :require_signed_in!, only: [:index, :create, :show, :update, :destroy]
 
   def index
-    @notes = add_to_notes(current_user.notes.all)
+    @notes = current_user.notes.all
     render :index
   end
 
   def create
     @note = current_user.notes.new(note_params)
 
-    if note.save
+    if @note.save
       render :show
     else
       render json: @note.errors.full_messages, status: 422
@@ -17,7 +17,7 @@ class Api::NotesController < ApplicationController
   end
 
   def show
-    @note = add_to_note(current_user.notes.find(params[:id]))
+    @note = current_user.notes.find(params[:id])
     render :show
   end
 
@@ -25,7 +25,7 @@ class Api::NotesController < ApplicationController
     @note = current_user.notes.find(params[:id])
 
     if @note.update(note_params)
-      redirect_to api_note_url(@note)
+      render :show
     else
       render json: @note.errors.full_messages, status: 422
     end
@@ -44,24 +44,14 @@ class Api::NotesController < ApplicationController
 
   private
 
+  # def note_params
+  #   new_params = params.require(:note).permit(:title, :body, :notebook_title)
+  #   new_params[notebook_id] = Notebook.find_by(title: new_params[:notebook_title]).id
+  #   new_params.delete(:notebook_title)
+  #   new_params
+  # end
+
   def note_params
-    new_params = params.require(:note).permit(:title, :body, :notebook_title)
-    new_params[notebook_id] = Notebook.find_by(title: new_params[:notebook_title]).id
-    new_params.delete(:notebook_title)
-    new_params
-  end
-
-  def add_to_note(note)
-    new_note = note.dup
-    new_note.author_id = note.author.id
-    new_note
-  end
-
-  def add_to_notes(notes)
-    new_notes = [];
-    notes.each do |note|
-      new_notes << add_info_to_note(note)
-    end
-    new_notes
+    params.require(:note).permit(:title, :body, :notebook_id)
   end
 end

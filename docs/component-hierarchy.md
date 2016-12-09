@@ -73,7 +73,7 @@
 | "/notebooks/:notebookId/notes/:noteId" | "NotebookContainer" |
 | "/tags/:tagId/notes/:noteId" | "TagContainer" |
 | "/search-results" | "SearchResultsContainer" |
-| "/new-note" | "NewNoteContainer" |
+| "/notes/new" | "NewNoteContainer" |
 | "/search" | "Search" |
 | "/new-notebook" | "NewNotebook" |
 | "/new-tag" | "NewTag" |

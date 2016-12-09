@@ -25,7 +25,9 @@ const noteDataReducer = (state = _defaultState, action) => {
       newState2.notes[action.id] = undefined;
       return newState2;
     case RECEIVE_ERRORS:
-      return merge({}, state, { errors: action.errors });
+      const newState3 = merge({}, state);
+      newState3.errors = action.errors;
+      return newState3;
     case CLEAR_ERRORS:
       return merge({}, state, { errors: [] });
     default:

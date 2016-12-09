@@ -10,7 +10,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createNote: (note) => dispatch(createNote())
+    createNote: (note) => dispatch(createNote(note)),
+    clearErrors: () => dispatch(clearErrors())
   };
 };
 

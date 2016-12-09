@@ -129,12 +129,12 @@ img {
   opacity: 0.75;
 }
 
-.form-error {
+.auth-form-error {
   text-align: center;
   color: #2dbe60;
 }
 
-.form-error:last-of-type {
+.auth-form-error:last-of-type {
   margin: 0 0 20px 0;
 }
 
@@ -173,7 +173,6 @@ img {
   display: block;
   float: left;
   width: 5%;
-  padding: 20px 0.75%;
 }
 
 .home-main {
@@ -188,6 +187,7 @@ img {
 .sidebar-logo {
   width: 50px;
   height: 50px;
+  margin: 10px auto;
 }
 
 .sidebar-tools {
@@ -202,6 +202,7 @@ img {
   width: 50px;
   height: 50px;
   border: 1px solid #aaa;
+  margin: 0 auto;
 }
 
 .sidebar-tool > img:hover {
@@ -213,6 +214,7 @@ img {
   width: 50px;
   height: 50px;
   border: 1px solid #aaa;
+  margin: 0 auto;
 }
 
 .sidebar-option > img:hover {
@@ -235,4 +237,36 @@ img {
 .logout-button:hover {
   cursor: pointer;
   opacity: 0.75;
+}
+
+/* --- NEW NOTE --- */
+
+.new-note-form-input > input {
+  display: block;
+  width: auto;
+  height: 50px;
+  border: 1px solid #aaa;
+}
+
+.new-note-form-input > textarea {
+  display: block;
+  width: auto;
+  height: 100px;
+  border: 1px solid #aaa;
+}
+
+/* --- NOTE --- */
+
+.note-form-input > input {
+  display: block;
+  width: auto;
+  height: 50px;
+  border: 1px solid #aaa;
+}
+
+.note-form-input > textarea {
+  display: block;
+  width: auto;
+  height: 100px;
+  border: 1px solid #aaa;
 }

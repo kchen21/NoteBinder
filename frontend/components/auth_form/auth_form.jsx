@@ -63,7 +63,7 @@ class AuthForm extends React.Component {
     let footer;
     const logo = <img className="logo" src={ window.assets.logo } />;
     const errors = this.props.errors.map((error, index) => {
-      return <li className="form-error" key={ index }>{ error }</li>;
+      return <li className="auth-form-error" key={ index }>{ error }</li>;
     });
 
     if (this.props.path === "/sign-up") {
@@ -84,8 +84,8 @@ class AuthForm extends React.Component {
                 id="sign-up-full-name"
                 type="text"
                 onChange={ this.handleChange("full_name") }
-                value={ this.state.full_name }>
-              </input>
+                value={ this.state.full_name }
+              />
             </div>
 
             <div className="form-input">
@@ -94,8 +94,8 @@ class AuthForm extends React.Component {
                 id="sign-up-email"
                 type="text"
                 onChange={ this.handleChange("email") }
-                value={ this.state.email }>
-              </input>
+                value={ this.state.email }
+              />
             </div>
 
             <div className="form-input">
@@ -104,8 +104,8 @@ class AuthForm extends React.Component {
                 id="sign-up-username"
                 type="text"
                 onChange={ this.handleChange("username") }
-                value={ this.state.username }>
-              </input>
+                value={ this.state.username }
+              />
             </div>
 
             <div className="form-input">
@@ -114,15 +114,15 @@ class AuthForm extends React.Component {
                 id="sign-up-password"
                 type="password"
                 onChange={ this.handleChange("password") }
-                value={ this.state.password }>
-              </input>
+                value={ this.state.password }
+              />
             </div>
 
             <input
               className="submit-button"
               type="submit"
-              value="Create Account">
-            </input>
+              value="Create Account"
+            />
           </form>
       </li>
       ];
@@ -155,8 +155,8 @@ class AuthForm extends React.Component {
                 id="sign-in_username"
                 type="text"
                 onChange={ this.handleChange("username") }
-                value={ this.state.username }>
-              </input>
+                value={ this.state.username }
+              />
             </div>
 
             <div className="form-input">
@@ -165,15 +165,15 @@ class AuthForm extends React.Component {
                 id="sign-in-password"
                 type="password"
                 onChange={ this.handleChange("password") }
-                value={ this.state.password }>
-              </input>
+                value={ this.state.password }
+              />
             </div>
 
             <input
               className="submit-button"
               type="submit"
-              value="Sign In">
-            </input>
+              value="Sign In"
+            />
           </form>
         </li>
       ];

@@ -8,7 +8,8 @@ export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 export const receiveAllNotes = (notes) => ({
-  type: RECEIVE_ALL_NOTES
+  type: RECEIVE_ALL_NOTES,
+  notes
 });
 
 export const receiveNote = (note) => ({
@@ -54,7 +55,8 @@ export const fetchAllNotes = () => {
 export const createNote = (note) => {
   return (dispatch) => {
     const successCallback = (newNote) => {
-      return dispatch(receiveNote(newNote));
+      dispatch(receiveNote(newNote));
+      return newNote;
     };
     const errorCallback = (xhr) => {
       return dispatch(receiveErrors(xhr.responseJSON));
