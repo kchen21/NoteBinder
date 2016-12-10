@@ -10,7 +10,7 @@ import AuthFormContainer from './auth_form/auth_form_container';
 const Root = ({ store }) => {
   const redirectIfSignedIn = (nextState, replace) => {
     if (store.getState().session.currentUser) {
-      replace('/');
+      replace('/notes/new');
     }
   };
 
@@ -23,7 +23,7 @@ const Root = ({ store }) => {
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
-        <Route path="/" component={ HomeContainer }>
+        <Route path="/" onEnter={ redirectIfLoggedOut } component={ HomeContainer }>
           <Route path="notes" component={ NotesIndexContainer }>
             <Route path="new" component={ NewNoteContainer } />
             <Route path=":noteId" component={ NoteContainer } />

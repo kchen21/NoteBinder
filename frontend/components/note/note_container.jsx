@@ -5,6 +5,7 @@ import Note from './note';
 const mapStateToProps = (state, ownProps) => {
   return {
     notes: state.noteData.notes,
+    noteId: ownProps.params.noteId,
     currentNote: state.noteData.notes[ownProps.params.noteId] || {},
     errors: state.noteData.errors
   };
