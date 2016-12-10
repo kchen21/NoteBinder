@@ -49,6 +49,9 @@ class Note extends React.Component {
     return (
         <div className="note">
           <h1>Update Note</h1>
+          <ul>
+            { errors }
+          </ul>
           <form className="group" onSubmit={ this.handleSubmit }>
             <div className="note-form-input">
               <label htmlFor="note-notebook_id">Notebook ID</label>
