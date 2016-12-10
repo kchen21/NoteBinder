@@ -19,7 +19,7 @@ class Home extends React.Component {
     return (
       <div className="home group">
         <Sidebar />
-        <section className="home-main">
+        <section className="home-main group">
           <button className="logout-button" onClick={ this.handleLogout }>Log Out</button>
           { this.props.children }
         </section>

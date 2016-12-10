@@ -42,13 +42,29 @@ class Note extends React.Component {
   }
 
   render() {
+    const errors = this.props.errors.map((error, index) => {
+      return <li className="note-error" key={ index }>{ error }</li>;
+    });
+
     return (
         <div className="note">
           <h1>Update Note</h1>
-          <form onSubmit={ this.handleSubmit }>
+          <form className="group" onSubmit={ this.handleSubmit }>
+            <div className="note-form-input">
+              <label htmlFor="note-notebook_id">Notebook ID</label>
+              <input
+                className="note-notebook_id-input-field"
+                id="note-notebook_id"
+                type="text"
+                onChange={ this.handleChange("notebook_id") }
+                value={ this.state.notebook_id }
+              />
+            </div>
+
             <div className="note-form-input">
               <label htmlFor="note-title">Title</label>
               <input
+                className="note-title-input-field"
                 id="note-title"
                 type="text"
                 onChange={ this.handleChange("title") }
@@ -57,8 +73,7 @@ class Note extends React.Component {
             </div>
 
             <div className="note-form-input">
-              <label htmlFor="note-title">Body</label>
-              <label htmlFor="note-body"></label>
+              <label htmlFor="note-body">Body</label>
               <textarea
                 id="note-body"
                 type="text"
@@ -67,17 +82,7 @@ class Note extends React.Component {
               </textarea>
             </div>
 
-            <div className="note-form-input">
-              <label htmlFor="note-notebook_id">Notebook ID</label>
-              <input
-                id="note-notebook_id"
-                type="text"
-                onChange={ this.handleChange("notebook_id") }
-                value={ this.state.notebook_id }
-              />
-            </div>
-
-            <input type="submit" value="Save" />
+            <input className="note-submit-button" type="submit" value="Save" />
           </form>
         </div>
     );

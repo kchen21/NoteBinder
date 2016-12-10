@@ -72,8 +72,8 @@ img {
   display: block;
   margin: 20px;
   text-align: center;
-  font-size: 28px;
   font-family: 'Ubuntu', sans-serif;
+  font-size: 28px;
 }
 
 .form-main {
@@ -166,7 +166,6 @@ img {
 
 .home {
   width: 100vw;
-  height: 100vh;
 }
 
 .home-sidebar {
@@ -180,7 +179,6 @@ img {
   float: left;
   width: 95%;
   height: 100vh;
-  border-left: 1px solid #aaa;
   position: relative;
 }
 
@@ -226,7 +224,7 @@ img {
   position: absolute;
   top: 0;
   right: 0;
-  width: 100px;
+  padding: 5px 10px;
   border: 1px solid #1fae52;
   background: #2dbe60;
   color: #fff;
@@ -239,34 +237,141 @@ img {
   opacity: 0.75;
 }
 
-/* --- NEW NOTE --- */
+/* --- NOTES --- */
 
-.new-note-form-input > input {
+.notes-index {
   display: block;
-  width: auto;
-  height: 50px;
-  border: 1px solid #aaa;
+  float: left;
+  width: 25%;
 }
 
-.new-note-form-input > textarea {
+.notes-index-child {
   display: block;
-  width: auto;
-  height: 100px;
-  border: 1px solid #aaa;
+  float: left;
+  width: 75%;
+}
+
+.notes-index-header {
+  display: block;
+  padding: 10px;
+  border-bottom: 1px solid #aaa;
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+}
+
+.notes-index-header > h1 {
+  padding: 0 0 5px 0;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.notes-index-main {
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+}
+
+.notes-index-item {
+  display: block;
+  height: 120px;
+  padding: 10px;
+  border-bottom: 1px solid #aaa;
+}
+
+.notes-index-item:last-of-type {
+  border-bottom: 0;
+}
+
+.notes-index-item:hover {
+  cursor: pointer;
+  background: #2dbe60;
+  color: #fff;
+}
+
+.notes-index-item h2 {
+  word-wrap: break-word;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.notes-index-item p {
+  padding: 5px 0 0 0;
+  word-wrap: break-word;
 }
 
 /* --- NOTE --- */
 
-.note-form-input > input {
+.note {
+  padding: 30px 50px;
+}
+
+.note > h1 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.note-form-input {
   display: block;
-  width: auto;
+  margin: 10px 0;
+}
+
+.note-form-input > label {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.note-notebook_id-input-field {
+  display: block;
+  width: 100%;
+  border: 1px solid #aaa;
+  padding: 5px;
+}
+
+.note-title-input-field {
+  display: block;
+  width: 100%;
   height: 50px;
   border: 1px solid #aaa;
+  padding: 10px;
+  color: #1fae52;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
 }
 
 .note-form-input > textarea {
   display: block;
-  width: auto;
-  height: 100px;
+  width: 100%;
+  height: 250px;
   border: 1px solid #aaa;
+  padding: 10px;
+}
+
+.note-submit-button {
+  display: block;
+  float: right;
+  padding: 5px 10px;
+  border: 1px solid #1fae52;
+  background: #2dbe60;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.note-submit-button:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.note-error {
+  display: block;
+  margin: 0 auto;
+  width: 250px;
+  color: #f00;
+  text-align: center;
+  font-weight: bold;
 }

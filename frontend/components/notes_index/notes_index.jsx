@@ -25,7 +25,7 @@ class NotesIndex extends React.Component {
 
     for (let id in notes) {
       noteList.push(
-        <li key={ id }>
+        <li className="notes-index-item" key={ id }>
           <Link to={ "/notes/" + id }>{ preview(notes[id]) }</Link>
         </li>
       );
@@ -33,14 +33,20 @@ class NotesIndex extends React.Component {
 
     return (
       <div>
-        <section>
-          <h1>NOTES</h1>
-          <p>{ noteList.length + " Notes" }</p>
+        <section className="notes-index">
+          <section className="notes-index-header">
+            <h1>NOTES</h1>
+            <p>{ noteList.length + " Notes" }</p>
+          </section>
+          <section className="notes-index-main">
+            <ul>
+              { noteList }
+            </ul>
+          </section>
         </section>
-        <ul>
-          { noteList }
-        </ul>
-        { this.props.children }
+        <section className="notes-index-child">
+          { this.props.children }
+        </section>
       </div>
     );
   }

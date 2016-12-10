@@ -33,16 +33,31 @@ class NewNote extends React.Component {
 
   render() {
     const errors = this.props.errors.map((error, index) => {
-      return <li className ="new-note-error" key={ index }>{ error }</li>;
+      return <li className="note-error" key={ index }>{ error }</li>;
     });
 
     return (
-      <div>
+      <div className="note">
         <h1>New Note</h1>
-        <form onSubmit={this.handleSubmit}>
-          <div className="new-note-form-input">
+        <ul>
+          { errors }
+        </ul>
+        <form className="group" onSubmit={this.handleSubmit}>
+          <div className="note-form-input">
+            <label htmlFor="new-note-notebook_id">Notebook ID</label>
+            <input
+              className="note-notebook_id-input-field"
+              id="new-note-notebook_id"
+              type="text"
+              onChange={ this.handleChange("notebook_id") }
+              value={ this.state.notebook_id }
+              />
+          </div>
+
+          <div className="note-form-input">
             <label htmlFor="new-note-title">Title</label>
             <input
+              className="note-title-input-field"
               id="new-note-title"
               type="text"
               onChange={ this.handleChange("title") }
@@ -50,7 +65,7 @@ class NewNote extends React.Component {
             />
           </div>
 
-          <div className="new-note-form-input">
+          <div className="note-form-input">
             <label htmlFor="new-note-body">Body</label>
             <textarea
               id="new-note-body"
@@ -59,21 +74,8 @@ class NewNote extends React.Component {
             </textarea>
           </div>
 
-          <div className="new-note-form-input">
-            <label htmlFor="new-note-notebook_id">Notebook ID</label>
-            <input
-              id="new-note-notebook_id"
-              type="text"
-              onChange={ this.handleChange("notebook_id") }
-              value={ this.state.notebook_id }
-            />
-          </div>
-
-          <input type="submit" value="Save" />
+          <input className="note-submit-button" type="submit" value="Save" />
         </form>
-        <ul>
-          { errors }
-        </ul>
       </div>
     );
   }
