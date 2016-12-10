@@ -36,19 +36,6 @@
         }
       }
     },
-    currentNote: {
-      id: 1,
-      title: "Sample Note",
-      body: "for planning purposes",
-      author_name: 1,
-      notebook_id: 1,
-      tags: {
-        1: {
-          id: 1,
-          name: "Planning"
-        }
-      }
-    },
     errors: ["title can't be blank"]
   }
 }

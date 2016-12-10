@@ -2,7 +2,6 @@ import * as NoteAPIUtil from '../util/note_util';
 
 export const RECEIVE_ALL_NOTES = 'RECEIVE_ALL_NOTES';
 export const RECEIVE_NOTE = 'RECEIVE_NOTE';
-export const SELECT_NOTE = 'SELECT_NOTE';
 export const REMOVE_NOTE = 'REMOVE_NOTE';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
@@ -15,11 +14,6 @@ export const receiveAllNotes = (notes) => ({
 export const receiveNote = (note) => ({
   type: RECEIVE_NOTE,
   note
-});
-
-export const selectNote = (id) => ({
-  type: SELECT_NOTE,
-  id
 });
 
 export const removeNote = (id) => ({

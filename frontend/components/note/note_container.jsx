@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchAllNotes, selectNote, updateNote, destroyNote, clearErrors } from '../../actions/note_actions';
+import { updateNote, destroyNote, clearErrors } from '../../actions/note_actions';
 import Note from './note';
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,8 +12,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchAllNotes: () => dispatch(fetchAllNotes()),
-    selectNote: (id) => dispatch(selectNote(id)),
     updateNote: (note) => dispatch(updateNote(note)),
     destroyNote: (note) => dispatch(destroyNote(note)),
     clearErrors: () => dispatch(clearErrors())

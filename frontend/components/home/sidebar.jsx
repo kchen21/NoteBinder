@@ -7,7 +7,7 @@ const Sidebar = () => {
       <img className="sidebar-logo" src={ window.assets.wordless_logo } />
 
       <ul className="sidebar-tools">
-        <Link className="sidebar-tool" to="notes/new">
+        <Link className="sidebar-tool" to="/notes/new">
           <img src={ window.assets.new_note } />
         </Link>
 
@@ -17,7 +17,7 @@ const Sidebar = () => {
       </ul>
 
       <ul className="sidebar-options">
-        <Link className="sidebar-option" to="/">
+        <Link className="sidebar-option" to="/notes">
           <img src={ window.assets.notes } />
         </Link>
 

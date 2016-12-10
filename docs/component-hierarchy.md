@@ -7,9 +7,11 @@
  - Home
  - Sidebar
 
-**NoteContainer**
- - NotesHeader
+**NotesIndexContainer**
  - NotesIndex
+
+**NoteContainer**
+ - Note
 
 **NotebookContainer**
  - NotebookHeader
@@ -69,11 +71,12 @@
 | "/sign-up" | "AuthFormContainer" |
 | "/sign-in" | "AuthFormContainer" |
 | "/" | "HomeContainer" |
+| "/notes" | "NotesIndexContainer" |
+| "/notes/new" | "NewNoteContainer" |
 | "/notes/:noteId" | "NoteContainer" |
 | "/notebooks/:notebookId/notes/:noteId" | "NotebookContainer" |
 | "/tags/:tagId/notes/:noteId" | "TagContainer" |
 | "/search-results" | "SearchResultsContainer" |
-| "/notes/new" | "NewNoteContainer" |
 | "/search" | "Search" |
 | "/new-notebook" | "NewNotebook" |
 | "/new-tag" | "NewTag" |
