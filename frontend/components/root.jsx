@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory, Redirect } from 'react-router';
 import HomeContainer from './home/home_container';
 import NotesIndexContainer from './notes_index/notes_index_container';
 import NewNoteContainer from './new_note/new_note_container';
@@ -23,6 +23,7 @@ const Root = ({ store }) => {
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
+        <Redirect from="/" to="notes/new" />
         <Route path="/" onEnter={ redirectIfLoggedOut } component={ HomeContainer }>
           <Route path="notes" component={ NotesIndexContainer }>
             <Route path="new" component={ NewNoteContainer } />
