@@ -17,6 +17,12 @@ class Note extends React.Component {
     this.props.clearErrors();
   }
 
+  componentWillUpdate() {
+    if (this.props.path !== arguments[0].path) {
+      this.props.clearErrors();
+    }
+  }
+
   componentWillReceiveProps(newProps) {
     // Covers two cases: changing noteId and refreshing the page
     if (this.props.params.noteId !== newProps.params.noteId || Object.keys(this.props.notes).length === 0) {

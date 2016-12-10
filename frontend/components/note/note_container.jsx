@@ -11,10 +11,11 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     updateNote: (note) => dispatch(updateNote(note)),
     destroyNote: (note) => dispatch(destroyNote(note)),
+    path: ownProps.location.pathname,
     clearErrors: () => dispatch(clearErrors())
   };
 };

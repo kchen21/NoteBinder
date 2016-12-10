@@ -26,7 +26,9 @@ const noteDataReducer = (state = _defaultState, action) => {
       newState3.errors = action.errors;
       return newState3;
     case CLEAR_ERRORS:
-      return merge({}, state, { errors: [] });
+      const newState4 = merge({}, state);
+      newState4.errors = [];
+      return newState4;
     default:
       return state;
   }

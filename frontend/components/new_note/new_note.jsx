@@ -17,6 +17,12 @@ class NewNote extends React.Component {
     this.props.clearErrors();
   }
 
+  componentWillUpdate() {
+    if (this.props.path !== arguments[0].path) {
+      this.props.clearErrors();
+    }
+  }
+
   handleChange(prop) {
     return (e) => {
       return this.setState({ [prop]: e.currentTarget.value });

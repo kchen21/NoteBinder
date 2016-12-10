@@ -17,7 +17,7 @@ class AuthForm extends React.Component {
   }
 
   componentWillUpdate() {
-    if (this.props.path !== arguments[0].location.pathname) {
+    if (this.props.path !== arguments[0].path) {
       this.props.clearErrors();
     }
   }
