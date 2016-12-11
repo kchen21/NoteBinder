@@ -76,15 +76,15 @@ export const updateNote = (note) => {
   };
 };
 
-export const destroyNote = (note) => {
+export const destroyNote = (id) => {
   return (dispatch) => {
-    const successCallback = (id) => {
-      return dispatch(removeNote(id));
+    const successCallback = (noteId) => {
+      return dispatch(removeNote(noteId));
     };
     const errorCallback = (xhr) => {
       return dispatch(receiveErrors(xhr.responseJSON));
     };
 
-    return NoteAPIUtil.destroyNote(note).then(successCallback, errorCallback);
+    return NoteAPIUtil.destroyNote(id).then(successCallback, errorCallback);
   };
 };

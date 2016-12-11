@@ -21,9 +21,9 @@ export const updateNote = (note) => {
   });
 };
 
-export const destroyNote = (note) => {
+export const destroyNote = (id) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/notes/${note.id}`
+    url: `/api/notes/${id}`
   });
 };

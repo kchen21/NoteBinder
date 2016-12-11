@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     updateNote: (note) => dispatch(updateNote(note)),
-    destroyNote: (note) => dispatch(destroyNote(note)),
+    destroyNote: (id) => dispatch(destroyNote(id)),
     path: ownProps.location.pathname,
     clearErrors: () => dispatch(clearErrors())
   };

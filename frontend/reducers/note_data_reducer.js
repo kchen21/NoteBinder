@@ -19,7 +19,7 @@ const noteDataReducer = (state = _defaultState, action) => {
       return newState;
     case REMOVE_NOTE:
       const newState2 = merge({}, state);
-      newState2.notes[action.id] = undefined;
+      delete newState2.notes[action.id];
       return newState2;
     case RECEIVE_ERRORS:
       const newState3 = merge({}, state);

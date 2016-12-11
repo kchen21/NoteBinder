@@ -7,27 +7,37 @@ const Sidebar = () => {
       <img className="sidebar-logo" src={ window.assets.wordless_logo } />
 
       <ul className="sidebar-tools">
-        <Link className="sidebar-tool" to="/notes/new">
-          <img src={ window.assets.new_note } />
-        </Link>
+        <li>
+          <Link className="sidebar-tool" to="/notes/new">
+            <img src={ window.assets.new_note } />
+          </Link>
+        </li>
 
-        <Link className="sidebar-tool" to="/search">
-          <img src={ window.assets.search } />
-        </Link>
+        <li>
+          <Link className="sidebar-tool" to="/search">
+            <img src={ window.assets.search } />
+          </Link>
+        </li>
       </ul>
 
       <ul className="sidebar-options">
-        <Link className="sidebar-option" to="/notes">
-          <img src={ window.assets.notes } />
-        </Link>
+        <li>
+          <Link className="sidebar-option" to="/notes">
+            <img src={ window.assets.notes } />
+          </Link>
+        </li>
 
-        <Link className="sidebar-option" to="/">
-          <img src={ window.assets.notebooks } />
-        </Link>
+        <li>
+          <Link className="sidebar-option" to="/">
+            <img src={ window.assets.notebooks } />
+          </Link>
+        </li>
 
-        <Link className="sidebar-option" to="/">
-          <img src={ window.assets.tags } />
-        </Link>
+        <li>
+          <Link className="sidebar-option" to="/">
+            <img src={ window.assets.tags } />
+          </Link>
+        </li>
       </ul>
     </div>
   );

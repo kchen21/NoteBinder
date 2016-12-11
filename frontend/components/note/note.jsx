@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class Note extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Note extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleTrash = this.handleTrash.bind(this);
   }
 
   componentDidMount() {
@@ -47,14 +49,22 @@ class Note extends React.Component {
     this.props.updateNote(note);
   }
 
+  handleTrash(e) {
+    e.preventDefault();
+    this.props.destroyNote(this.props.currentNote.id).then(() => {
+      this.props.router.push('/notes');
+    });
+  }
+
   render() {
     const errors = this.props.errors.map((error, index) => {
       return <li className="note-error" key={ index }>{ error }</li>;
     });
 
     return (
-        <div className="note">
+        <div className="note group">
           <h1>Update Note</h1>
+          <img className="note-trash-icon" onClick={ this.handleTrash } src={ window.assets.trash } />
           <ul>
             { errors }
           </ul>
