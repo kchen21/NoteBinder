@@ -166,6 +166,7 @@ img {
 
 .home {
   width: 100vw;
+  height: 100vh;
 }
 
 .home-sidebar {
@@ -243,6 +244,9 @@ img {
   display: block;
   float: left;
   width: 25%;
+  height: 100vh;
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
 }
 
 .notes-index-child {
@@ -255,8 +259,6 @@ img {
   display: block;
   padding: 10px;
   border-bottom: 1px solid #aaa;
-  border-left: 1px solid #aaa;
-  border-right: 1px solid #aaa;
 }
 
 .notes-index-header > h1 {
@@ -266,16 +268,12 @@ img {
   font-size: 36px;
 }
 
-.notes-index-main {
-  border-left: 1px solid #aaa;
-  border-right: 1px solid #aaa;
-}
-
 .notes-index-item {
   display: block;
   height: 120px;
   padding: 10px;
   border-bottom: 1px solid #aaa;
+  overflow: hidden;
 }
 
 .notes-index-item:last-of-type {
@@ -347,7 +345,7 @@ img {
 
 .note-notebook_id-input-field {
   display: block;
-  width: 25%;
+  width: 50px;
   border: 1px solid #aaa;
   padding: 5px;
 }
