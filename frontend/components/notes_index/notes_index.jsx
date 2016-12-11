@@ -18,7 +18,7 @@ class NotesIndex extends React.Component {
       return (
         <div>
           <h2>{ note.title }</h2>
-          <p>{ note.body.slice(0, 100) }</p>
+          <p>{ note.body.slice(0, 140) }</p>
         </div>
       );
     };
@@ -32,7 +32,7 @@ class NotesIndex extends React.Component {
     }
 
     return (
-      <div>
+      <div className="group">
         <section className="notes-index">
           <section className="notes-index-header">
             <h1>NOTES</h1>
