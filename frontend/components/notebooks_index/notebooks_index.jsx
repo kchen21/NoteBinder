@@ -26,8 +26,12 @@ class NotebooksIndex extends React.Component {
 
     for (let id in notebooks) {
       notebookList.push(
-        <li className="notebooks-index-item" key={ id }>
-          <Link to={ "/notebooks/" + id + "/notes" }>{ preview(notebooks[id]) }</Link>
+        <li className="notebooks-index-item-wrapper" key={ id }>
+          <Link to={ "/notebooks/" + id + "/notes" }>
+            <div className="notebooks-index-item">
+              { preview(notebooks[id]) }
+            </div>
+          </Link>
         </li>
       );
     }

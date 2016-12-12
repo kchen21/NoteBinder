@@ -269,16 +269,19 @@ img {
   overflow-y: scroll;
 }
 
+.notes-index-item-wrapper {
+  border-bottom: 1px solid #aaa;
+}
+
+.notes-index-item-wrapper:last-child {
+  border-bottom: 0;
+}
+
 .notes-index-item {
   display: block;
   height: 131px;
   padding: 10px;
-  border-bottom: 1px solid #aaa;
   overflow: hidden;
-}
-
-.notes-index-item:last-of-type {
-  border-bottom: 0;
 }
 
 .notes-index-item:hover {

@@ -28,8 +28,12 @@ class NotebookNotesIndex extends React.Component {
     for (let id in notes) {
       if (this.props.idsOfCurrentNotebookNotes[id]) {
         noteList.push(
-          <li className="notes-index-item" key={ id }>
-            <Link to={ "/notebooks/" + this.props.notebookId + "/notes/" + id }>{ preview(notes[id]) }</Link>
+          <li className="notes-index-item-wrapper" key={ id }>
+            <Link to={ "/notebooks/" + this.props.notebookId + "/notes/" + id }>
+              <div className="notes-index-item">
+                { preview(notes[id]) }
+              </div>
+            </Link>
           </li>
         );
       }
