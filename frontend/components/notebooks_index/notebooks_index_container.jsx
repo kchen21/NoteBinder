@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchAllNotebooks } from '../../actions/notebook_actions';
+import { fetchAllNotebooks, destroyNotebook } from '../../actions/notebook_actions';
 import NotebooksIndex from './notebooks_index';
 
 const mapStateToProps = (state) => {
@@ -10,7 +10,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchAllNotebooks: () => dispatch(fetchAllNotebooks())
+    fetchAllNotebooks: () => dispatch(fetchAllNotebooks()),
+    destroyNotebook: (id) => dispatch(destroyNotebook(id))
   };
 };
 

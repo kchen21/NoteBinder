@@ -18,8 +18,11 @@ class NotebooksIndex extends React.Component {
       return (
         <div>
           <h2>{ notebook.title }</h2>
-          <p>{ notebook.num_of_notes + " Notes" }</p>
-          <p>{ notebook.description }</p>
+          <p>
+            { notebook.num_of_notes + " Notes" }
+            <Link className="notebook-update-link" to={"/notebooks/update/" + notebook.id }>Update Notebook Details</Link>
+          </p>
+          <p>{ notebook.description.slice(0, 70) }</p>
         </div>
       );
     };
@@ -39,9 +42,16 @@ class NotebooksIndex extends React.Component {
     return (
       <div className="group">
         <section className="notebooks-index">
-          <section className="notebooks-index-header">
-            <h1>NOTEBOOKS</h1>
-            <p>{ notebookList.length + " Notebooks" }</p>
+          <section className="notebooks-index-header group">
+            <div className="notebooks-index-header-text">
+              <h1>NOTEBOOKS</h1>
+              <p>{ notebookList.length + " Notebooks" }</p>
+            </div>
+            <div className="new-notebook-icon">
+              <Link to="/notebooks/new">
+                <img src={ window.assets.new_notebook } />
+              </Link>
+            </div>
           </section>
           <section className="notebooks-index-main">
             <ul>

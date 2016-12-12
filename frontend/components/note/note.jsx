@@ -12,7 +12,7 @@ class Note extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleTrash = this.handleTrash.bind(this);
+    this.handleTrashClick = this.handleTrashClick.bind(this);
   }
 
   componentDidMount() {
@@ -49,7 +49,7 @@ class Note extends React.Component {
     this.props.updateNote(note);
   }
 
-  handleTrash(e) {
+  handleTrashClick(e) {
     e.preventDefault();
     this.props.destroyNote(this.props.currentNote.id).then(() => {
       this.props.router.push('/notes');
@@ -64,7 +64,7 @@ class Note extends React.Component {
     return (
         <div className="note group">
           <h1>Update Note</h1>
-          <img className="note-trash-icon" onClick={ this.handleTrash } src={ window.assets.trash } />
+          <img className="note-trash-icon" onClick={ this.handleTrashClick } src={ window.assets.trash } />
           <ul>
             { errors }
           </ul>

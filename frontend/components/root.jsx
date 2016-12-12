@@ -8,6 +8,7 @@ import NewNoteContainer from './new_note/new_note_container';
 import NoteContainer from './note/note_container';
 import NotebooksIndexContainer from './notebooks_index/notebooks_index_container';
 import NewNotebookContainer from './new_notebook/new_notebook_container';
+import NotebookUpdateContainer from './notebook_update/notebook_update_container';
 import NotebookNotesIndexContainer from './notebook_notes_index/notebook_notes_index_container';
 
 const Root = ({ store }) => {
@@ -34,6 +35,7 @@ const Root = ({ store }) => {
           </Route>
           <Route path="notebooks" component={ NotebooksIndexContainer }>
             <Route path="new" component={ NewNotebookContainer } />
+            <Route path="update/:notebookId" component= { NotebookUpdateContainer } />
           </Route>
           <Route path="notebooks/:notebookId/notes" component={ NotebookNotesIndexContainer }>
             <Route path=":noteId" component={ NoteContainer } />
