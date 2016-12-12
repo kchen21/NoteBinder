@@ -95,6 +95,8 @@ class Note extends React.Component {
               </select>
             </div>
 
+            <h2>Rich Text Editing</h2>
+
             <div className="note-form-input">
               <label htmlFor="note-title">Title</label>
               <input

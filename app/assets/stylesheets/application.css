@@ -343,6 +343,10 @@ img {
   font-weight: bold;
 }
 
+.note-form-select > select {
+  margin: 0 5px;
+}
+
 .note-form-input {
   display: block;
   margin: 10px 0;
