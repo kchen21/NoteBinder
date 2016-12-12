@@ -169,6 +169,7 @@ img {
   float: left;
   width: 70px;
   height: 100vh;
+  background: #eee;
   overflow-y: scroll;
 }
 
@@ -183,6 +184,7 @@ img {
   width: 50px;
   height: 50px;
   margin: 10px auto;
+  border: 1px solid #aaa;
 }
 
 .sidebar-tools {
@@ -196,8 +198,9 @@ img {
 .sidebar-tool > img {
   width: 50px;
   height: 50px;
-  border: 1px solid #aaa;
   margin: 0 auto;
+  border: 1px solid #aaa;
+  background: #fff;
 }
 
 .sidebar-tool > img:hover {
@@ -208,8 +211,9 @@ img {
 .sidebar-option > img {
   width: 50px;
   height: 50px;
-  border: 1px solid #aaa;
   margin: 0 auto;
+  border: 1px solid #aaa;
+  background: #fff;
 }
 
 .sidebar-option > img:hover {
