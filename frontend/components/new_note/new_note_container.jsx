@@ -4,7 +4,8 @@ import NewNote from './new_note';
 
 const mapStateToProps = (state) => {
   return {
-    errors: state.noteData.errors
+    errors: state.noteData.errors,
+    notebooks: state.notebookData.notebooks
   };
 };
 
