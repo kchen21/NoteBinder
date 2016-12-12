@@ -16,11 +16,10 @@
         title: "Sample Notebook",
         description: "contains planning notes",
         author_id: 1,
-        num_of_notes: 1
+        note_ids: {
+          1: 1
+        }
       }
-    },
-    idsOfCurrentNotebookNotes: {
-      1 : 1
     },
     errors: ["title can't be blank"]
   },

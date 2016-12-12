@@ -8,6 +8,7 @@ class NotesIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllNotes();
+    this.props.fetchAllNotebooks();
   }
 
   render() {

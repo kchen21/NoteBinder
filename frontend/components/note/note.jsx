@@ -13,6 +13,7 @@ class Note extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleTrashClick = this.handleTrashClick.bind(this);
+    this.handleNotebookChange = this.handleNotebookChange.bind(this);
   }
 
   componentDidMount() {
@@ -46,7 +47,13 @@ class Note extends React.Component {
     e.preventDefault();
     const note = Object.assign({}, this.state);
     note.id = this.props.currentNote.id;
-    this.props.updateNote(note);
+    this.props.updateNote(note).then(() => {
+      if (this.props.path === `/notes/${note.id}`) {
+        return;
+      } else {
+        this.props.router.push(`/notebooks/${note.notebook_id}/notes/${note.id}`);
+      }
+    });
   }
 
   handleTrashClick(e) {
@@ -56,10 +63,22 @@ class Note extends React.Component {
     });
   }
 
+  handleNotebookChange(e) {
+    this.setState({ notebook_id: e.target.value });
+  }
+
   render() {
     const errors = this.props.errors.map((error, index) => {
       return <li className="note-error" key={ index }>{ error }</li>;
     });
+
+    const notebookSelectOptions = [];
+
+    for (let id in this.props.notebooks) {
+      notebookSelectOptions.push(
+        <option key={id} value={id}>{ this.props.notebooks[id].title }</option>
+      );
+    }
 
     return (
         <div className="note group">
@@ -69,15 +88,11 @@ class Note extends React.Component {
             { errors }
           </ul>
           <form className="group" onSubmit={ this.handleSubmit }>
-            <div className="note-form-input">
-              <label htmlFor="note-notebook_id">Notebook ID</label>
-              <input
-                className="note-notebook_id-input-field"
-                id="note-notebook_id"
-                type="text"
-                onChange={ this.handleChange("notebook_id") }
-                value={ this.state.notebook_id }
-              />
+            <div className="note-form-select">
+              <label htmlFor="note-notebook">Notebook</label>
+              <select value={ this.state.notebook_id } onChange={ this.handleNotebookChange } id="note-notebook">
+                { notebookSelectOptions }
+              </select>
             </div>
 
             <div className="note-form-input">

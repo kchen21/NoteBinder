@@ -9,7 +9,6 @@ class NotebookNotesIndex extends React.Component {
   componentDidMount() {
     this.props.fetchAllNotes(); // Covers page refreshing
     this.props.fetchAllNotebooks(); // Covers page refreshing
-    this.props.fetchIdsOfCurrentNotebookNotes();
   }
 
   render() {
@@ -26,7 +25,7 @@ class NotebookNotesIndex extends React.Component {
     };
 
     for (let id in notes) {
-      if (this.props.idsOfCurrentNotebookNotes[id]) {
+      if (this.props.currentNotebook.note_ids[id]) {
         noteList.push(
           <li className="notes-index-item-wrapper" key={ id }>
             <Link to={ "/notebooks/" + this.props.notebookId + "/notes/" + id }>

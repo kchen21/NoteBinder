@@ -1,7 +1,6 @@
 import * as NotebookAPIUtil from '../util/notebook_util';
 
 export const RECEIVE_ALL_NOTEBOOKS = 'RECEIVE_ALL_NOTEBOOKS';
-export const RECEIVE_IDS_OF_CURRENT_NOTEBOOK_NOTES = 'RECEIVE_IDS_OF_CURRENT_NOTEBOOK_NOTES';
 export const RECEIVE_NOTEBOOK = 'RECEIVE_NOTEBOOK';
 export const REMOVE_NOTEBOOK = 'REMOVE_NOTEBOOK';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
@@ -10,11 +9,6 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const receiveAllNotebooks = (notebooks) => ({
   type: RECEIVE_ALL_NOTEBOOKS,
   notebooks
-});
-
-export const receiveIdsOfCurrentNotebookNotes = (ids) => ({
-  type: RECEIVE_IDS_OF_CURRENT_NOTEBOOK_NOTES,
-  ids
 });
 
 export const receiveNotebook = (notebook) => ({
@@ -46,16 +40,6 @@ export const fetchAllNotebooks = () => {
     };
 
     return NotebookAPIUtil.fetchAllNotebooks().then(successCallback);
-  };
-};
-
-export const fetchIdsOfCurrentNotebookNotes = (notebookId) => {
-  return (dispatch) => {
-    const successCallback = (ids) => {
-      return dispatch(receiveIdsOfCurrentNotebookNotes(ids));
-    };
-
-    return NotebookAPIUtil.fetchIdsOfCurrentNotebookNotes(notebookId).then(successCallback);
   };
 };
 

@@ -19,7 +19,7 @@ class NotebooksIndex extends React.Component {
         <div>
           <h2>{ notebook.title }</h2>
           <p>
-            { notebook.num_of_notes + " Notes" }
+            { Object.keys(notebook.note_ids).length + " Notes" }
             <Link className="notebook-update-link" to={"/notebooks/update/" + notebook.id }>Update Notebook Details</Link>
           </p>
           <p>{ notebook.description.slice(0, 70) }</p>

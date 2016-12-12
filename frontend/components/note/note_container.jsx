@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { updateNote, destroyNote, clearErrors } from '../../actions/note_actions';
+
 import Note from './note';
 
 const mapStateToProps = (state, ownProps) => {
@@ -7,7 +8,8 @@ const mapStateToProps = (state, ownProps) => {
     notes: state.noteData.notes,
     noteId: ownProps.params.noteId,
     currentNote: state.noteData.notes[ownProps.params.noteId] || {},
-    errors: state.noteData.errors
+    errors: state.noteData.errors,
+    notebooks: state.notebookData.notebooks
   };
 };
 
