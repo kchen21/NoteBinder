@@ -26,7 +26,7 @@ class Note extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    // Covers two cases: changing noteId and refreshing the page
+    // Covers two cases: changing noteId and page refreshing
     if (this.props.params.noteId !== newProps.params.noteId || Object.keys(this.props.notes).length === 0) {
       this.setState({
         title: newProps.currentNote.title,

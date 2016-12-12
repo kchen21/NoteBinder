@@ -1,11 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory, Redirect } from 'react-router';
+import AuthFormContainer from './auth_form/auth_form_container';
 import HomeContainer from './home/home_container';
 import NotesIndexContainer from './notes_index/notes_index_container';
 import NewNoteContainer from './new_note/new_note_container';
 import NoteContainer from './note/note_container';
-import AuthFormContainer from './auth_form/auth_form_container';
+import NotebooksIndexContainer from './notebooks_index/notebooks_index_container';
+import NewNotebookContainer from './new_notebook/new_notebook_container';
+import NotebookNotesIndexContainer from './notebook_notes_index/notebook_notes_index_container';
 
 const Root = ({ store }) => {
   const redirectIfSignedIn = (nextState, replace) => {
@@ -27,6 +30,12 @@ const Root = ({ store }) => {
         <Route path="/" onEnter={ redirectIfLoggedOut } component={ HomeContainer }>
           <Route path="notes" component={ NotesIndexContainer }>
             <Route path="new" component={ NewNoteContainer } />
+            <Route path=":noteId" component={ NoteContainer } />
+          </Route>
+          <Route path="notebooks" component={ NotebooksIndexContainer }>
+            <Route path="new" component={ NewNotebookContainer } />
+          </Route>
+          <Route path="notebooks/:notebookId/notes" component={ NotebookNotesIndexContainer }>
             <Route path=":noteId" component={ NoteContainer } />
           </Route>
         </Route>

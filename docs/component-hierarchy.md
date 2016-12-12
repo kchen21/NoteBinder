@@ -13,6 +13,9 @@
 **NoteContainer**
  - Note
 
+**NotebooksIndexContainer**
+ - NotebooksIndex
+
 **NotebookContainer**
  - NotebookHeader
   + NotesIndex
@@ -46,7 +49,7 @@
 
 **Search**
 
-**NewNotebook**
+**NewNotebookContainer**
  - NewNotebook
 
 **NewTag**
@@ -74,11 +77,13 @@
 | "/notes" | "NotesIndexContainer" |
 | "/notes/new" | "NewNoteContainer" |
 | "/notes/:noteId" | "NoteContainer" |
+| "/notebooks" | "NotebooksIndexContainer" |
+| "/notebooks/new" | "NewNotebookContainer" |
+| "/notebooks/:notebookId" | "NotebookNotesIndexContainer" |
 | "/notebooks/:notebookId/notes/:noteId" | "NotebookContainer" |
 | "/tags/:tagId/notes/:noteId" | "TagContainer" |
 | "/search-results" | "SearchResultsContainer" |
 | "/search" | "Search" |
-| "/new-notebook" | "NewNotebook" |
 | "/new-tag" | "NewTag" |
 | "/tags-search" | "TagsSearch" |
 | "/notebooks-search" | "NotebooksSearch" |

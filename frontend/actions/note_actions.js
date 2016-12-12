@@ -60,7 +60,7 @@ export const createNote = (note) => {
   };
 };
 
-// For updateNote and destroyNote, note should be structured like so:
+// For updateNote, note should be structured like so:
 // { id:..., title:..., body:..., notebook_id:... }
 
 export const updateNote = (note) => {

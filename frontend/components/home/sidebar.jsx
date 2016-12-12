@@ -28,7 +28,7 @@ const Sidebar = () => {
         </li>
 
         <li>
-          <Link className="sidebar-option" to="/">
+          <Link className="sidebar-option" to="/notebooks">
             <img src={ window.assets.notebooks } />
           </Link>
         </li>

@@ -2,8 +2,13 @@ class Api::NotesController < ApplicationController
   before_action :require_signed_in!, only: [:index, :create, :show, :update, :destroy]
 
   def index
-    @notes = current_user.notes.all
-    render :index
+      @notes = current_user.notes
+      render :index
+  end
+
+  def notebook_notes_index
+    @notes = Notebook.find(params[:notebook_id]).notes
+    render :notebook_notes_index
   end
 
   def create
@@ -43,13 +48,6 @@ class Api::NotesController < ApplicationController
   end
 
   private
-
-  # def note_params
-  #   new_params = params.require(:note).permit(:title, :body, :notebook_title)
-  #   new_params[notebook_id] = Notebook.find_by(title: new_params[:notebook_title]).id
-  #   new_params.delete(:notebook_title)
-  #   new_params
-  # end
 
   def note_params
     params.require(:note).permit(:title, :body, :notebook_id)

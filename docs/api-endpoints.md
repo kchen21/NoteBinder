@@ -34,6 +34,7 @@
 - `GET /api/notebooks`
 - `POST /api/notebooks`
 - `GET /api/notebooks/:id`
+- `PATCH /api/notebooks/:id`
 - `DELETE /api/notebooks/:id`
 - `GET /api/notebooks/:id/notes`
   - index of all notes for a notebook

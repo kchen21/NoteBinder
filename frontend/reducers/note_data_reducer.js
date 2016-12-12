@@ -11,24 +11,25 @@ const noteDataReducer = (state = _defaultState, action) => {
 
   switch(action.type) {
     case RECEIVE_ALL_NOTES:
-      return merge({}, state, { notes: action.notes });
-    case RECEIVE_NOTE:
       const newState = merge({}, state);
-      newState.notes[action.note.id] = action.note;
-      newState.currentNote = action.note;
+      newState.notes = action.notes;
       return newState;
-    case REMOVE_NOTE:
+    case RECEIVE_NOTE:
       const newState2 = merge({}, state);
-      delete newState2.notes[action.id];
+      newState2.notes[action.note.id] = action.note;
       return newState2;
-    case RECEIVE_ERRORS:
+    case REMOVE_NOTE:
       const newState3 = merge({}, state);
-      newState3.errors = action.errors;
+      delete newState3.notes[action.id];
       return newState3;
-    case CLEAR_ERRORS:
+    case RECEIVE_ERRORS:
       const newState4 = merge({}, state);
-      newState4.errors = [];
+      newState4.errors = action.errors;
       return newState4;
+    case CLEAR_ERRORS:
+      const newState5 = merge({}, state);
+      newState5.errors = [];
+      return newState5;
     default:
       return state;
   }
