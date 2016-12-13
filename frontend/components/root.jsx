@@ -34,20 +34,26 @@ const Root = ({ store }) => {
         <Route path="/" onEnter={ redirectIfLoggedOut } component={ HomeContainer }>
           <Route path="notes" component={ NotesIndexContainer }>
             <Route path="new" component={ NewNoteContainer } />
-            <Route path=":noteId" component={ NoteContainer } />
+            <Route path=":noteId" component={ NoteContainer }>
+              <Route path="new-tag" component={ NewTagContainer } />
+            </Route>
           </Route>
           <Route path="notebooks" component={ NotebooksIndexContainer }>
             <Route path="new" component={ NewNotebookContainer } />
             <Route path="update/:notebookId" component= { NotebookUpdateContainer } />
           </Route>
           <Route path="notebooks/:notebookId/notes" component={ NotebookNotesIndexContainer }>
-            <Route path=":noteId" component={ NoteContainer } />
+            <Route path=":noteId" component={ NoteContainer }>
+              <Route path="new-tag" component={ NewTagContainer } />
+            </Route>
           </Route>
           <Route path="tags" component={ TagsIndexContainer }>
             <Route path="new" component={ NewTagContainer } />
           </Route>
           <Route path="tags/:tagId/notes" component={ TaggedNotesIndexContainer }>
-            <Route path=":noteId" component={ NoteContainer } />
+            <Route path=":noteId" component={ NoteContainer }>
+              <Route path="new-tag" component={ NewTagContainer } />
+            </Route>
           </Route>
         </Route>
         <Route path="/sign-in" onEnter={ redirectIfSignedIn } component={ AuthFormContainer } />

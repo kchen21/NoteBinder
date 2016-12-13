@@ -46,7 +46,7 @@ class TagsIndex extends React.Component {
             </ul>
           </section>
         </section>
-        <section className="tags-index-child">
+        <section className="tags-index-children">
           { this.props.children }
         </section>
       </div>

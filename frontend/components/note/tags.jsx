@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const Tags = ({ currentNote, tags }) => {
+  currentNote.tag_ids = currentNote.tag_ids || {};
   const tagList = [];
 
   for (let id in tags) {
@@ -26,3 +27,5 @@ const Tags = ({ currentNote, tags }) => {
     </div>
   );
 };
+
+export default Tags;

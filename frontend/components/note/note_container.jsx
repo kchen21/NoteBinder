@@ -8,17 +8,17 @@ const mapStateToProps = (state, ownProps) => {
     notes: state.noteData.notes,
     noteId: ownProps.params.noteId,
     currentNote: state.noteData.notes[ownProps.params.noteId] || {},
+    path: ownProps.location.pathname,
     errors: state.noteData.errors,
     notebooks: state.notebookData.notebooks,
     tags: state.tags
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     updateNote: (note) => dispatch(updateNote(note)),
     destroyNote: (id) => dispatch(destroyNote(id)),
-    path: ownProps.location.pathname,
     clearErrors: () => dispatch(clearErrors())
   };
 };

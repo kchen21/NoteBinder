@@ -59,7 +59,7 @@ class NotebooksIndex extends React.Component {
             </ul>
           </section>
         </section>
-        <section className="notebooks-index-child">
+        <section className="notebooks-index-children">
           { this.props.children }
         </section>
       </div>

@@ -52,7 +52,7 @@ class TaggedNotesIndex extends React.Component {
             </ul>
           </section>
         </section>
-        <section className="notes-index-child">
+        <section className="notes-index-children">
           { this.props.children }
         </section>
       </div>

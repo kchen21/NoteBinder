@@ -34,7 +34,7 @@ const Sidebar = () => {
         </li>
 
         <li>
-          <Link className="sidebar-option" to="/">
+          <Link className="sidebar-option" to="/tags">
             <img src={ window.assets.tags } />
           </Link>
         </li>

@@ -7,10 +7,17 @@ class Api::TagsController < ApplicationController
   end
 
   def create
-    @note = Note.find_by(params[:note_id])
-    @tag = Tag.find_by(name: params[:tag][:name]) || Tag.create(tag_params)
+    @note = Note.find(params[:note_id]) unless params[:note_id] == 'noId'
+    @tag = Tag.find_by(name: params[:tag][:name])
 
-    Tagging.create(note_id: @note.id, tag_id: @tag.id)
+
+    unless @tag
+      @tag = Tag.new(tag_params)
+      @tag.save
+    end
+
+    Tagging.create(note_id: @note.id, tag_id: @tag.id) unless params[:note_id] == 'noId'
+
     render :show
   end
 
@@ -28,7 +35,7 @@ class Api::TagsController < ApplicationController
 
   private
 
-  def tags_params
+  def tag_params
     params.require(:tag).permit(:name)
   end
 end

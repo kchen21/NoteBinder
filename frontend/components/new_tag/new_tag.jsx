@@ -20,8 +20,15 @@ class NewTag extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const tag = Object.assign({}, this.state);
-    this.props.createTag(tag).then((oldOrNewTag) => {
-      this.props.router.push('/tags');
+    this.props.createTag(this.props.noteId, tag).then((oldOrNewTag) => {
+      if (this.props.path === '/tags/new') {
+        this.props.router.push('/tags');
+      } else {
+        const pathElements = this.props.path.split("/");
+        const newPathElements = pathElements.slice(0, pathElements.length - 1);
+        this.props.fetchAllNotes();
+        this.props.router.push(newPathElements.join("/"));
+      }
     });
   }
 

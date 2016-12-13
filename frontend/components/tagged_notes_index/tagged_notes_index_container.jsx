@@ -7,7 +7,7 @@ import TaggedNotesIndex from './tagged_notes_index';
 const mapStateToProps = (state, ownProps) => {
   return {
     tagId: ownProps.params.tagId,
-    currentTag: state.tags[ownProps.params.notebookId] || {},
+    currentTag: state.tags[ownProps.params.tagId] || {},
     notes: state.noteData.notes
   };
 };

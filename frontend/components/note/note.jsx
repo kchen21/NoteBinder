@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import Tags from './tags';
 
 class Note extends React.Component {
@@ -81,10 +81,25 @@ class Note extends React.Component {
       );
     }
 
+    const pathElements = [];
+
+    const oldPath = this.props.path.split("/");
+
+    for (let i = 0; i < oldPath.length; i++) {
+      if (oldPath[i] !== 'new-tag') {
+        pathElements.push(oldPath[i]);
+      }
+    }
+
     return (
         <div className="note group">
           <h1>Update Note</h1>
-          <Tags currentNote={ this.props.currentNote } tags={ this.props.tags } /> // an unordered list of tag names linking to tags/:tagId/notes
+          <Tags currentNote={ this.props.currentNote } tags={ this.props.tags } />
+          <div className="new-tag-icon">
+            <Link to={ pathElements.join("/") + "/new-tag" }>
+              <img src={ window.assets.new_tag } />
+            </Link>
+          </div>
           <img className="note-trash-icon" onClick={ this.handleTrashClick } src={ window.assets.trash } />
           <ul>
             { errors }
@@ -122,6 +137,9 @@ class Note extends React.Component {
 
             <input className="note-submit-button" type="submit" value="Save" />
           </form>
+          <section className="note-children">
+            { this.props.children }
+          </section>
         </div>
     );
   }
