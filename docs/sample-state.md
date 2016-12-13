@@ -31,15 +31,18 @@
         body: "for planning purposes",
         author_name: 1,
         notebook_id: 1,
-        tags: {
-          1: {
-            id: 1,
-            name: "Planning"
-          }
+        tags_ids: {
+          1: 1
         }
       }
     },
     errors: ["title can't be blank"]
+  },
+  tags: {
+    1: {
+      id: 1,
+      name: "Planning"
+    }
   }
 }
 ```

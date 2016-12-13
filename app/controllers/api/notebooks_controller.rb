@@ -38,7 +38,7 @@ class Api::NotebooksController < ApplicationController
     if @notebook
       @notebook.destroy
       @notebook.notes.destroy_all
-      render json @notebook.id
+      render json: @notebook.id
     else
       render json: ["Notebook not found"], status: 404
     end

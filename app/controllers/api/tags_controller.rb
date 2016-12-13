@@ -1,0 +1,28 @@
+class Api::TagsController < ApplicationController
+  before_action :require_signed_in!, only: [:index, :create, :destroy]
+
+  def index
+    @tags = current_user.tags
+    render :index
+  end
+
+  def create
+    @note = Note.find_by(params[:note_id])
+    @tag = Tag.find_by(name: params[:tag][:name]) || Tag.create(tag_params)
+
+    Tagging.create(note_id: @note.id, tag_id: @tag.id)
+  end
+
+  def destroy
+    @note = Note.find_by(params[:note_id])
+    @tag = Tag.find_by(name: params[:tag_name])
+
+    Tagging.where(note_id: @note.id, tag_id: @tag.id).destroy
+  end
+
+  private
+
+  def tags_params
+    params.require(:tag).permit(:name)
+  end
+end

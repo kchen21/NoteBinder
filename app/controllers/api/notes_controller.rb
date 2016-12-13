@@ -6,11 +6,6 @@ class Api::NotesController < ApplicationController
       render :index
   end
 
-  def notebook_notes_index
-    @notes = Notebook.find(params[:notebook_id]).notes
-    render :notebook_notes_index
-  end
-
   def create
     @note = current_user.notes.new(note_params)
 

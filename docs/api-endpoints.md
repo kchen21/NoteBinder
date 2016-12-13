@@ -36,15 +36,12 @@
 - `GET /api/notebooks/:id`
 - `PATCH /api/notebooks/:id`
 - `DELETE /api/notebooks/:id`
-- `GET /api/notebooks/:id/notes`
-  - index of all notes for a notebook
 
 ### Tags
 
-- A note's tags will be included in the note show template
+- A note's tag IDs will be included in the note show template
 - `GET /api/tags`
-  - includes query param for typeahead suggestions
 - `POST /api/notes/:note_id/tags`: add tag to note by name
-  - if note doesn't already exist, it will be created
+  - if tag doesn't already exist, it will be created
 - `DELETE /api/notes/:note_id/tags/:tag_name`: remove tag from note by
   name
