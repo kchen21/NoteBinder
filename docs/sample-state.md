@@ -41,7 +41,10 @@
   tags: {
     1: {
       id: 1,
-      name: "Planning"
+      name: "Planning",
+      note_ids: {
+        1: 1
+      }
     }
   }
 }

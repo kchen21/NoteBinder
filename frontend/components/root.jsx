@@ -10,6 +10,9 @@ import NotebooksIndexContainer from './notebooks_index/notebooks_index_container
 import NewNotebookContainer from './new_notebook/new_notebook_container';
 import NotebookUpdateContainer from './notebook_update/notebook_update_container';
 import NotebookNotesIndexContainer from './notebook_notes_index/notebook_notes_index_container';
+import TagsIndexContainer from './tags_index/tags_index_container';
+import NewTagContainer from './new_tag/new_tag_container';
+import TaggedNotesIndexContainer from './tagged_notes_index/tagged_notes_index_container';
 
 const Root = ({ store }) => {
   const redirectIfSignedIn = (nextState, replace) => {
@@ -38,6 +41,12 @@ const Root = ({ store }) => {
             <Route path="update/:notebookId" component= { NotebookUpdateContainer } />
           </Route>
           <Route path="notebooks/:notebookId/notes" component={ NotebookNotesIndexContainer }>
+            <Route path=":noteId" component={ NoteContainer } />
+          </Route>
+          <Route path="tags" component={ TagsIndexContainer }>
+            <Route path="new" component={ NewTagContainer } />
+          </Route>
+          <Route path="tags/:tagId/notes" component={ TaggedNotesIndexContainer }>
             <Route path=":noteId" component={ NoteContainer } />
           </Route>
         </Route>

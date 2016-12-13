@@ -5,28 +5,52 @@
 
 **HomeContainer**
  - Home
- - Sidebar
+  - Sidebar
 
 **NotesIndexContainer**
  - NotesIndex
+  + NewNote
+  + Note
+
+**NewNoteContainer**
+ - NewNote
+  - NotebooksSearch
+  - Tags
+    + Tag
+  - RTETools
+  - Note
+  - PostButton
 
 **NoteContainer**
  - Note
 
 **NotebooksIndexContainer**
  - NotebooksIndex
+  + NewNotebook
+  + Notebook
 
-**NotebookContainer**
- - NotebookHeader
-  + NotesIndex
+**NewNotebookContainer**
+- NewNotebook
 
-**SearchResultsContainer**
- - Search
- - NotesIndex
+**NotebookUpdateContainer**
+- NotebookUpdate
 
-**TagContainer**
- - TagHeader
-  + NotesIndex
+**NotebookNotesIndexContainer**
+ - NotebookNotesIndex
+  + Note
+
+**TagsIndexContainer**
+ - TagsIndex
+  + NewTag
+
+**NewTagContainer**
+- NewTag
+
+**TaggedNotesIndexContainer**
+ - TaggedNotesIndex
+  + Note
+
+<!-- TOEDIT -->
 
 **NotesIndex**
  - NotesIndexItem
@@ -38,22 +62,11 @@
     - RTETools
     - Note
 
-**NewNoteContainer**
- - NewNote
-  - NotebooksSearch
-  - Tags
-    + Tag
-  - RTETools
-  - Note
-  - PostButton
+**SearchResultsContainer**
+- Search
+- NotesIndex
 
 **Search**
-
-**NewNotebookContainer**
- - NewNotebook
-
-**NewTag**
- - NewTag
 
 **NotebooksSearch**
  - AutoSearch
@@ -79,12 +92,15 @@
 | "/notes/:noteId" | "NoteContainer" |
 | "/notebooks" | "NotebooksIndexContainer" |
 | "/notebooks/new" | "NewNotebookContainer" |
+| "/notebooks/update/:notebookId" | "NotebookUpdateContainer" |
 | "/notebooks/:notebookId" | "NotebookNotesIndexContainer" |
 | "/notebooks/:notebookId/notes/:noteId" | "NotebookContainer" |
+| "/tags" | "TagsIndexContainer" |
+| "/tags/new" | "NewTagContainer" |
+| "/tags/:tagId/notes" | "TaggedNotesIndexContainer" |
 | "/tags/:tagId/notes/:noteId" | "TagContainer" |
 | "/search-results" | "SearchResultsContainer" |
 | "/search" | "Search" |
-| "/new-tag" | "NewTag" |
 | "/tags-search" | "TagsSearch" |
 | "/notebooks-search" | "NotebooksSearch" |
 | "/account-menu" | "AccountMenu" |
