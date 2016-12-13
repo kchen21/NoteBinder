@@ -7,8 +7,9 @@ class NotebookNotesIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllNotes(); // Covers page refreshing
+    this.props.fetchAllNotes();
     this.props.fetchAllNotebooks(); // Covers page refreshing
+    this.props.fetchAllTags();
   }
 
   render() {

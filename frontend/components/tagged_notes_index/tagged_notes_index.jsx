@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-class NotesIndex extends React.Component {
+class TaggedNotesIndex extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -26,22 +26,24 @@ class NotesIndex extends React.Component {
     };
 
     for (let id in notes) {
-      noteList.push(
-        <li className="notes-index-item-wrapper" key={ id }>
-          <Link to={ "/notes/" + id }>
-            <div className="notes-index-item">
-              { preview(notes[id]) }
-            </div>
-          </Link>
-        </li>
-      );
+      if (this.props.currentTag.note_ids[id]) {
+        noteList.push(
+          <li className="notes-index-item-wrapper" key={ id }>
+            <Link to={ "/tags/" + this.props.tagId + "/notes/" + id }>
+              <div className="notes-index-item">
+                { preview(notes[id]) }
+              </div>
+            </Link>
+          </li>
+        );
+      }
     }
 
     return (
       <div className="group">
         <section className="notes-index">
           <section className="notes-index-header">
-            <h1>NOTES</h1>
+            <h1>{ this.props.currentTag.name }</h1>
             <p>{ noteList.length + " Notes" }</p>
           </section>
           <section className="notes-index-main">
@@ -58,4 +60,4 @@ class NotesIndex extends React.Component {
   }
 }
 
-export default NotesIndex;
+export default TaggedNotesIndex;

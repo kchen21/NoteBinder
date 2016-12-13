@@ -11,7 +11,7 @@ class TagsIndex extends React.Component {
   }
 
   render() {
-    const tags = this.props.tags;
+    const tags = this.props.tags || {};
     const tagList = [];
 
     for (let id in tags) {
@@ -28,25 +28,25 @@ class TagsIndex extends React.Component {
 
     return (
       <div className="group">
-        <section className="notebooks-index">
-          <section className="notebooks-index-header group">
-            <div className="notebooks-index-header-text">
-              <h1>NOTEBOOKS</h1>
-              <p>{ notebookList.length + " Notebooks" }</p>
+        <section className="tags-index">
+          <section className="tags-index-header group">
+            <div className="tags-index-header-text">
+              <h1>TAGS</h1>
+              <p>{ tagList.length + " Tags" }</p>
             </div>
-            <div className="new-notebook-icon">
-              <Link to="/notebooks/new">
-                <img src={ window.assets.new_notebook } />
+            <div className="new-tag-icon">
+              <Link to="/tags/new">
+                <img src={ window.assets.new_tag } />
               </Link>
             </div>
           </section>
           <section className="notebooks-index-main">
             <ul>
-              { notebookList }
+              { tagList }
             </ul>
           </section>
         </section>
-        <section className="notebooks-index-child">
+        <section className="tags-index-child">
           { this.props.children }
         </section>
       </div>

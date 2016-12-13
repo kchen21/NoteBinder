@@ -2,15 +2,17 @@ import { connect } from 'react-redux';
 import { fetchAllNotes } from '../../actions/note_actions';
 import { fetchAllNotebooks } from '../../actions/notebook_actions';
 import { fetchAllTags } from '../../actions/tag_actions';
-import NotesIndex from './notes_index';
+import TaggedNotesIndex from './tagged_notes_index';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
+    tagId: ownProps.params.tagId,
+    currentTag: state.tags[ownProps.params.notebookId] || {},
     notes: state.noteData.notes
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     fetchAllNotes: () => dispatch(fetchAllNotes()),
     fetchAllNotebooks: () => dispatch(fetchAllNotebooks()),
@@ -21,4 +23,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(NotesIndex);
+)(TaggedNotesIndex);
