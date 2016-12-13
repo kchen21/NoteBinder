@@ -24,7 +24,6 @@ class Api::TagsController < ApplicationController
     @tag = Tag.find_by(name: params[:tag_name])
 
     Tagging.where(note_id: @note.id, tag_id: @tag.id).destroy
-    render json: [note.id, tag.id]
   end
 
   private
