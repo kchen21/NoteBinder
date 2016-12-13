@@ -27,10 +27,10 @@ class Api::TagsController < ApplicationController
   end
 
   def destroy
-    @note = Note.find_by(params[:note_id])
-    @tag = Tag.find_by(name: params[:tag_name])
-
-    Tagging.where(note_id: @note.id, tag_id: @tag.id).destroy
+    @tag = Tag.find(params[:id])
+    @tag.destroy
+    Tagging.where({tag_id: @tag.id}).destroy_all
+    render json: @tag.id
   end
 
   private

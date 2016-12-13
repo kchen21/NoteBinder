@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_TAGS, RECEIVE_TAG } from '../actions/tag_actions';
+import { RECEIVE_ALL_TAGS, RECEIVE_TAG, REMOVE_TAG } from '../actions/tag_actions';
 import { merge } from 'lodash';
 
 const tagsReducer = (state = {}, action) => {
@@ -11,6 +11,9 @@ const tagsReducer = (state = {}, action) => {
       return action.tags;
     case RECEIVE_TAG:
       newState[action.tag.id] = action.tag;
+      return newState;
+    case REMOVE_TAG:
+      delete newState[action.id];
       return newState;
     default:
       return state;

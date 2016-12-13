@@ -10,8 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchAllNotebooks: () => dispatch(fetchAllNotebooks()),
-    destroyNotebook: (id) => dispatch(destroyNotebook(id))
+    fetchAllNotebooks: () => dispatch(fetchAllNotebooks())
   };
 };
 

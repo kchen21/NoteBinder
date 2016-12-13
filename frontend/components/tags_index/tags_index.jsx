@@ -4,10 +4,18 @@ import { Link } from 'react-router';
 class TagsIndex extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleTrashClick = this.handleTrashClick.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchAllTags();
+  }
+
+  handleTrashClick(id) {
+    this.props.destroyTag(id).then(() => {
+      this.props.router.push('/tags');
+    });
   }
 
   render() {
@@ -22,6 +30,7 @@ class TagsIndex extends React.Component {
               { tags[id].name }
             </div>
           </Link>
+          <img className="tag-trash-icon" onClick={ () => this.handleTrashClick(id) } src={ window.assets.trash } />
         </li>
       );
     }

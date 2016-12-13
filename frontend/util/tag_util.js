@@ -13,9 +13,9 @@ export const createTag = (noteId, tag) => {
   });
 };
 
-export const destroyTagging = (noteId, tagName) => {
+export const destroyTag = (id) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/notes/${noteId}/tags/${tagName}`
+    url: `/api/tags/${id}`
   });
 };
