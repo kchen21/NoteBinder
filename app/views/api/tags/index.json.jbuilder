@@ -1,7 +1,7 @@
 json.tags do
   @notes.tags.each do |tag|
     json.set! tag.id do
-      json.extract! tag, :id, :name
+      json.partial! 'api/tags/tag', tag: tag
     end
   end
 end

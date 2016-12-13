@@ -43,5 +43,6 @@
 - `GET /api/tags`
 - `POST /api/notes/:note_id/tags`: add tag to note by name
   - if tag doesn't already exist, it will be created
+- `GET /api/tags/:id`
 - `DELETE /api/notes/:note_id/tags/:tag_name`: remove tag from note by
   name
