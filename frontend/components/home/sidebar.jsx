@@ -44,5 +44,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-// Get props from Home in order to get the note, notebook, and tag IDs.

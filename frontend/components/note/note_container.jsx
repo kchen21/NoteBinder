@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => {
     noteId: ownProps.params.noteId,
     currentNote: state.noteData.notes[ownProps.params.noteId] || {},
     errors: state.noteData.errors,
-    notebooks: state.notebookData.notebooks
+    notebooks: state.notebookData.notebooks,
+    tags: state.tags
   };
 };
 

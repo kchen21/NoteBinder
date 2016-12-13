@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import Tags from './tags';
 
 class Note extends React.Component {
   constructor(props) {
@@ -83,6 +84,7 @@ class Note extends React.Component {
     return (
         <div className="note group">
           <h1>Update Note</h1>
+          <Tags currentNote={ this.props.currentNote } tags={ this.props.tags } /> // an unordered list of tag names linking to tags/:tagId/notes
           <img className="note-trash-icon" onClick={ this.handleTrashClick } src={ window.assets.trash } />
           <ul>
             { errors }
