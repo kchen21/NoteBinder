@@ -15,6 +15,8 @@ class NotebooksIndex extends React.Component {
     const notebookList = [];
 
     const preview = (notebook) => {
+      const notebookDescription = notebook.description || "";
+      
       return (
         <div className="notebooks-index-item">
           <h2>{ notebook.title }</h2>
