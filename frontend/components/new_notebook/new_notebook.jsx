@@ -48,8 +48,6 @@ class NewNotebook extends React.Component {
           { errors }
         </ul>
         <form className="group" onSubmit={this.handleSubmit}>
-          <h2>Rich Text Editing</h2>
-
           <div className="notebook-form-input">
             <label htmlFor="new-notebook-title">Title</label>
             <input
@@ -61,7 +59,7 @@ class NewNotebook extends React.Component {
             />
           </div>
 
-          <div className="note-form-input">
+          <div className="notebook-form-input">
             <label htmlFor="new-notebook-description">Description</label>
             <textarea
               id="new-notebook-description"

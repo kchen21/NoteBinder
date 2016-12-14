@@ -78,7 +78,7 @@ class NotebookUpdate extends React.Component {
             />
           </div>
 
-          <div className="note-form-input">
+          <div className="notebook-form-input">
             <label htmlFor="new-notebook-description">Description</label>
             <textarea
               id="new-notebook-description"

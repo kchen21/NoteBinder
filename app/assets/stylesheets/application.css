@@ -406,22 +406,15 @@ img {
 
 .note-title-input-field {
   width: 100%;
-  border: 1px solid #ececec;
-  padding: 1px 8px 1px 8px;
+  border: 1px solid #ccc;
+  padding: 12px 15px;
   font-family: caecilia, times, serif;
   font-weight: 300;
   font-size: 28px;
   color: #2dbe60;
 }
 
-.note-form-input > textarea {
-  display: block;
-  width: 100%;
-  min-height: 300px;
-  border: 1px solid #ececec;
-  padding: 1px 8px 1px 8px;
-  font-family: gotham, helvetica, arial, sans-serif;
-  font-size: 14px;
+.note-body {
   color: #383838;
 }
 
@@ -633,8 +626,8 @@ img {
 
 .notebook-title-input-field {
   width: 100%;
-  border: 1px solid #ececec;
-  padding: 1px 8px 1px 8px;
+  border: 1px solid #ccc;
+  padding: 12px 15px;
   font-family: caecilia, times, serif;
   font-weight: 300;
   font-size: 28px;
@@ -645,10 +638,10 @@ img {
   display: block;
   width: 100%;
   min-height: 300px;
-  border: 1px solid #ececec;
-  padding: 1px 8px 1px 8px;
+  border: 1px solid #ccc;
+  padding: 12px 15px;
   font-family: gotham, helvetica, arial, sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   color: #383838;
 }
 

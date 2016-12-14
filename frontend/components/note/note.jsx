@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import ReactQuill from 'react-quill';
 import Tags from './tags';
 
 class Note extends React.Component {
@@ -12,6 +13,7 @@ class Note extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleBodyChange = this.handleBodyChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleTrashClick = this.handleTrashClick.bind(this);
     this.handleNotebookChange = this.handleNotebookChange.bind(this);
@@ -42,6 +44,10 @@ class Note extends React.Component {
     return (e) => {
       return this.setState({ [prop]: e.currentTarget.value });
     };
+  }
+
+  handleBodyChange(value) {
+    this.setState({ body: value });
   }
 
   handleSubmit(e) {
@@ -115,8 +121,6 @@ class Note extends React.Component {
               </select>
             </div>
 
-            <h2>Rich Text Editing</h2>
-
             <div className="note-form-input">
               <label htmlFor="note-title">Title</label>
               <input
@@ -130,12 +134,13 @@ class Note extends React.Component {
 
             <div className="note-form-input">
               <label htmlFor="note-body">Body</label>
-              <textarea
+              <ReactQuill
+                className="note-body"
                 id="note-body"
-                type="text"
-                onChange={ this.handleChange("body") }
-                value={ this.state.body }>
-              </textarea>
+                onChange={ this.handleBodyChange }
+                value={ this.state.body }
+                theme="snow"
+              />
             </div>
 
             <input className="note-submit-button" type="submit" value="Save" />

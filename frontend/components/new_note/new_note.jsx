@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactQuill from 'react-quill';
 
 class NewNote extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class NewNote extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleBodyChange = this.handleBodyChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleNotebookChange = this.handleNotebookChange.bind(this);
   }
@@ -41,6 +43,10 @@ class NewNote extends React.Component {
     return (e) => {
       return this.setState({ [prop]: e.currentTarget.value });
     };
+  }
+
+  handleBodyChange(value) {
+    this.setState({ body: value });
   }
 
   handleSubmit(e) {
@@ -82,8 +88,6 @@ class NewNote extends React.Component {
             </select>
           </div>
 
-          <h2>Rich Text Editing</h2>
-
           <div className="note-form-input">
             <label htmlFor="new-note-title">Title</label>
             <input
@@ -97,11 +101,13 @@ class NewNote extends React.Component {
 
           <div className="note-form-input">
             <label htmlFor="new-note-body">Body</label>
-            <textarea
-              id="new-note-body"
-              onChange={ this.handleChange("body") }
-              value={ this.state.body }>
-            </textarea>
+            <ReactQuill
+              className="note-body"
+              id="note-body"
+              onChange={ this.handleBodyChange }
+              value={ this.state.body }
+              theme="snow"
+            />
           </div>
 
           <input className="note-submit-button" type="submit" value="Save" />
