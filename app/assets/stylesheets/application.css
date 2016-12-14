@@ -551,11 +551,11 @@ img {
 
 .notebook-update-link {
   margin: 0 6px;
-  border: 1px solid #1fae52;
+  border: 1px solid #ececec;
   border-radius: 4px;
   padding: 1px 8px;
-  background: #2dbe60;
-  color: #fff;
+  background: #f8f8f8;
+  color: #383838;
 }
 
 .notebook-update-link:hover {
