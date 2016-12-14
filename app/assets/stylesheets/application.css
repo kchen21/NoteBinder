@@ -389,7 +389,7 @@ img {
 }
 
 .note-form-select > select {
-  margin: 6px 6px 0 7px;
+  margin: 6px 0 0 6px;
 }
 
 .note-form-input {
@@ -405,6 +405,8 @@ img {
 
 .note-title-input-field {
   width: 100%;
+  border: 1px solid #ececec;
+  padding: 1px 8px 1px;
   font-family: caecilia, times, serif;
   font-weight: 300;
   font-size: 28px;
@@ -415,6 +417,8 @@ img {
   display: block;
   width: 100%;
   min-height: 300px;
+  border: 1px solid #ececec;
+  padding: 1px 8px 1px;
   font-family: gotham, helvetica, arial, sans-serif;
   font-size: 14px;
   color: #383838;
@@ -443,45 +447,53 @@ img {
 .notebooks-index {
   display: block;
   float: left;
-  width: 330px;
+  width: 352px;
   border-left: 1px solid #ececec;
   border-right: 1px solid #ececec;
+}
+
+.notebooks-index-header {
+  position: relative;
 }
 
 .notebooks-index-children {
   display: block;
   float: left;
-  width: calc(100vw - 400px);
+  width: calc(100vw - 424px);
 }
 
 .notebooks-index-header {
   display: block;
-  height: 86px;
-  padding: 10px;
+  height: 106px;
+  padding: 24px 0 0 24px;
   border-bottom: 1px solid #ececec;
 }
 
-.notebooks-index-header-text {
-  display: block;
-  float: left;
+.notebooks-index-header > h1 {
+  padding: 0 186px 32px 0;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 21px;
+  color: #878787;
 }
 
-.notebooks-index-header h1 {
-  padding: 0 0 5px 0;
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
-  font-size: 36px;
+.notebooks-index-header > p {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #ababab;
 }
 
 .new-notebook-icon {
-  float: right;
-  width: 50px;
-  height: 50px;
+  position: absolute;
+  top: 12px;
+  right: 148px;
+  width: 38px;
+  height: 38px;
   border: 1px solid #ececec;
 }
 
 .notebooks-index-main {
-  height: calc(100vh - 86px);
+  height: calc(100vh - 106px);
   overflow-y: scroll;
 }
 
@@ -495,9 +507,27 @@ img {
 
 .notebooks-index-item {
   display: block;
-  height: 131px;
-  padding: 10px;
+  height: 120px;
+  padding: 8px 27px;
   overflow: hidden;
+}
+
+.notebooks-index-item > h2 {
+  word-wrap: break-word;
+  margin-bottom: 6px;
+  font-family: caecilia, times, serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #4a4a4a;
+}
+
+.notebooks-index-item > p {
+  word-wrap: break-word;
+  margin: 8px 0;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #878787;
 }
 
 .notebooks-index-item:hover {
@@ -506,23 +536,23 @@ img {
   color: #fff;
 }
 
-.notebooks-index-item h2 {
-  word-wrap: break-word;
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
-  font-size: 24px;
+.notebooks-index-item:hover > h2 {
+  cursor: pointer;
+  background: #2dbe60;
+  color: #fff;
 }
 
-.notebooks-index-item p {
-  padding: 5px 0;
-  word-wrap: break-word;
+.notebooks-index-item:hover > p {
+  cursor: pointer;
+  background: #2dbe60;
+  color: #fff;
 }
 
 .notebook-update-link {
-  margin: 0 5px;
+  margin: 0 6px;
   border: 1px solid #1fae52;
-  border-radius: 7px;
-  padding: 0 5px;
+  border-radius: 4px;
+  padding: 1px 8px;
   background: #2dbe60;
   color: #fff;
 }
@@ -530,7 +560,7 @@ img {
 .notebook-update-link:hover {
   cursor: pointer;
   background: #fff;
-  color: #1fae52;
+  color: #2dbe60;
 }
 
 /* --- NOTEBOOK --- */
@@ -633,13 +663,14 @@ img {
 
 .note-tags {
   float: left;
-  width: 666px;
+  width: calc(100% - 58px);
+
 }
 
 .tags-index-tag-wrapper {
   display: block;
   float: left;
-  margin: 0 0 0 6px;
+  margin: 0 0 6px 6px;
   border: 1px solid #ececec;
   padding: 1px 8px 1px;
   border-radius: 4px;

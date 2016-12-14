@@ -46,7 +46,6 @@ class NewNote extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const note = Object.assign({}, this.state);
-    debugger
     this.props.createNote(note).then((newNote) => {
       this.props.router.push(`/notes/${newNote.id}`);
     });

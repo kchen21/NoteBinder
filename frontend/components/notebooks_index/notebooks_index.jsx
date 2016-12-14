@@ -38,18 +38,16 @@ class NotebooksIndex extends React.Component {
     }
 
     return (
-      <div className="group">
+      <div>
         <section className="notebooks-index">
-          <section className="notebooks-index-header group">
-            <div className="notebooks-index-header-text">
-              <h1>NOTEBOOKS</h1>
-              <p>{ notebookList.length + " Notebooks" }</p>
-            </div>
+          <section className="notebooks-index-header">
+            <h1>NOTEBOOKS</h1>
             <div className="new-notebook-icon">
               <Link to="/notebooks/new">
                 <img src={ window.assets.new_notebook } />
               </Link>
             </div>
+            <p>{ notebookList.length + " Notebooks" }</p>
           </section>
           <section className="notebooks-index-main">
             <ul>
