@@ -35,10 +35,10 @@ class NewTag extends React.Component {
   render() {
     return (
       <div className="tag">
-        <h1>New Tag</h1>
-        <form className="group" onSubmit={this.handleSubmit}>
+        <h1>Create Tag</h1>
+        <form onSubmit={this.handleSubmit}>
           <div className="tag-form-input">
-            <label htmlFor="new-tag-name">Name</label>
+            <label htmlFor="new-tag-name"></label>
             <input
               className="tag-name-input-field"
               id="new-tag-name"

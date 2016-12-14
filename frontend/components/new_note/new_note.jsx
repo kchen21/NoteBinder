@@ -70,7 +70,7 @@ class NewNote extends React.Component {
 
     return (
       <div className="note">
-        <h1>New Note</h1>
+        <h1>NEW NOTE</h1>
         <ul>
           { errors }
         </ul>

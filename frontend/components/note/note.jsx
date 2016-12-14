@@ -93,7 +93,7 @@ class Note extends React.Component {
 
     return (
         <div className="note group">
-          <h1>Update Note</h1>
+          <h1>UPDATE NOTE</h1>
           <div className="note-new-tag-icon">
             <Link to={ pathElements.join("/") + "/new-tag" }>
               <img src={ window.assets.new_tag } />
@@ -101,6 +101,9 @@ class Note extends React.Component {
           </div>
           <Tags currentNote={ this.props.currentNote } tags={ this.props.tags } />
           <img className="note-trash-icon" onClick={ this.handleTrashClick } src={ window.assets.trash } />
+          <section className="note-children">
+            { this.props.children }
+          </section>
           <ul>
             { errors }
           </ul>
@@ -137,9 +140,6 @@ class Note extends React.Component {
 
             <input className="note-submit-button" type="submit" value="Save" />
           </form>
-          <section className="note-children">
-            { this.props.children }
-          </section>
         </div>
     );
   }

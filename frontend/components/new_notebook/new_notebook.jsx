@@ -43,13 +43,13 @@ class NewNotebook extends React.Component {
 
     return (
       <div className="notebook">
-        <h1>New Notebook</h1>
+        <h1>NEW NOTEBOOK</h1>
         <ul>
           { errors }
         </ul>
         <form className="group" onSubmit={this.handleSubmit}>
           <h2>Rich Text Editing</h2>
-          
+
           <div className="notebook-form-input">
             <label htmlFor="new-notebook-title">Title</label>
             <input

@@ -8,12 +8,12 @@ const Tags = ({ currentNote, tags }) => {
   for (let id in tags) {
     if (currentNote.tag_ids[id]) {
       tagList.push(
-        <li className="tags-index-tag-wrapper" key={ id }>
-          <Link to={ "/tags/" + id + "/notes" }>
-            <div className="tags-index-tag">
-              { tags[id].name }
-            </div>
-          </Link>
+        <li className="note-tags-index-tag-wrapper" key={ id }>
+          <div className="note-tags-index-tag">
+            <Link to={ "/tags/" + id + "/notes" }>
+                { tags[id].name }
+            </Link>
+          </div>
         </li>
       );
     }

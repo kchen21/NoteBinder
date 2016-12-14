@@ -24,12 +24,12 @@ class TagsIndex extends React.Component {
 
     for (let id in tags) {
       tagList.push(
-        <li className="tags-index-tag-wrapper" key={ id }>
-          <Link to={ "/tags/" + id + "/notes" }>
-            <div className="tags-index-tag">
-              { tags[id].name }
-            </div>
-          </Link>
+        <li className="tags-index-tag-wrapper group" key={ id }>
+          <div className="tags-index-tag">
+            <Link to={ "/tags/" + id + "/notes" }>
+                { tags[id].name }
+            </Link>
+          </div>
           <img className="tag-trash-icon" onClick={ () => this.handleTrashClick(id) } src={ window.assets.trash } />
         </li>
       );
@@ -38,16 +38,14 @@ class TagsIndex extends React.Component {
     return (
       <div className="group">
         <section className="tags-index">
-          <section className="tags-index-header group">
-            <div className="tags-index-header-text">
-              <h1>TAGS</h1>
-              <p>{ tagList.length + " Tags" }</p>
-            </div>
+          <section className="tags-index-header">
+            <h1>TAGS</h1>
             <div className="new-tag-icon">
               <Link to="/tags/new">
                 <img src={ window.assets.new_tag } />
               </Link>
             </div>
+            <p>{ tagList.length + " Tags" }</p>
           </section>
           <section className="notebooks-index-main">
             <ul>

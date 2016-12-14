@@ -170,8 +170,6 @@ img {
   width: 72px;
   height: 100vh;
   background: #f8f8f8;
-  overflow-y: scroll;
-  overflow: hidden;
 }
 
 .home-main {
@@ -232,6 +230,7 @@ img {
   border: 1px solid #c4c4c4;
   border-radius: 4px;
   text-align: center;
+  background: #fff;
   font-family: gotham, helvetica, arial, sans-serif;
   font-weight: 400;
   font-size: 20px;
@@ -270,6 +269,7 @@ img {
   margin: 0 0 32px 0;
   font-family: gotham, helvetica, arial, sans-serif;
   font-size: 21px;
+  font-weight: 300;
   color: #878787;
 }
 
@@ -343,11 +343,11 @@ img {
   height: 100vh;
   padding: 12px 18px;
   overflow-y: scroll;
-  overflow: hidden;
 }
 
 .note > h1 {
   font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 300;
   font-size: 21px;
   color: #878787;
   padding: 0 0 36px 0;
@@ -380,7 +380,7 @@ img {
 }
 
 .note-form-select {
-  padding: 32px 0 10px 0;
+  padding: 51px 0 0 0;
 }
 
 .note-form-select > label {
@@ -390,7 +390,7 @@ img {
 }
 
 .note-form-select > select {
-  margin: 6px 0 0 6px;
+  margin: 0 0 0 6px;
 }
 
 .note-form-input {
@@ -407,7 +407,7 @@ img {
 .note-title-input-field {
   width: 100%;
   border: 1px solid #ececec;
-  padding: 1px 8px 1px;
+  padding: 1px 8px 1px 8px;
   font-family: caecilia, times, serif;
   font-weight: 300;
   font-size: 28px;
@@ -419,7 +419,7 @@ img {
   width: 100%;
   min-height: 300px;
   border: 1px solid #ececec;
-  padding: 1px 8px 1px;
+  padding: 1px 8px 1px 8px;
   font-family: gotham, helvetica, arial, sans-serif;
   font-size: 14px;
   color: #383838;
@@ -474,6 +474,7 @@ img {
   padding: 0 186px 32px 0;
   font-family: gotham, helvetica, arial, sans-serif;
   font-size: 21px;
+  font-weight: 300;
   color: #878787;
 }
 
@@ -491,6 +492,11 @@ img {
   width: 38px;
   height: 38px;
   border: 1px solid #ececec;
+}
+
+.new-notebook-icon:hover {
+  cursor: pointer;
+  opacity: 0.75;
 }
 
 .notebooks-index-main {
@@ -569,40 +575,49 @@ img {
 .notebook {
   display: block;
   height: 100vh;
-  padding: 30px 50px;
+  padding: 12px 18px;
   overflow-y: scroll;
 }
 
 .notebook > h1 {
-  margin: 0 0 10px 0;
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
-  font-size: 36px;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 300;
+  font-size: 21px;
+  color: #878787;
+  padding: 0 0 36px 0;
 }
 
-.notebook > img {
+.notebook-trash-icon {
   float: right;
-  width: 50px;
-  height: 50px;
+  width: 36px;
+  height: 36px;
   border: 1px solid #ececec;
 }
 
-.notebook > img:hover {
+.notebook-trash-icon:hover {
   cursor: pointer;
   opacity: 0.75;
+}
+
+.notebook > p {
+  padding: 0 0 44px 0;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 14px;
+  color: #f00;
 }
 
 .notebook-error {
   display: block;
   width: 250px;
   margin: 0 auto;
-  color: #f00;
   text-align: center;
-  font-weight: bold;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 14px;
+  color: #f00;
 }
 
 .notebook-form {
-  display: block;
+  padding: 0 48px;
 }
 
 .notebook-form-input {
@@ -611,41 +626,43 @@ img {
 }
 
 .notebook-form-input > label {
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
-  font-size: 24px;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 13px;
+  color: #878787;
 }
 
 .notebook-title-input-field {
-  display: block;
   width: 100%;
-  height: 50px;
   border: 1px solid #ececec;
-  padding: 10px;
-  color: #1fae52;
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
-  font-size: 24px;
+  padding: 1px 8px 1px 8px;
+  font-family: caecilia, times, serif;
+  font-weight: 300;
+  font-size: 28px;
+  color: #2dbe60;
 }
 
 .notebook-form-input > textarea {
   display: block;
   width: 100%;
-  height: 300px;
+  min-height: 300px;
   border: 1px solid #ececec;
-  padding: 10px;
+  padding: 1px 8px 1px 8px;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 14px;
+  color: #383838;
 }
 
 .notebook-submit-button {
   display: block;
   float: right;
-  padding: 5px 10px;
-  border: 1px solid #1fae52;
-  background: #2dbe60;
-  color: #fff;
+  padding: 7px 10px;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
   text-align: center;
-  font-weight: bold;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 400;
   font-size: 20px;
+  color: #606060;
 }
 
 .notebook-submit-button:hover {
@@ -653,7 +670,7 @@ img {
   opacity: 0.75;
 }
 
-/* --- TAG --- */
+/* --- NOTE TAGS --- */
 
 .note-new-tag-icon {
   float: left;
@@ -662,22 +679,175 @@ img {
   border: 1px solid #ececec;
 }
 
+.note-new-tag-icon:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
 .note-tags {
   float: left;
-  width: calc(100% - 74px);
+  width: calc(100% - 86px);
 
 }
 
-.tags-index-tag-wrapper {
+.note-tags-index-tag-wrapper {
   display: block;
   float: left;
   margin: 0 0 6px 6px;
   border: 1px solid #ececec;
-  padding: 1px 8px 1px;
   border-radius: 4px;
+  padding: 1px 8px 1px;
+  background: #f8f8f8;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 12px;
+  color: #383838;
+}
+
+.note-tags-index-tag-wrapper:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* --- TAGS --- */
+
+.tags-index {
+  display: block;
+  float: left;
+  width: 352px;
+  border-left: 1px solid #ececec;
+  border-right: 1px solid #ececec;
+}
+
+.tags-index-header {
+  position: relative;
+}
+
+.tags-index-children {
+  display: block;
+  float: left;
+  width: calc(100vw - 424px);
+}
+
+.tags-index-header {
+  display: block;
+  height: 106px;
+  padding: 24px 0 0 24px;
+  border-bottom: 1px solid #ececec;
+}
+
+.tags-index-header > h1 {
+  padding: 0 264px 32px 0;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 21px;
+  font-weight: 300;
+  color: #878787;
+}
+
+.tags-index-header > p {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #ababab;
+}
+
+.new-tag-icon {
+  position: absolute;
+  top: 12px;
+  right: 226px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #ececec;
+}
+
+.new-tag-icon:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.tags-index-main {
+  height: calc(100vh - 106px);
+  overflow-y: scroll;
+}
+
+.tags-index-tag-wrapper {
+  margin: 6px;
+}
+
+.tags-index-tag {
+  float: left;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  padding: 1px 8px 1px;
+  background: #f8f8f8;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 12px;
+  color: #383838;
+}
+
+.tags-index-tag:hover {
+  cursor: pointer;
+  opacity: 0.75;
 }
 
 .tag-trash-icon {
-  width: 38px;
-  height: 38px;
+  float: left;
+  width: 18px;
+  height: 18px;
+  margin: 0 0 0 6px;
+}
+
+.tag-trash-icon:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* --- NEW TAG --- */
+
+.tag {
+  display: block;
+  width: 250px;
+  margin: auto;
+  padding: 12px 18px;
+}
+
+.tag > h1 {
+  text-align: center;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 21px;
+  color: #878787;
+  padding: 0 0 10px 0;
+}
+
+.tag-form-input {
+  text-align: center;
+}
+
+.tag-name-input-field {
+  width: auto;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  margin: 0 6px;
+  padding: 1px 8px 1px 8px;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  color: #606060;
+}
+
+.tag-submit-button {
+  display: block;
+  padding: 7px 10px;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
+  margin: 5px auto 0 auto;
+  text-align: center;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  color: #606060;
+}
+
+.tag-submit-button:hover {
+  cursor: pointer;
+  opacity: 0.75;
 }

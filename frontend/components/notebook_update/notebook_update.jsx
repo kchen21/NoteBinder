@@ -60,14 +60,13 @@ class NotebookUpdate extends React.Component {
 
     return (
       <div className="notebook group">
-        <h1>Update Notebook</h1>
+        <h1>UPDATE NOTEBOOK</h1>
         <img className="notebook-trash-icon" onClick={ this.handleTrashClick } src={ window.assets.trash } />
+        <p>Warning: Deleting a notebook will delete all of its notes as well.</p>
         <ul>
           { errors }
         </ul>
         <form className="notebook-form group" onSubmit={this.handleSubmit}>
-          <h2>Rich Text Editing</h2>
-          
           <div className="notebook-form-input">
             <label htmlFor="new-notebook-title">Title</label>
             <input

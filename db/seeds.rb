@@ -19,6 +19,15 @@ Note.create!(title: "Tags", body: "You can create tags for note-filtering. To vi
 Note.create!(title: "Updating", body: "The contents of a note or notebook can be updated once it is created!", notebook_id: 1) # id: 5
 Note.create!(title: "Deleting", body: "Notes, notebooks, and tags can also be deleted! Be careful when deleting a notebook; it'll delete all the notes in that notebook as well!", notebook_id: 1) # id: 6
 Note.create!(title: "Have fun exploring!", body: "Create a new notebook or use one of the pre-created ones to start writing notes!", notebook_id: 1) # id: 7
-Tag.create!(name: "FirstTag") # id: 1
+Tag.create!(name: "welcome") # id: 1
+Tag.create!(name: "notebinder") # id: 2
+Tag.create!(name: "introduction") # id: 3
+Tag.create!(name: "notes") # id: 4
+Tag.create!(name: "notebooks") # id: 5
+Tag.create!(name: "tags") # id: 6
 Tagging.create!(note_id: 1, tag_id: 1)
-Tagging.create!(note_id: 4, tag_id: 1)
+Tagging.create!(note_id: 1, tag_id: 2)
+Tagging.create!(note_id: 1, tag_id: 3)
+Tagging.create!(note_id: 2, tag_id: 4)
+Tagging.create!(note_id: 3, tag_id: 5)
+Tagging.create!(note_id: 4, tag_id: 6)
