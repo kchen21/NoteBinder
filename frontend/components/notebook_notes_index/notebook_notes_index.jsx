@@ -20,7 +20,7 @@ class NotebookNotesIndex extends React.Component {
       return (
         <div className="notes-index-item">
           <h2>{ note.title }</h2>
-          <p>{ note.body.slice(0, 140) }</p>
+          <p>{ jQuery(note.body).text().slice(0, 111) }</p>
         </div>
       );
     };
