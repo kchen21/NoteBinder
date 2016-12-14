@@ -80,7 +80,7 @@ img {
   display: block;
   width: 500px;
   margin: 0 auto;
-  border: 1px solid #aaa;
+  border: 1px solid #ececec;
 }
 
 .form-footer {
@@ -107,7 +107,7 @@ img {
 .form-input > input {
   display: block;
   width: 100%;
-  border: 1px solid #aaa;
+  border: 1px solid #ececec;
   border-radius: 7px;
   padding: 5px;
 }
@@ -167,24 +167,25 @@ img {
 .home-sidebar {
   display: block;
   float: left;
-  width: 70px;
+  width: 72px;
   height: 100vh;
-  background: #eee;
+  background: #f8f8f8;
   overflow-y: scroll;
+  overflow: hidden;
 }
 
 .home-main {
   display: block;
   float: left;
-  width: calc(100vw - 70px);
+  width: calc(100vw - 72px);
   position: relative;
 }
 
 .sidebar-logo {
-  width: 50px;
-  height: 50px;
-  margin: 10px auto;
-  border: 1px solid #aaa;
+  width: 36px;
+  height: 36px;
+  margin: 12px auto 6px auto;
+  border: 1px solid #ececec;
 }
 
 .sidebar-tools {
@@ -196,10 +197,10 @@ img {
 }
 
 .sidebar-tool > img {
-  width: 50px;
-  height: 50px;
-  margin: 0 auto;
-  border: 1px solid #aaa;
+  width: 36px;
+  height: 36px;
+  margin: 6px auto;
+  border: 1px solid #ececec;
   background: #fff;
 }
 
@@ -209,10 +210,10 @@ img {
 }
 
 .sidebar-option > img {
-  width: 50px;
-  height: 50px;
-  margin: 0 auto;
-  border: 1px solid #aaa;
+  width: 36px;
+  height: 36px;
+  margin: 6px auto;
+  border: 1px solid #ececec;
   background: #fff;
 }
 
@@ -223,14 +224,18 @@ img {
 
 .logout-button {
   position: absolute;
-  top: 0;
-  right: 0;
-  padding: 5px 10px;
-  border: 1px solid #1fae52;
-  background: #2dbe60;
-  color: #fff;
+  top: 12px;
+  right: 16px;
+  display: block;
+  float: right;
+  padding: 7px 10px;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
   text-align: center;
-  font-weight: bold;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #606060;
 }
 
 .logout-button:hover {
@@ -243,38 +248,45 @@ img {
 .notes-index {
   display: block;
   float: left;
-  width: 330px;
-  border-left: 1px solid #aaa;
-  border-right: 1px solid #aaa;
+  width: 352px;
+  border-left: 1px solid #ececec;
+  border-right: 1px solid #ececec;
 }
 
 .notes-index-children {
   display: block;
   float: left;
-  width: calc(100vw - 400px);
+  width: calc(100vw - 424px);
 }
 
 .notes-index-header {
   display: block;
-  height: 86px;
-  padding: 10px;
-  border-bottom: 1px solid #aaa;
+  height: 106px;
+  padding: 24px 0 0 24px;
+  border-bottom: 1px solid #ececec;
 }
 
 .notes-index-header > h1 {
-  padding: 0 0 5px 0;
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
-  font-size: 36px;
+  margin: 0 0 32px 0;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 21px;
+  color: #878787;
+}
+
+.notes-index-header > p {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #ababab;
 }
 
 .notes-index-main {
-  height: calc(100vh - 86px);
+  height: calc(100vh - 106px);
   overflow-y: scroll;
 }
 
 .notes-index-item-wrapper {
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid #ececec;
 }
 
 .notes-index-item-wrapper:last-child {
@@ -283,9 +295,27 @@ img {
 
 .notes-index-item {
   display: block;
-  height: 131px;
-  padding: 10px;
+  height: 120px;
+  padding: 8px 27px;
   overflow: hidden;
+}
+
+.notes-index-item > h2 {
+  word-wrap: break-word;
+  margin-bottom: 6px;
+  font-family: caecilia, times, serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #4a4a4a;
+}
+
+.notes-index-item > p {
+  word-wrap: break-word;
+  margin: 8px 0;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #878787;
 }
 
 .notes-index-item:hover {
@@ -294,16 +324,16 @@ img {
   color: #fff;
 }
 
-.notes-index-item h2 {
-  word-wrap: break-word;
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
-  font-size: 24px;
+.notes-index-item:hover > h2 {
+  cursor: pointer;
+  background: #2dbe60;
+  color: #fff;
 }
 
-.notes-index-item p {
-  padding: 5px 0;
-  word-wrap: break-word;
+.notes-index-item:hover > p {
+  cursor: pointer;
+  background: #2dbe60;
+  color: #fff;
 }
 
 /* --- NOTE --- */
@@ -311,25 +341,26 @@ img {
 .note {
   display: block;
   height: 100vh;
-  padding: 30px 50px;
+  padding: 12px 18px;
   overflow-y: scroll;
+  overflow: hidden;
 }
 
 .note > h1 {
-  margin: 0 0 10px 0;
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
-  font-size: 36px;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 21px;
+  color: #878787;
+  padding: 0 0 36px 0;
 }
 
-.note > img {
+.note-trash-icon {
   float: right;
-  width: 50px;
-  height: 50px;
-  border: 1px solid #aaa;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ececec;
 }
 
-.note > img:hover {
+.note-trash-icon:hover {
   cursor: pointer;
   opacity: 0.75;
 }
@@ -343,8 +374,22 @@ img {
   font-weight: bold;
 }
 
+.note-form {
+  padding: 0 48px;
+}
+
+.note-form-select {
+  padding: 32px 0 10px 0;
+}
+
+.note-form-select > label {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 13px;
+  color: #878787;
+}
+
 .note-form-select > select {
-  margin: 0 5px;
+  margin: 6px 6px 0 7px;
 }
 
 .note-form-input {
@@ -353,48 +398,39 @@ img {
 }
 
 .note-form-input > label {
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
-  font-size: 24px;
-}
-
-.note-notebook_id-input-field {
-  display: block;
-  width: 50px;
-  border: 1px solid #aaa;
-  padding: 5px;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 13px;
+  color: #878787;
 }
 
 .note-title-input-field {
-  display: block;
   width: 100%;
-  height: 50px;
-  border: 1px solid #aaa;
-  padding: 10px;
-  color: #1fae52;
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
-  font-size: 24px;
+  font-family: caecilia, times, serif;
+  font-weight: 300;
+  font-size: 28px;
+  color: #2dbe60;
 }
 
 .note-form-input > textarea {
   display: block;
   width: 100%;
-  height: 300px;
-  border: 1px solid #aaa;
-  padding: 10px;
+  min-height: 300px;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 14px;
+  color: #383838;
 }
 
 .note-submit-button {
   display: block;
   float: right;
-  padding: 5px 10px;
-  border: 1px solid #1fae52;
-  background: #2dbe60;
-  color: #fff;
+  padding: 7px 10px;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
   text-align: center;
-  font-weight: bold;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 400;
   font-size: 20px;
+  color: #606060;
 }
 
 .note-submit-button:hover {
@@ -408,8 +444,8 @@ img {
   display: block;
   float: left;
   width: 330px;
-  border-left: 1px solid #aaa;
-  border-right: 1px solid #aaa;
+  border-left: 1px solid #ececec;
+  border-right: 1px solid #ececec;
 }
 
 .notebooks-index-children {
@@ -422,7 +458,7 @@ img {
   display: block;
   height: 86px;
   padding: 10px;
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid #ececec;
 }
 
 .notebooks-index-header-text {
@@ -441,7 +477,7 @@ img {
   float: right;
   width: 50px;
   height: 50px;
-  border: 1px solid #aaa;
+  border: 1px solid #ececec;
 }
 
 .notebooks-index-main {
@@ -450,7 +486,7 @@ img {
 }
 
 .notebooks-index-item-wrapper {
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid #ececec;
 }
 
 .notebooks-index-item-wrapper:last-child {
@@ -517,7 +553,7 @@ img {
   float: right;
   width: 50px;
   height: 50px;
-  border: 1px solid #aaa;
+  border: 1px solid #ececec;
 }
 
 .notebook > img:hover {
@@ -553,7 +589,7 @@ img {
   display: block;
   width: 100%;
   height: 50px;
-  border: 1px solid #aaa;
+  border: 1px solid #ececec;
   padding: 10px;
   color: #1fae52;
   font-family: 'Ubuntu', sans-serif;
@@ -565,7 +601,7 @@ img {
   display: block;
   width: 100%;
   height: 300px;
-  border: 1px solid #aaa;
+  border: 1px solid #ececec;
   padding: 10px;
 }
 
@@ -588,12 +624,28 @@ img {
 
 /* --- TAG --- */
 
-.new-tag-icon {
-  width: 50px;
-  height: 50px;
+.note-new-tag-icon {
+  float: left;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #ececec;
+}
+
+.note-tags {
+  float: left;
+  width: 666px;
+}
+
+.tags-index-tag-wrapper {
+  display: block;
+  float: left;
+  margin: 0 0 0 6px;
+  border: 1px solid #ececec;
+  padding: 1px 8px 1px;
+  border-radius: 4px;
 }
 
 .tag-trash-icon {
-  width: 10px;
-  height: 10px;
+  width: 18px;
+  height: 18px;
 }

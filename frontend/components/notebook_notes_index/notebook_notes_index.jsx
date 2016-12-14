@@ -18,7 +18,7 @@ class NotebookNotesIndex extends React.Component {
 
     const preview = (note) => {
       return (
-        <div>
+        <div className="notes-index-item">
           <h2>{ note.title }</h2>
           <p>{ note.body.slice(0, 140) }</p>
         </div>
@@ -30,9 +30,7 @@ class NotebookNotesIndex extends React.Component {
         noteList.push(
           <li className="notes-index-item-wrapper" key={ id }>
             <Link to={ "/notebooks/" + this.props.notebookId + "/notes/" + id }>
-              <div className="notes-index-item">
-                { preview(notes[id]) }
-              </div>
+              { preview(notes[id]) }
             </Link>
           </li>
         );

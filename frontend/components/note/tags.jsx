@@ -21,7 +21,7 @@ const Tags = ({ currentNote, tags }) => {
 
   return (
     <div className="note-tags">
-      <ul>
+      <ul class="group">
         { tagList }
       </ul>
     </div>

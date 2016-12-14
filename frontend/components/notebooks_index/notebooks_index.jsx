@@ -16,13 +16,13 @@ class NotebooksIndex extends React.Component {
 
     const preview = (notebook) => {
       return (
-        <div>
+        <div className="notebooks-index-item">
           <h2>{ notebook.title }</h2>
           <p>
             { Object.keys(notebook.note_ids).length + " Notes" }
             <Link className="notebook-update-link" to={"/notebooks/update/" + notebook.id }>Update Notebook Details</Link>
           </p>
-          <p>{ notebook.description.slice(0, 70) }</p>
+          <p>{ notebook.description.slice(0, 111) }</p>
         </div>
       );
     };
@@ -31,9 +31,7 @@ class NotebooksIndex extends React.Component {
       notebookList.push(
         <li className="notebooks-index-item-wrapper" key={ id }>
           <Link to={ "/notebooks/" + id + "/notes" }>
-            <div className="notebooks-index-item">
-              { preview(notebooks[id]) }
-            </div>
+            { preview(notebooks[id]) }
           </Link>
         </li>
       );

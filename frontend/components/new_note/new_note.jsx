@@ -75,7 +75,7 @@ class NewNote extends React.Component {
         <ul>
           { errors }
         </ul>
-        <form className="group" onSubmit={this.handleSubmit}>
+        <form className="note-form group" onSubmit={this.handleSubmit}>
           <div className="note-form-select">
             <label htmlFor="note-notebook">Notebook</label>
             <select value={ this.state.notebook_id } onChange={ this.handleNotebookChange } id="note-notebook">

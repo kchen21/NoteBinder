@@ -94,17 +94,17 @@ class Note extends React.Component {
     return (
         <div className="note group">
           <h1>Update Note</h1>
-          <Tags currentNote={ this.props.currentNote } tags={ this.props.tags } />
-          <div className="new-tag-icon">
+          <div className="note-new-tag-icon">
             <Link to={ pathElements.join("/") + "/new-tag" }>
               <img src={ window.assets.new_tag } />
             </Link>
           </div>
+          <Tags currentNote={ this.props.currentNote } tags={ this.props.tags } />
           <img className="note-trash-icon" onClick={ this.handleTrashClick } src={ window.assets.trash } />
           <ul>
             { errors }
           </ul>
-          <form className="group" onSubmit={ this.handleSubmit }>
+          <form className="note-form group" onSubmit={ this.handleSubmit }>
             <div className="note-form-select">
               <label htmlFor="note-notebook">Notebook</label>
               <select value={ this.state.notebook_id } onChange={ this.handleNotebookChange } id="note-notebook">
