@@ -256,6 +256,7 @@ img {
   display: block;
   float: left;
   width: calc(100vw - 424px);
+  min-width: 724px;
 }
 
 .notes-index-header {
@@ -342,7 +343,6 @@ img {
   display: block;
   height: 100vh;
   padding: 12px 18px;
-  overflow-y: scroll;
 }
 
 .note > h1 {
@@ -455,6 +455,7 @@ img {
   display: block;
   float: left;
   width: calc(100vw - 424px);
+  min-width: 724px;
 }
 
 .notebooks-index-header {
@@ -570,7 +571,6 @@ img {
   display: block;
   height: 100vh;
   padding: 12px 18px;
-  overflow-y: scroll;
 }
 
 .notebook > h1 {
@@ -722,6 +722,7 @@ img {
   display: block;
   float: left;
   width: calc(100vw - 424px);
+  min-width: 724px;
 }
 
 .tags-index-header {
