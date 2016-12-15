@@ -61,3 +61,16 @@ export const signUp = (user) => {
     return SessionAPIUtil.signUp(user).then(successCallback, errorCallback);
   };
 };
+
+export const updateUser = (formData) => {
+  return(dispatch) => {
+    const successCallback = (currentUser) => {
+      return dispatch(receiveCurrentUser(currentUser));
+    };
+    const errorCallback = (xhr) => {
+      return dispatch(receiveErrors(xhr.responseJSON));
+    };
+
+    return SessionAPIUtil.updateUser(formData).then(successCallback, errorCallback);
+  };
+};

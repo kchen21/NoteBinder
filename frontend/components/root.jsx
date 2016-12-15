@@ -13,6 +13,7 @@ import NotebookNotesIndexContainer from './notebook_notes_index/notebook_notes_i
 import TagsIndexContainer from './tags_index/tags_index_container';
 import NewTagContainer from './new_tag/new_tag_container';
 import TaggedNotesIndexContainer from './tagged_notes_index/tagged_notes_index_container';
+import AccountUpdateContainer from './account_update/account_update_container';
 
 const Root = ({ store }) => {
   const redirectIfSignedIn = (nextState, replace) => {
@@ -58,6 +59,7 @@ const Root = ({ store }) => {
         </Route>
         <Route path="/sign-in" onEnter={ redirectIfSignedIn } component={ AuthFormContainer } />
         <Route path="/sign-up" onEnter={ redirectIfSignedIn } component={ AuthFormContainer } />
+        <Route path="/account/update" onEnter={ redirectIfLoggedOut } component={ AccountUpdateContainer } />
       </Router>
     </Provider>
   );

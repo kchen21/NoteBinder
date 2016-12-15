@@ -18,9 +18,10 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home group">
-        <Sidebar />
+        <Sidebar currentUser={ this.props.currentUser } />
         <section className="home-main">
-          <img src={ this.props.currentUser.avatar_url } />
+          <p>{ "Welcome, " + this.props.currentUser.full_name + "!" }</p>
+          <Link to="/account/update">Update Account</Link>
           <button className="logout-button" onClick={ this.handleLogout }>Log Out</button>
           { this.props.children }
         </section>

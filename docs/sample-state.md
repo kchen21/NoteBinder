@@ -3,9 +3,10 @@
   session: {
     currentUser: {
       id: 1,
-      full_name: "John Doe"
-      email: "john.doe@example.com"
-      username: "JohnD"
+      full_name: "John Doe",
+      email: "john.doe@example.com",
+      username: "JohnD",
+      avatar_url: "www.example.com/users/JohnD/files/avatar.png"
     },
     errors: []
   },

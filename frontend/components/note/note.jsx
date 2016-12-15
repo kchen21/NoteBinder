@@ -135,7 +135,7 @@ class Note extends React.Component {
                 id="note-title"
                 type="text"
                 onChange={ this.handleChange("title") }
-                value={this.state.title}
+                value={ this.state.title }
               />
             </div>
 

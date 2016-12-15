@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const Sidebar = () => {
+const Sidebar = ({ currentUser }) => {
   return (
     <div className="home-sidebar">
-      <img className="sidebar-logo" src={ window.assets.wordless_logo } />
+      <img className="sidebar-avatar" src={ currentUser.avatar_url } />
 
       <ul className="sidebar-tools">
         <li>
