@@ -1,4 +1,8 @@
+json.ignore_nil!
+
 json.extract! tag, :id, :name
+
+json.note_ids({})
 
 json.note_ids do
   tag.notes.each do |note|

@@ -32,7 +32,7 @@ class NewNotebook extends React.Component {
     e.preventDefault();
     const notebook = Object.assign({}, this.state);
     this.props.createNotebook(notebook).then((newNotebook) => {
-      this.props.router.push(`/notebooks/${newNotebook.id}`);
+      this.props.router.push(`/notebooks`);
     });
   }
 

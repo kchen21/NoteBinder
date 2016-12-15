@@ -15,8 +15,6 @@ class NotebooksIndex extends React.Component {
     const notebookList = [];
 
     const preview = (notebook) => {
-      const notebookDescription = notebook.description || "";
-
       return (
         <div className="notebooks-index-item">
           <h2>{ notebook.title }</h2>
@@ -24,7 +22,7 @@ class NotebooksIndex extends React.Component {
             { Object.keys(notebook.note_ids).length + " Notes" }
             <Link className="notebook-update-link" to={"/notebooks/update/" + notebook.id }>Update Notebook Details</Link>
           </p>
-          <p>{ notebookDescription.slice(0, 111) }</p>
+          <p>{ notebook.description.slice(0, 111) }</p>
         </div>
       );
     };
