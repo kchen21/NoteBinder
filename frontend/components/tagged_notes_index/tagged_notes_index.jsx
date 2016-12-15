@@ -16,11 +16,19 @@ class TaggedNotesIndex extends React.Component {
     const notes = this.props.notes || {};
     const noteList = [];
 
+    const modifyBodyText = (bodyText) => {
+      if (bodyText.length > 111) {
+        return bodyText.slice(0, 111) + "...";
+      } else {
+        return bodyText;
+      }
+    };
+
     const preview = (note) => {
       return (
         <div className="notes-index-item">
           <h2>{ note.title }</h2>
-          <p>{ jQuery(note.body).text().slice(0, 111) }</p>
+          <p>{ modifyBodyText(jQuery(note.body).text()) }</p>
         </div>
       );
     };
