@@ -20,6 +20,7 @@ class Home extends React.Component {
       <div className="home group">
         <Sidebar />
         <section className="home-main">
+          <img src={ this.props.currentUser.avatar_url } />
           <button className="logout-button" onClick={ this.handleLogout }>Log Out</button>
           { this.props.children }
         </section>
