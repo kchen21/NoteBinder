@@ -65,9 +65,16 @@ class Note extends React.Component {
 
   handleTrashClick(e) {
     e.preventDefault();
-    this.props.destroyNote(this.props.currentNote.id).then(() => {
-      this.props.router.push('/notes');
-    });
+
+    const confirmation = confirm("Delete this note?");
+
+    if (confirmation === true) {
+      this.props.destroyNote(this.props.currentNote.id).then(() => {
+        this.props.router.push('/notes');
+      });
+    } else {
+      return;
+    }
   }
 
   handleNotebookChange(e) {

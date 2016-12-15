@@ -13,9 +13,15 @@ class TagsIndex extends React.Component {
   }
 
   handleTrashClick(id) {
-    this.props.destroyTag(id).then(() => {
-      this.props.router.push('/tags');
-    });
+    const confirmation = confirm("Delete this tag?");
+
+    if (confirmation === true) {
+      this.props.destroyTag(id).then(() => {
+        this.props.router.push('/tags');
+      });
+    } else {
+      return;
+    }
   }
 
   render() {

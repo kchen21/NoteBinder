@@ -48,9 +48,16 @@ class NotebookUpdate extends React.Component {
 
   handleTrashClick(e) {
     e.preventDefault();
-    this.props.destroyNotebook(this.props.currentNotebook.id).then(() => {
-      this.props.router.push('/notebooks');
-    });
+
+    const confirmation = confirm("Delete this notebook?");
+
+    if (confirmation === true) {
+      this.props.destroyNotebook(this.props.currentNotebook.id).then(() => {
+        this.props.router.push('/notebooks');
+      });
+    } else {
+      return;
+    }
   }
 
   render() {
