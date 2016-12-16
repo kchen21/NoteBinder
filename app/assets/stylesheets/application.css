@@ -135,7 +135,7 @@ img {
 
 .auth-form-error {
   text-align: center;
-  color: #2dbe60;
+  color: #f00;
 }
 
 .auth-form-error:last-of-type {
@@ -966,5 +966,9 @@ img {
   font-weight: 400;
   font-size: 20px;
   color: #606060;
+}
 
+.account-update-submit-button:hover {
+  cursor: pointer;
+  opacity: 0.75;
 }

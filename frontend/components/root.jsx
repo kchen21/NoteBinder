@@ -56,7 +56,7 @@ const Root = ({ store }) => {
               <Route path="new-tag" component={ NewTagContainer } />
             </Route>
           </Route>
-          <Route path="account/update" onEnter={ redirectIfLoggedOut } component={ AccountUpdateContainer } />
+          <Route path="account/update" component={ AccountUpdateContainer } />
         </Route>
         <Route path="/sign-in" onEnter={ redirectIfSignedIn } component={ AuthFormContainer } />
         <Route path="/sign-up" onEnter={ redirectIfSignedIn } component={ AuthFormContainer } />

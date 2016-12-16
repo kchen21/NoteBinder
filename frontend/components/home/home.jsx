@@ -21,7 +21,7 @@ class Home extends React.Component {
     if (this.props.currentUser) {
       fullName = this.props.currentUser.full_name;
     } else {
-      fullName = "";
+      fullName = "Anonymous";
     }
 
     return (
