@@ -20,7 +20,7 @@ There are several components handling notes: `NotesIndex`, `NewNote`, and `Note`
 
 Below is a screenshot of the path `/notes/new`, which corresponds to `NewNote`.
 
-![image of /notes/new]()
+![image of new note](docs/screenshots/new_note.png)
 
 Notice that there is a sidebar. The component that renders it is `Sidebar`, a subcomponent of `Home`. `Home` is a parent component of `NotesIndex` and is an ancestor of all the components that will be mentioned from now on (i.e. `Home` "houses" all of those components).
 
