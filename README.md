@@ -14,8 +14,6 @@ Before a user can create a new note, he/she must either create an account or sig
 
 Upon successful signin, the user will be given a `session_token` The user is also bootstrapped so that he/she remains logged on upon a page refresh. If the app detects that a user is signed in when a page loads, it will redirect him/her to a page where he/she can create a note.
 
-## Account Update
-
 ## Notes
 
 There are several components handling notes: `NotesIndex`, `NewNote`, and `Note`. `NotesIndex` renders a list containing a preview of each note, and is a parent the latter two. `NewNote` renders a form for creating a new note, while `Note` renders a form containing a note's contents and options for updating it.
@@ -47,3 +45,7 @@ Like notes and notebooks, tags also have a `TagsIndex` handling them. `TagsIndex
 On the database side, two tables have been created to handle tags. Since notes can have MANY tags and tags can have MANY notes, creating a `tags` table is not enough. Thus, a join table, `taggings`, has been added.
 
 The `tags` table consists of `id` and `name` columns, while the `taggings` table consists of `id`, `note_id`, and `tag_id` columns. Through `taggings`, associations have been created corresponding two the many-to-many relationship mentioned earlier. This is what allows the app to get the tags of a given note and get the notes that have the a given tag, and upon destruction of a tag, disconnect the tag from its notes.
+
+## Account Update
+
+The 'Account Update' page can be accessed via a link on the upper-right corner of the page. It is rendered using the `AccountUpdate` component. On the page, the user can update his/her full name and email, and also upload an avatar. Avatar uploading is implemented using the Paperclip library mentioned earlier and Amazon Web Services. Once a user updates his/her details, he/she will be redirected to the path `/notes/new`, where he/she can see his updated avatar on the top of the sidebar and an updated welcome message on the upper-right of the page.
