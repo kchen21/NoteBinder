@@ -17,7 +17,7 @@
  /* --- RESET --- */
 
 html, body, header, nav, h1, a, ul, li,
-strong, main, section, img, div, h2, p,
+main, section, img, div, h2, p,
 form, fieldset, label, input, textarea,
 button, article, footer, small {
   margin: 0;
@@ -52,6 +52,10 @@ img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 /* --- CLEARFIX --- */
@@ -220,24 +224,39 @@ img {
   opacity: 0.75;
 }
 
-.logout-button {
+.account-items {
   position: absolute;
-  top: 12px;
-  right: 16px;
-  display: block;
-  float: right;
-  padding: 7px 10px;
-  border: 1px solid #c4c4c4;
-  border-radius: 4px;
-  text-align: center;
-  background: #fff;
-  font-family: gotham, helvetica, arial, sans-serif;
+  top: 0;
+  right: 0;
+  font-family: caecilia, times, serif;
   font-weight: 400;
-  font-size: 20px;
-  color: #606060;
+  font-size: 16px;
+  color: #4a4a4a;
 }
 
-.logout-button:hover {
+.account-items > p {
+  float: left;
+  padding: 6px 10px;
+}
+
+.account-items > a {
+  float: left;
+  text-decoration: underline;
+  padding: 6px 0;
+}
+
+.account-items > a:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.account-items > button {
+  float: left;
+  text-decoration: underline;
+  padding: 6px 10px;
+}
+
+.account-items > button:hover {
   cursor: pointer;
   opacity: 0.75;
 }
@@ -847,4 +866,105 @@ img {
 .tag-submit-button:hover {
   cursor: pointer;
   opacity: 0.75;
+}
+
+/* --- ACCOUNT UPDATE --- */
+
+.account-update {
+  display: block;
+  height: 100vh;
+  padding: 12px 18px;
+}
+
+.account-update > h1 {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 300;
+  font-size: 21px;
+  color: #878787;
+  padding: 0 0 36px 0;
+}
+
+.account-update-form-error {
+  display: block;
+  width: 250px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 14px;
+  color: #f00;
+}
+
+.account-update-form label {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 13px;
+  color: #878787;
+}
+
+.avatar-preview {
+  display: block;
+  width: 300px;
+  height: auto;
+  margin: 0 auto 10px auto;
+}
+
+.update-avatar {
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.update-avatar > input {
+  width: 100%;
+  /*padding: 10px 0px;*/
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #383838;
+  margin: 0 auto 10px auto;
+}
+
+.update-full-name {
+  display: block;
+  width: 300px;
+  margin: 0 auto 10px auto;
+}
+
+.update-full-name > input {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #383838;
+}
+
+.update-email {
+  display: block;
+  width: 300px;
+  margin: 0 auto 10px auto;
+}
+
+.update-email > input {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #383838;
+}
+
+.account-update-submit-button {
+  display: block;
+  margin: 0 auto;
+  padding: 7px 10px;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
+  text-align: center;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #606060;
+
 }

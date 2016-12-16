@@ -16,13 +16,23 @@ class Home extends React.Component {
   }
 
   render() {
+    let fullName;
+
+    if (this.props.currentUser) {
+      fullName = this.props.currentUser.full_name;
+    } else {
+      fullName = "";
+    }
+
     return (
-      <div className="home group">
+      <div className="home">
         <Sidebar currentUser={ this.props.currentUser } />
         <section className="home-main">
-          <p>{ "Welcome, " + this.props.currentUser.full_name + "!" }</p>
-          <Link to="/account/update">Update Account</Link>
-          <button className="logout-button" onClick={ this.handleLogout }>Log Out</button>
+          <section className="account-items group">
+            <p>{ "Welcome, " + fullName + "!" }</p>
+            <Link to="/account/update">Update Account</Link>
+            <button className="logout-button" onClick={ this.handleLogout }>Log Out</button>
+          </section>
           { this.props.children }
         </section>
       </div>

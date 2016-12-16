@@ -75,25 +75,32 @@ class AccountUpdate extends React.Component {
         <ul>{ errors }</ul>
         <section className="account-update-form">
           <form>
-            <img src={ this.state.avatarUrl } />
-            <label htmlFor="update-avatar">Avatar</label>
-            <input id="avatar-upload" type="file" onChange={ this.updateFile } />
+            <img className="avatar-preview" src={ this.state.avatarUrl } />
 
-            <label htmlFor="update-full-name">Full Name</label>
-            <input
-              id="update-full-name"
-              type="text"
-              onChange={ this.handleChange("full_name") }
-              value={ this.state.full_name }
-            />
+            <div className="update-avatar">
+              <label htmlFor="update-avatar">Avatar</label>
+              <input id="avatar-upload" type="file" onChange={ this.updateFile } />
+            </div>
 
+            <div className="update-full-name">
+              <label htmlFor="update-full-name">Full Name</label>
+              <input
+                id="update-full-name"
+                type="text"
+                onChange={ this.handleChange("full_name") }
+                value={ this.state.full_name }
+              />
+            </div>
+
+            <div className="update-email">
             <label htmlFor="update-email">Email</label>
-            <input
-              id="update-email"
-              type="text"
-              onChange={ this.handleChange("email") }
-              value={ this.state.email }
-            />
+              <input
+                id="update-email"
+                type="text"
+                onChange={ this.handleChange("email") }
+                value={ this.state.email }
+              />
+            </div>
 
             <button className="account-update-submit-button" onClick={ this.handleSubmit }>Save</button>
           </form>

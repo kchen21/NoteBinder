@@ -2,9 +2,17 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const Sidebar = ({ currentUser }) => {
+  let avatarUrl;
+
+  if (currentUser) {
+    avatarUrl = currentUser.avatar_url;
+  } else {
+    avatarUrl = "";
+  }
+
   return (
     <div className="home-sidebar">
-      <img className="sidebar-avatar" src={ currentUser.avatar_url } />
+      <img className="sidebar-avatar" src={ avatarUrl } />
 
       <ul className="sidebar-tools">
         <li>
