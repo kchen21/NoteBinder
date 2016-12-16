@@ -49,3 +49,13 @@ The `tags` table consists of `id` and `name` columns, while the `taggings` table
 ## Account Update
 
 The 'Account Update' page can be accessed via a link on the upper-right corner of the page. It is rendered using the `AccountUpdate` component. On the page, the user can update his/her full name and email, and also upload an avatar. Avatar uploading is implemented using the Paperclip library mentioned earlier and Amazon Web Services. Once a user updates his/her details, he/she will be redirected to the path `/notes/new`, where he/she can see his updated avatar on the top of the sidebar and an updated welcome message on the upper-right of the page.
+
+## To Be Implemented
+
+### Note Search
+
+Users will be able to search for notes. While entering search criteria in the search bar, the list of notes that match the input will re-render, so that the search results update as each character is inputted.
+
+### Notebook Search
+
+In addition to searching through notes, users will also be able to search through notebooks.
