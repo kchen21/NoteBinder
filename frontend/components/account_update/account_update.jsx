@@ -53,8 +53,12 @@ class AccountUpdate extends React.Component {
     var formData = new FormData();
     formData.append("user[full_name]", this.getState().full_name);
     formData.append("user[email]", this.getState().email);
-    formData.append("user[avatar]", this.getState().avatarFile);
     formData.append("id", this.getProps().currentUser.id);
+
+    if (this.state.avatarFile) {
+      formData.append("user[avatar]", this.getState().avatarFile);
+    }
+
     this.props.updateUser(formData).then(() => {
       this.props.router.push('/notes/new');
     });
@@ -62,7 +66,7 @@ class AccountUpdate extends React.Component {
 
   render() {
     const errors = this.props.errors.map((error, index) => {
-      return <li className="account-update-error" key={ index }>{ error }</li>;
+      return <li className="account-update-form-error" key={ index }>{ error }</li>;
     });
 
     return (
