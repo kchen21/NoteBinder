@@ -261,6 +261,31 @@ img {
   opacity: 0.75;
 }
 
+.home-main-footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-family: caecilia, times, serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #4a4a4a;
+}
+
+.home-main-footer > a {
+  float: left;
+  text-decoration: underline;
+  padding: 6px 10px;
+}
+
+.home-main-footer > a:last-of-type {
+  padding: 6px 10px 6px 0;
+}
+
+.home-main-footer > a:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
 /* --- NOTES --- */
 
 .notes-index {
@@ -830,6 +855,7 @@ img {
   text-align: center;
   font-family: gotham, helvetica, arial, sans-serif;
   font-size: 21px;
+  font-weight: 300;
   color: #878787;
   padding: 0 0 10px 0;
 }
@@ -852,14 +878,14 @@ img {
 
 .tag-submit-button {
   display: block;
-  padding: 7px 10px;
+  padding: 4.9px 7px;
   border: 1px solid #c4c4c4;
   border-radius: 4px;
   margin: 5px auto 0 auto;
   text-align: center;
   font-family: gotham, helvetica, arial, sans-serif;
   font-weight: 400;
-  font-size: 10px;
+  font-size: 14px;
   color: #606060;
 }
 

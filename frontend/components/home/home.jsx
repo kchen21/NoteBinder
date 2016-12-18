@@ -33,6 +33,10 @@ class Home extends React.Component {
             <Link to="/account/update">Update Account</Link>
             <button className="logout-button" onClick={ this.handleLogout }>Log Out</button>
           </section>
+          <section className="home-main-footer group">
+            <a href="https://github.com/kchen21">Github</a>
+            <a href="https://www.linkedin.com/in/kchen21">LinkedIn</a>
+          </section>
           { this.props.children }
         </section>
       </div>

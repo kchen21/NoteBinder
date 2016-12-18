@@ -16,7 +16,7 @@ Upon successful signin, the user will be given a `session_token`. The user is al
 
 ## Notes
 
-There are several components handling notes: `NotesIndex`, `NewNote`, and `Note`. `NotesIndex` renders a list containing a preview of each note, and is a parent the latter two. `NewNote` renders a form for creating a new note, while `Note` renders a form containing a note's contents and options for updating it.
+There are several components handling notes: `NotesIndex`, `NewNote`, and `Note`. `NotesIndex` renders a scrollable list containing a preview of each note, and is a parent the latter two. `NewNote` renders a form for creating a new note, while `Note` renders a form containing a note's contents and options for updating it.
 
 Below is a screenshot of the path `/notes/new`, which corresponds to `NewNote`.
 
