@@ -85,12 +85,14 @@ img {
   width: 500px;
   margin: 0 auto;
   border: 1px solid #ececec;
+  font-family: gotham, helvetica, arial, sans-serif;
 }
 
 .form-footer {
   display: block;
   margin: 40px 0;
   text-align: center;
+  font-family: gotham, helvetica, arial, sans-serif;
   font-size: 14px;
 }
 
@@ -126,6 +128,7 @@ img {
   background: #2dbe60;
   text-align: center;
   color: #fff;
+  font-family: gotham, helvetica, arial, sans-serif;
 }
 
 .submit-button:hover {
@@ -136,6 +139,7 @@ img {
 .auth-form-error {
   text-align: center;
   color: #f00;
+  font-family: gotham, helvetica, arial, sans-serif;
 }
 
 .auth-form-error:last-of-type {
@@ -854,8 +858,8 @@ img {
 .tag > h1 {
   text-align: center;
   font-family: gotham, helvetica, arial, sans-serif;
-  font-size: 21px;
   font-weight: 300;
+  font-size: 21px;
   color: #878787;
   padding: 0 0 10px 0;
 }
@@ -941,7 +945,6 @@ img {
 
 .update-avatar > input {
   width: 100%;
-  /*padding: 10px 0px;*/
   font-family: gotham, helvetica, arial, sans-serif;
   font-weight: 300;
   font-size: 16px;
