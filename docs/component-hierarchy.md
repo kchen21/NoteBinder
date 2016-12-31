@@ -50,17 +50,11 @@
  - TaggedNotesIndex
   + Note
 
-<!-- TOEDIT -->
 
-**NotesIndex**
- - NotesIndexItem
-  + NoteDetail
-    - NoteTools
-    - NotebooksSearch
-    - Tags
-      + Tag
-    - RTETools
-    - Note
+**AccountUpdateContainer**
+ - AccountUpdate
+
+<!-- TODO -->
 
 **SearchResultsContainer**
 - Search
@@ -76,12 +70,6 @@
  - AutoSearch
  - AutoSearchResults
 
-**AccountMenu**
-
-**UpdateAccount**
-
-<!-- TOEDIT -->
-
 ## Routes
 
 |Path   | Component   |
@@ -92,18 +80,23 @@
 | "/notes" | "NotesIndexContainer" |
 | "/notes/new" | "NewNoteContainer" |
 | "/notes/:noteId" | "NoteContainer" |
+| "/tags/:tagId/notes/:noteId" | "NoteContainer" |
 | "/notebooks" | "NotebooksIndexContainer" |
 | "/notebooks/new" | "NewNotebookContainer" |
 | "/notebooks/update/:notebookId" | "NotebookUpdateContainer" |
 | "/notebooks/:notebookId" | "NotebookNotesIndexContainer" |
 | "/notebooks/:notebookId/notes/:noteId" | "NotebookContainer" |
+| "/notes/:noteId/new-tag" | "NewTagContainer" |
+| "/notebooks/:notebookId/notes/:noteId/new-tag" | "NewTagContainer" |
 | "/tags" | "TagsIndexContainer" |
 | "/tags/new" | "NewTagContainer" |
 | "/tags/:tagId/notes" | "TaggedNotesIndexContainer" |
-| "/tags/:tagId/notes/:noteId" | "TagContainer" |
+| "/tags/:tagId/notes/:noteId/new-tag" | "NewTagContainer" |
+| "/account/update" | "AccountUpdateContainer" |
+
+<!-- TODO -->
+
 | "/search-results" | "SearchResultsContainer" |
 | "/search" | "Search" |
 | "/tags-search" | "TagsSearch" |
 | "/notebooks-search" | "NotebooksSearch" |
-| "/account-menu" | "AccountMenu" |
-| "/update-account" | "UpdateAccount" |
