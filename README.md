@@ -24,7 +24,25 @@ Below is a screenshot of the path `/notes/new`, which corresponds to `NewNote`.
 
 Notice that there is a sidebar. The component that renders it is `Sidebar`, a subcomponent of `Home`. `Home` is a parent component of `NotesIndex` and is an ancestor of all the components that will be mentioned from now on (i.e. `Home` "houses" all of those components).
 
-You may also have noticed that rich-text editing is available for a note's body. This feature has been implemented using the library ReactQuill for enhanced user experience.
+You may also have noticed that rich-text editing is available for a note's body. This feature has been implemented using ReactQuill, a Quill component for React, for enhanced user experience.
+
+Within the controlled components `NewNote` and `Note` exist the following snippets of code, which make rich-text editing possible.
+
+```javascript
+handleBodyChange(value) {
+  this.setState({ body: value });
+}
+```
+
+```javascript
+<ReactQuill
+  className="note-body"
+  id="note-body"
+  onChange={ this.handleBodyChange }
+  value={ this.state.body }
+  theme="snow"
+/>
+```
 
 On the database side, notes are stored in a table consisting of the following columns: `title`, `body`, `notebook_id`, `created_at`, and `updated_at`. Each note belongs to a notebook, and the association between the two is created using `notebook_id`.
 
