@@ -34,6 +34,7 @@ class Home extends React.Component {
             <button className="logout-button" onClick={ this.handleLogout }>Log Out</button>
           </section>
           <section className="home-main-footer group">
+            <a href="http://www.kennethchen.info">Portfolio</a>
             <a href="https://github.com/kchen21/NoteBinder">Github</a>
             <a href="https://www.linkedin.com/in/kchen21">LinkedIn</a>
           </section>

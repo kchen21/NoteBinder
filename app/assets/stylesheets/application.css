@@ -278,10 +278,6 @@ img {
 .home-main-footer > a {
   float: left;
   text-decoration: underline;
-  padding: 6px 10px;
-}
-
-.home-main-footer > a:last-of-type {
   padding: 6px 10px 6px 0;
 }
 
