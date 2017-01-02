@@ -71,8 +71,8 @@ class AccountUpdate extends React.Component {
 
     return (
       <div className="account-update">
-        <h1>UPDATE ACCOUNT</h1>
-        <ul>{ errors }</ul>
+        <img className="account-update-logo" src={ window.assets.logo } />
+        <h1>Update Account</h1>
         <section className="account-update-form">
           <form>
             <img className="avatar-preview" src={ this.state.avatarUrl } />
@@ -104,6 +104,7 @@ class AccountUpdate extends React.Component {
 
             <button className="account-update-submit-button" onClick={ this.handleSubmit }>Save</button>
           </form>
+          <ul>{ errors }</ul>
         </section>
         <section className="account-update-children">
           { this.props.children }

@@ -128,7 +128,6 @@ img {
   background: #2dbe60;
   text-align: center;
   color: #fff;
-  font-family: gotham, helvetica, arial, sans-serif;
 }
 
 .submit-button:hover {
@@ -897,103 +896,107 @@ img {
 /* --- ACCOUNT UPDATE --- */
 
 .account-update {
-  display: block;
   height: 100vh;
-  padding: 12px 18px;
+  vertical-align: middle;
+  padding: 0 0 40px 0;
+  overflow-y: scroll;
+}
+
+.account-update-logo {
+  display: block;
+  width: auto;
+  height: 180px;
+  margin: 0 auto;
 }
 
 .account-update > h1 {
-  font-family: gotham, helvetica, arial, sans-serif;
-  font-weight: 300;
-  font-size: 21px;
-  color: #878787;
-  padding: 0 0 36px 0;
-}
-
-.account-update-form-error {
   display: block;
-  width: 250px;
-  margin: 0 auto;
+  margin: 20px;
   text-align: center;
-  font-family: gotham, helvetica, arial, sans-serif;
-  font-size: 14px;
-  color: #f00;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 28px;
 }
 
-.account-update-form label {
+.account-update-form {
+  display: block;
+  width: 500px;
+  margin: 0 auto;
+  border: 1px solid #ececec;
   font-family: gotham, helvetica, arial, sans-serif;
-  font-size: 13px;
-  color: #878787;
 }
 
 .avatar-preview {
   display: block;
-  width: 300px;
+  width: 100px;
   height: auto;
-  margin: 0 auto 10px auto;
+  margin: 0 auto;
+  padding: 20px 0 0 0;
 }
 
 .update-avatar {
   display: block;
-  width: 300px;
+  width: 320px;
   margin: 0 auto;
 }
 
 .update-avatar > input {
+  display: block;
   width: 100%;
-  font-family: gotham, helvetica, arial, sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  color: #383838;
-  margin: 0 auto 10px auto;
 }
 
 .update-full-name {
   display: block;
-  width: 300px;
-  margin: 0 auto 10px auto;
+  width: 320px;
+  margin: 0 auto;
+  padding: 20px 0 0 0;
 }
 
 .update-full-name > input {
+  display: block;
   width: 100%;
-  border: 1px solid #ccc;
-  padding: 8px 10px;
-  font-family: gotham, helvetica, arial, sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  color: #383838;
+  border: 1px solid #ececec;
+  border-radius: 7px;
+  padding: 5px;
 }
 
 .update-email {
   display: block;
-  width: 300px;
-  margin: 0 auto 10px auto;
+  width: 320px;
+  margin: 0 auto;
+  padding: 20px 0 0 0;
 }
 
 .update-email > input {
+  display: block;
   width: 100%;
-  border: 1px solid #ccc;
-  padding: 8px 10px;
-  font-family: gotham, helvetica, arial, sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  color: #383838;
+  border: 1px solid #ececec;
+  border-radius: 7px;
+  padding: 5px;
 }
 
 .account-update-submit-button {
   display: block;
-  margin: 0 auto;
-  padding: 7px 10px;
-  border: 1px solid #c4c4c4;
-  border-radius: 4px;
+  width: 320px;
+  margin: 20px auto 20px auto;
+  border: 1px solid #1fae52;
+  border-radius: 7px;
+  padding: 20px 40px;
+  background: #2dbe60;
   text-align: center;
-  font-family: gotham, helvetica, arial, sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  color: #606060;
+  color: #fff;
 }
 
 .account-update-submit-button:hover {
   cursor: pointer;
   opacity: 0.75;
+}
+
+.account-update-form-error {
+  text-align: center;
+  color: #f00;
+  font-family: gotham, helvetica, arial, sans-serif;
+}
+
+.account-update-form-error:last-of-type {
+  margin: 0 0 20px 0;
 }
