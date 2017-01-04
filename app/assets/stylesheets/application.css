@@ -177,6 +177,7 @@ img {
   width: 72px;
   height: 100vh;
   background: #f8f8f8;
+  overflow-y: scroll;
 }
 
 .home-main {
@@ -380,6 +381,11 @@ img {
   color: #fff;
 }
 
+.notes-index-children {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
 /* --- NOTE --- */
 
 .note {
@@ -499,6 +505,8 @@ img {
   float: left;
   width: calc(100vw - 424px);
   min-width: 724px;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .notebooks-index-header {
@@ -841,13 +849,20 @@ img {
   opacity: 0.75;
 }
 
+.tags-index-children {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
 /* --- NEW TAG --- */
 
 .tag {
   display: block;
-  width: 250px;
-  margin: auto;
-  padding: 12px 18px;
+  width: 50%;
+  height: 120px;
+  margin: 67px auto 0 auto;
+  border: 3px solid green;
+  padding: 10px;
 }
 
 .tag > h1 {

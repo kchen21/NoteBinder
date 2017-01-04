@@ -41,7 +41,7 @@ const Root = ({ store }) => {
           </Route>
           <Route path="notebooks" component={ NotebooksIndexContainer }>
             <Route path="new" component={ NewNotebookContainer } />
-            <Route path="update/:notebookId" component= { NotebookUpdateContainer } />
+            <Route path="update/:notebookId" component={ NotebookUpdateContainer } />
           </Route>
           <Route path="notebooks/:notebookId/notes" component={ NotebookNotesIndexContainer }>
             <Route path=":noteId" component={ NoteContainer }>
