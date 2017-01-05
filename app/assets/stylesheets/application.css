@@ -121,7 +121,7 @@ img {
 .submit-button {
   display: block;
   width: 320px;
-  margin: 20px auto 20px auto;
+  margin: 20px auto;
   border: 1px solid #1fae52;
   border-radius: 7px;
   padding: 20px 40px;
@@ -142,11 +142,11 @@ img {
 }
 
 .auth-form-error:last-of-type {
-  margin: 0 0 20px 0;
+  margin-bottom: 20px;
 }
 
 .guest-button {
-  margin: 0 0 10px 0;
+  margin-bottom: 10px;
   border: 1px solid #1fae52;
   border-radius: 7px;
   padding: 5px;
@@ -311,7 +311,7 @@ img {
 }
 
 .notes-index-header > h1 {
-  margin: 0 0 32px 0;
+  margin-bottom: 32px;
   font-family: gotham, helvetica, arial, sans-serif;
   font-size: 21px;
   font-weight: 300;
@@ -406,7 +406,7 @@ img {
   float: right;
   width: 36px;
   height: 36px;
-  margin: 0 48px 0 0;
+  margin-right: 48px;
   border: 1px solid #ececec;
 }
 
@@ -440,7 +440,7 @@ img {
 }
 
 .note-form-select > select {
-  margin: 0 0 0 6px;
+  margin-left: 6px;
 }
 
 .note-form-input {
@@ -533,7 +533,7 @@ img {
 
 .new-notebook-icon {
   position: absolute;
-  top: 12px;
+  top: 11px;
   right: 148px;
   width: 38px;
   height: 38px;
@@ -636,7 +636,7 @@ img {
   float: right;
   width: 36px;
   height: 36px;
-  margin: 0 48px 0 0;
+  margin-right: 48px;
   border: 1px solid #ececec;
 }
 
@@ -646,7 +646,7 @@ img {
 }
 
 .notebook > p {
-  margin: 0 0 0 48px;
+  margin-left: 48px;
   padding: 0 0 44px 0;
   font-family: gotham, helvetica, arial, sans-serif;
   font-size: 14px;
@@ -800,7 +800,7 @@ img {
 
 .new-tag-icon {
   position: absolute;
-  top: 12px;
+  top: 11px;
   right: 226px;
   width: 38px;
   height: 38px;
@@ -841,7 +841,7 @@ img {
   float: left;
   width: 18px;
   height: 18px;
-  margin: 0 0 0 6px;
+  margin-left: 6px;
 }
 
 .tag-trash-icon:hover {
@@ -859,10 +859,14 @@ img {
 .tag {
   display: block;
   width: 50%;
-  height: 120px;
   margin: 67px auto 0 auto;
-  border: 3px solid green;
+  border: 3px solid #2dbe60;
   padding: 10px;
+}
+
+.tag > img {
+  width: 36px;
+  margin: 0 auto 10px auto;
 }
 
 .tag > h1 {
@@ -871,36 +875,38 @@ img {
   font-weight: 300;
   font-size: 21px;
   color: #878787;
-  padding: 0 0 10px 0;
+  margin-bottom: 10px;
 }
 
 .tag-form-input {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .tag-name-input-field {
-  width: auto;
+  width: 50%;
   border: 1px solid #ececec;
   border-radius: 4px;
   margin: 0 6px;
   padding: 1px 8px 1px 8px;
   font-family: gotham, helvetica, arial, sans-serif;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 32px;
   color: #606060;
 }
 
 .tag-submit-button {
   display: block;
-  padding: 4.9px 7px;
-  border: 1px solid #c4c4c4;
-  border-radius: 4px;
-  margin: 5px auto 0 auto;
+  padding: 9px 14px;
+  border: 1px solid #2dbe60;
+  border-radius: 5px;
+  margin: 0 auto;
+  background-color: #2dbe60;
   text-align: center;
   font-family: gotham, helvetica, arial, sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  color: #606060;
+  font-weight: 500;
+  font-size: 13px;
+  color: #ffffff;
 }
 
 .tag-submit-button:hover {
@@ -992,7 +998,7 @@ img {
 .account-update-submit-button {
   display: block;
   width: 320px;
-  margin: 20px auto 20px auto;
+  margin: 20px auto;
   border: 1px solid #1fae52;
   border-radius: 7px;
   padding: 20px 40px;
@@ -1013,5 +1019,5 @@ img {
 }
 
 .account-update-form-error:last-of-type {
-  margin: 0 0 20px 0;
+  margin-bottom: 20px;
 }

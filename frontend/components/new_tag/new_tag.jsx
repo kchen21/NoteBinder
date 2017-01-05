@@ -19,23 +19,26 @@ class NewTag extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const tag = Object.assign({}, this.state);
-    this.props.createTag(this.props.noteId, tag).then((oldOrNewTag) => {
-      if (this.props.path === '/tags/new') {
-        this.props.router.push('/tags');
-      } else {
-        const pathElements = this.props.path.split("/");
-        const newPathElements = pathElements.slice(0, pathElements.length - 1);
-        this.props.fetchAllNotes();
-        this.props.router.push(newPathElements.join("/"));
-      }
-    });
+    if (this.state.name) {
+      const tag = Object.assign({}, this.state);
+      this.props.createTag(this.props.noteId, tag).then((oldOrNewTag) => {
+        if (this.props.path === '/tags/new') {
+          this.props.router.push('/tags');
+        } else {
+          const pathElements = this.props.path.split("/");
+          const newPathElements = pathElements.slice(0, pathElements.length - 1);
+          this.props.fetchAllNotes();
+          this.props.router.push(newPathElements.join("/"));
+        }
+      });
+    }
   }
 
   render() {
     return (
       <div className="tag">
-        <h1>Create Tag</h1>
+        <img src={ window.assets.tags } />
+        <h1>CREATE TAG</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="tag-form-input">
             <label htmlFor="new-tag-name"></label>
