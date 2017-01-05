@@ -301,6 +301,7 @@ img {
   float: left;
   width: calc(100vw - 424px);
   min-width: 724px;
+  height: 100vh;
 }
 
 .notes-index-header {
@@ -381,17 +382,14 @@ img {
   color: #fff;
 }
 
-.notes-index-children {
-  height: 100vh;
-  overflow-y: scroll;
-}
-
 /* --- NOTE --- */
 
 .note {
   display: block;
-  height: 100vh;
-  padding: 12px 18px;
+  height: calc(100vh - 60px);
+  margin: 30px 0;
+  padding: 0 18px 12px 18px;
+  overflow-y: scroll;
 }
 
 .note > h1 {
@@ -430,7 +428,7 @@ img {
 }
 
 .note-form-select {
-  padding: 48px 0 0 0;
+  margin-top: 48px;
 }
 
 .note-form-select > label {
@@ -774,6 +772,7 @@ img {
   float: left;
   width: calc(100vw - 424px);
   min-width: 724px;
+  height: 100vh;
 }
 
 .tags-index-header {
@@ -849,19 +848,22 @@ img {
   opacity: 0.75;
 }
 
-.tags-index-children {
-  height: 100vh;
+/* --- NEW TAG --- */
+
+.note {
+  display: block;
+  height: calc(100vh - 60px);
+  margin: 30px 0;
+  padding: 0 18px 12px 18px;
   overflow-y: scroll;
 }
-
-/* --- NEW TAG --- */
 
 .tag {
   display: block;
   width: 50%;
-  margin: 67px auto 0 auto;
-  border: 3px solid #2dbe60;
-  padding: 10px;
+  max-height: calc(100vh - 86px);
+  margin: 56px auto 30px auto;
+  overflow-y: scroll;
 }
 
 .tag > img {
