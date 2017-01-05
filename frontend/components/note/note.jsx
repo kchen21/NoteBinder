@@ -105,15 +105,17 @@ class Note extends React.Component {
     }
 
     return (
-        <div className="note group">
+        <div className="note">
           <h1>UPDATE NOTE</h1>
-          <div className="note-new-tag-icon">
-            <Link to={ pathElements.join("/") + "/new-tag" }>
-              <img src={ window.assets.new_tag } />
-            </Link>
+          <div className="floated-elements group">
+            <div className="note-new-tag-icon">
+              <Link to={ pathElements.join("/") + "/new-tag" }>
+                <img src={ window.assets.new_tag } />
+              </Link>
+            </div>
+            <Tags currentNote={ this.props.currentNote } tags={ this.props.tags } />
+            <img className="note-trash-icon" onClick={ this.handleTrashClick } src={ window.assets.trash } />
           </div>
-          <Tags currentNote={ this.props.currentNote } tags={ this.props.tags } />
-          <img className="note-trash-icon" onClick={ this.handleTrashClick } src={ window.assets.trash } />
           <section className="note-children">
             { this.props.children }
           </section>

@@ -107,7 +107,7 @@ img {
   display: block;
   width: 320px;
   margin: 0 auto;
-  padding: 20px 0 0 0;
+  padding-top: 20px;
 }
 
 .form-input > input {
@@ -397,7 +397,7 @@ img {
   font-weight: 300;
   font-size: 21px;
   color: #878787;
-  padding: 0 0 36px 0;
+  padding-bottom: 36px;
 }
 
 .note-trash-icon {
@@ -428,7 +428,7 @@ img {
 }
 
 .note-form-select {
-  margin-top: 48px;
+  margin-top: 10px;
 }
 
 .note-form-select > label {
@@ -627,7 +627,7 @@ img {
   font-weight: 300;
   font-size: 21px;
   color: #878787;
-  padding: 0 0 36px 0;
+  padding-bottom: 36px;
 }
 
 .notebook-trash-icon {
@@ -645,7 +645,7 @@ img {
 
 .notebook > p {
   margin-left: 48px;
-  padding: 0 0 44px 0;
+  padding-bottom: 44px;
   font-family: gotham, helvetica, arial, sans-serif;
   font-size: 14px;
   color: #f00;
@@ -850,19 +850,11 @@ img {
 
 /* --- NEW TAG --- */
 
-.note {
-  display: block;
-  height: calc(100vh - 60px);
-  margin: 30px 0;
-  padding: 0 18px 12px 18px;
-  overflow-y: scroll;
-}
-
 .tag {
   display: block;
   width: 50%;
-  max-height: calc(100vh - 86px);
-  margin: 56px auto 30px auto;
+  max-height: calc(100vh - 60px);
+  margin: 30px auto 30px auto;
   overflow-y: scroll;
 }
 
@@ -890,7 +882,7 @@ img {
   border: 1px solid #ececec;
   border-radius: 4px;
   margin: 0 6px;
-  padding: 1px 8px 1px 8px;
+  padding: 1px 8px;
   font-family: gotham, helvetica, arial, sans-serif;
   font-weight: 300;
   font-size: 32px;
@@ -921,7 +913,7 @@ img {
 .account-update {
   height: 100vh;
   vertical-align: middle;
-  padding: 0 0 40px 0;
+  padding-bottom: 40px;
   overflow-y: scroll;
 }
 
@@ -953,7 +945,7 @@ img {
   width: 100px;
   height: auto;
   margin: 0 auto;
-  padding: 20px 0 0 0;
+  padding-top: 20px;
 }
 
 .update-avatar {
@@ -971,7 +963,7 @@ img {
   display: block;
   width: 320px;
   margin: 0 auto;
-  padding: 20px 0 0 0;
+  padding-top: 20px;
 }
 
 .update-full-name > input {
@@ -986,7 +978,7 @@ img {
   display: block;
   width: 320px;
   margin: 0 auto;
-  padding: 20px 0 0 0;
+  padding-top: 20px;
 }
 
 .update-email > input {
