@@ -128,12 +128,9 @@ class AuthForm extends React.Component {
       ];
       footer = [
         <li key="0">
-          <button className="guest-button" onClick={ this.signInGuest }>Sign In As Guest</button>
-        </li>,
-        <li key="1">
           <p>{ "Have an account?" }</p>
         </li>,
-        <li key="2">
+        <li key="1">
           <Link className="page-change" to="/sign-in">Sign In</Link>
         </li>
       ];
@@ -179,9 +176,12 @@ class AuthForm extends React.Component {
       ];
       footer = [
         <li key="0">
-          <p>{ "Don't have an account?" }</p>
+          <button className="guest-button" onClick={ this.signInGuest }>Sign In As Guest</button>
         </li>,
         <li key="1">
+          <p>{ "Don't have an account?" }</p>
+        </li>,
+        <li key="2">
           <Link className="page-change" to="/sign-up">Create Account</Link>
         </li>
       ];

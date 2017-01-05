@@ -146,13 +146,15 @@ img {
 }
 
 .guest-button {
-  margin-bottom: 10px;
+  display: block;
+  width: 240px;
+  margin: 10px auto;
   border: 1px solid #1fae52;
   border-radius: 7px;
-  padding: 5px;
+  padding: 15px 40px;
   background: #2dbe60;
   text-align: center;
-  color: white;
+  color: #fff;
 }
 
 .guest-button:hover {
