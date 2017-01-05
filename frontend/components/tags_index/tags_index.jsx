@@ -34,6 +34,9 @@ class TagsIndex extends React.Component {
           <div className="tags-index-tag">
             <Link to={ "/tags/" + id + "/notes" }>
                 { tags[id].name }
+                <div className="tags-index-tag-note-count">
+                  { Object.keys(tags[id].note_ids).length }
+                </div>
             </Link>
           </div>
           <img className="tag-trash-icon" onClick={ () => this.handleTrashClick(id) } src={ window.assets.trash } />

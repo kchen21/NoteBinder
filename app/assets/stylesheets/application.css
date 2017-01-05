@@ -744,7 +744,7 @@ img {
   margin: 0 0 6px 6px;
   border: 1px solid #ececec;
   border-radius: 4px;
-  padding: 1px 8px 1px;
+  padding: 1px 8px;
   background: #f8f8f8;
   font-family: gotham, helvetica, arial, sans-serif;
   font-size: 12px;
@@ -827,7 +827,7 @@ img {
   float: left;
   border: 1px solid #ececec;
   border-radius: 4px;
-  padding: 1px 8px 1px;
+  padding: 1px 8px;
   background: #f8f8f8;
   font-family: gotham, helvetica, arial, sans-serif;
   font-size: 12px;
@@ -836,7 +836,14 @@ img {
 
 .tags-index-tag:hover {
   cursor: pointer;
-  opacity: 0.75;
+  background: #2dbe60;
+  color: #ffffff;
+}
+
+.tags-index-tag-note-count {
+  display: inline;
+  padding-left: 12px;
+  color: #228B22;
 }
 
 .tag-trash-icon {
