@@ -26,23 +26,21 @@ Notice that there is a sidebar. The component that renders it is `Sidebar`, a su
 
 You may also have noticed that rich-text editing is available for a note's body. This feature has been implemented using ReactQuill, a Quill component for React, for enhanced user experience.
 
-Within the controlled components `NewNote` and `Note` exist the following snippets of code, which make rich-text editing possible.
+I'd also like to point out that what allows the contents of a selected note to render when a user switches notes is the following:
 
 ```javascript
-handleBodyChange(value) {
-  this.setState({ body: value });
+componentWillReceiveProps(newProps) {
+  if (this.props.params.noteId !== newProps.params.noteId) {
+    this.setState({
+      title: newProps.currentNote.title,
+      body: newProps.currentNote.body,
+      notebook_id: newProps.currentNote.notebook_id
+    });
+  }
 }
 ```
 
-```javascript
-<ReactQuill
-  className="note-body"
-  id="note-body"
-  onChange={ this.handleBodyChange }
-  value={ this.state.body }
-  theme="snow"
-/>
-```
+Taking advantage of the fact the the path changes (i.e. `noteId` changes), `componentWillReceiveProps` resets `Note`'s initial state whenever a user switches notes.
 
 On the database side, notes are stored in a table consisting of the following columns: `title`, `body`, `notebook_id`, `created_at`, and `updated_at`. Each note belongs to a notebook, and the association between the two is created using `notebook_id`.
 
