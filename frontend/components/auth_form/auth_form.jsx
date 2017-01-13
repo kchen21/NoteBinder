@@ -34,6 +34,7 @@ class AuthForm extends React.Component {
 
     if (this.props.path === "/sign-up") {
       this.props.signUp(user).then(() => {
+        this.props.createNotebook({ title: "First Notebook" });
         this.props.router.push('/notes/new');
       });
     } else if (this.props.path === "/sign-in") {

@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(full_name: "Guest", email: "guest@notebinder.com", username: "Guest", password: "123456") # id: 1
-Notebook.create!(title: "First Notebook", author_id: 1) # id: 1
 Notebook.create!(title: "Work", author_id: 1) # id: 2
 Notebook.create!(title: "New York Restaurant Reviews", author_id: 1) # id: 3
 Notebook.create!(title: "Travel Diary", author_id: 1) # id: 4

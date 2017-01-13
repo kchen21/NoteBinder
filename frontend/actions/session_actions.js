@@ -63,9 +63,9 @@ export const signUp = (user) => {
 };
 
 export const updateUser = (formData) => {
-  return(dispatch) => {
+  return (dispatch) => {
     const successCallback = (currentUser) => {
-      return dispatch(receiveCurrentUser(currentUser));
+      dispatch(receiveCurrentUser(currentUser));
     };
     const errorCallback = (xhr) => {
       return dispatch(receiveErrors(xhr.responseJSON));
