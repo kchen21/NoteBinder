@@ -5,7 +5,7 @@ class Api::NotesController < ApplicationController
 
   def index
     if params[:search]
-      @notes = Note.where(["title LIKE ?", "%#{params[:search]}%"])
+      @notes = Note.joins(:author).where(["users.id = #{current_user.id} AND (notes.title LIKE ? OR notes.body LIKE ?)", "%#{params[:search]}%", "%#{params[:search]}%"])
     else
       @notes = current_user.notes
     end
