@@ -1,9 +1,15 @@
+require 'byebug'
+
 class Api::NotesController < ApplicationController
   before_action :require_signed_in!, only: [:index, :create, :show, :update, :destroy]
 
   def index
+    if params[:search]
+      @notes = Note.where(["title LIKE ?", "%#{params[:search]}%"])
+    else
       @notes = current_user.notes
-      render :index
+    end
+    render :index
   end
 
   def create

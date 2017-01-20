@@ -5,6 +5,14 @@ export const fetchAllNotes = () => {
   });
 };
 
+export const fetchNoteSearchResults = (search) => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/notes',
+    data: { search }
+  });
+};
+
 export const createNote = (note) => {
   return $.ajax({
     method: 'POST',
