@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
     resources :notes, only: [:index, :create, :show, :update, :destroy] do
       resources :tags, only: [:create]
+      collection do
+        get 'search'
+      end
     end
 
     resources :notebooks, only: [:index, :create, :show, :update, :destroy]

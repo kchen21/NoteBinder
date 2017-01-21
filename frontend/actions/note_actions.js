@@ -12,9 +12,9 @@ export const receiveAllNotes = (notes) => ({
   notes
 });
 
-export const receiveNoteSearchResults = (notes) => ({
+export const receiveNoteSearchResults = (ids) => ({
   type: RECEIVE_NOTE_SEARCH_RESULTS,
-  notes
+  ids
 });
 
 export const receiveNote = (note) => ({
@@ -51,8 +51,8 @@ export const fetchAllNotes = () => {
 
 export const fetchNoteSearchResults = (search) => {
   return (dispatch) => {
-    const successCallback = (notes) => {
-      return dispatch(receiveNoteSearchResults(notes));
+    const successCallback = (searchNoteIds) => {
+      return dispatch(receiveNoteSearchResults(searchNoteIds));
     };
 
     return NoteAPIUtil.fetchNoteSearchResults().then(successCallback);

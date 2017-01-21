@@ -2,12 +2,13 @@ class Api::NotesController < ApplicationController
   before_action :require_signed_in!, only: [:index, :create, :show, :update, :destroy]
 
   def index
-    if params[:search]
-      @notes = Note.joins(:author).where(["users.id = #{current_user.id} AND (notes.title LIKE ? OR notes.body LIKE ?)", "%#{params[:search]}%", "%#{params[:search]}%"])
-    else
-      @notes = current_user.notes
-    end
+    @notes = current_user.notes
     render :index
+  end
+
+  def search
+    @notes = Note.joins(:author).where(["users.id = #{current_user.id} AND (notes.title LIKE ? OR notes.body LIKE ?)", "%#{params[:search]}%", "%#{params[:search]}%"])
+    render :search
   end
 
   def create

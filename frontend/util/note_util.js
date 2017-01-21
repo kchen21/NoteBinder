@@ -8,7 +8,7 @@ export const fetchAllNotes = () => {
 export const fetchNoteSearchResults = (search) => {
   return $.ajax({
     method: 'GET',
-    url: '/api/notes',
+    url: '/api/notes/search',
     data: { search }
   });
 };
