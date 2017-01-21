@@ -37,7 +37,8 @@
         }
       }
     },
-    errors: ["title can't be blank"]
+    errors: ["title can't be blank"],
+    searchNoteIds: {}
   },
   tags: {
     1: {

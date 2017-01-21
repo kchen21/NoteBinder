@@ -1,9 +1,10 @@
-import { RECEIVE_ALL_NOTES, RECEIVE_NOTE, REMOVE_NOTE, RECEIVE_ERRORS, CLEAR_ERRORS } from '../actions/note_actions';
+import { RECEIVE_ALL_NOTES, RECEIVE_NOTE_SEARCH_RESULTS, RECEIVE_NOTE, REMOVE_NOTE, RECEIVE_ERRORS, CLEAR_ERRORS } from '../actions/note_actions';
 import { merge } from 'lodash';
 
 const _defaultState = {
   notes: {},
-  errors: []
+  errors: [],
+  searchNoteIds: {}
 };
 
 const noteDataReducer = (state = _defaultState, action) => {
@@ -14,6 +15,9 @@ const noteDataReducer = (state = _defaultState, action) => {
   switch(action.type) {
     case RECEIVE_ALL_NOTES:
       newState.notes = action.notes;
+      return newState;
+    case RECEIVE_NOTE_SEARCH_RESULTS:
+      newState.searchNoteIds = action.ids;
       return newState;
     case RECEIVE_NOTE:
       newState.notes[action.note.id] = action.note;
