@@ -1,6 +1,7 @@
 import * as NoteAPIUtil from '../util/note_util';
 
 export const RECEIVE_ALL_NOTES = 'RECEIVE_ALL_NOTES';
+export const RECEIVE_NOTE_SEARCH_RESULTS = 'RECEIVE_NOTE_SEARCH_RESULTS';
 export const RECEIVE_NOTE = 'RECEIVE_NOTE';
 export const REMOVE_NOTE = 'REMOVE_NOTE';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
@@ -8,6 +9,11 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 export const receiveAllNotes = (notes) => ({
   type: RECEIVE_ALL_NOTES,
+  notes
+});
+
+export const receiveNoteSearchResults = (notes) => ({
+  type: RECEIVE_NOTE_SEARCH_RESULTS,
   notes
 });
 
@@ -40,6 +46,16 @@ export const fetchAllNotes = () => {
     };
 
     return NoteAPIUtil.fetchAllNotes().then(successCallback);
+  };
+};
+
+export const fetchNoteSearchResults = (search) => {
+  return (dispatch) => {
+    const successCallback = (notes) => {
+      return dispatch(receiveNoteSearchResults(notes));
+    };
+
+    return NoteAPIUtil.fetchNoteSearchResults().then(successCallback);
   };
 };
 

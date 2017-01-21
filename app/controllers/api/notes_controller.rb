@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Api::NotesController < ApplicationController
   before_action :require_signed_in!, only: [:index, :create, :show, :update, :destroy]
 
