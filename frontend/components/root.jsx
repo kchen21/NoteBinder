@@ -14,6 +14,7 @@ import TagsIndexContainer from './tags_index/tags_index_container';
 import NewTagContainer from './new_tag/new_tag_container';
 import TaggedNotesIndexContainer from './tagged_notes_index/tagged_notes_index_container';
 import AccountUpdateContainer from './account_update/account_update_container';
+import NoteSearchContainer from './note_search/note_search_container';
 
 const Root = ({ store }) => {
   const redirectIfSignedIn = (nextState, replace) => {
@@ -33,6 +34,11 @@ const Root = ({ store }) => {
       <Router history={ hashHistory }>
         <Redirect from="/" to="notes/new" />
         <Route path="/" onEnter={ redirectIfLoggedOut } component={ HomeContainer }>
+          <Route path="note-search" component={ NoteSearchContainer }>
+            <Route path=":noteId" component={ NoteContainer }>
+              <Route path="new-tag" component={ NewTagContainer } />
+            </Route>
+          </Route>
           <Route path="notes" component={ NotesIndexContainer }>
             <Route path="new" component={ NewNoteContainer } />
             <Route path=":noteId" component={ NoteContainer }>

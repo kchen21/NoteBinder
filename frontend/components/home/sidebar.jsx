@@ -22,7 +22,7 @@ const Sidebar = ({ currentUser }) => {
         </li>
 
         <li>
-          <Link className="sidebar-tool" to="/search">
+          <Link className="sidebar-tool" to="/note-search">
             <img src={ window.assets.search } />
           </Link>
         </li>

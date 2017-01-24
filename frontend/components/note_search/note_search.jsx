@@ -35,6 +35,7 @@ class NoteSearch extends React.Component {
             onChange={ this.handleChange("searchString") }
             value={ this.state.searchString }
           />
+          <input className="note-search-submit-button" type="submit" value="Search" />
         </form>
       );
     };
@@ -62,7 +63,7 @@ class NoteSearch extends React.Component {
       let note = this.state.notes[id];
       searchNoteList.push(
         <li className="search-notes-index-item-wrapper" key={ id }>
-          <Link to={ "/notes/" + id }>
+          <Link to={ "/note-search/" + id }>
             { preview(note) }
           </Link>
         </li>
