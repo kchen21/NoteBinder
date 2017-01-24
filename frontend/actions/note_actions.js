@@ -49,7 +49,7 @@ export const fetchAllNotes = () => {
   };
 };
 
-export const fetchNoteSearchResults = (search) => {
+export const fetchNoteSearchResults = (searchString) => {
   return (dispatch) => {
     const successCallback = (searchNoteIds) => {
       return dispatch(receiveNoteSearchResults(searchNoteIds));

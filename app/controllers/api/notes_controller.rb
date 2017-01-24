@@ -7,7 +7,7 @@ class Api::NotesController < ApplicationController
   end
 
   def search
-    @notes = Note.joins(:author).where(["users.id = #{current_user.id} AND (notes.title LIKE ? OR notes.body LIKE ?)", "%#{params[:search]}%", "%#{params[:search]}%"])
+    @notes = Note.joins(:author).where(["users.id = #{current_user.id} AND (notes.title LIKE ? OR notes.body LIKE ?)", "%#{params[:searchString]}%", "%#{params[:searchString]}%"])
     render :search
   end
 

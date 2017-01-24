@@ -5,11 +5,11 @@ export const fetchAllNotes = () => {
   });
 };
 
-export const fetchNoteSearchResults = (search) => {
+export const fetchNoteSearchResults = (searchString) => {
   return $.ajax({
     method: 'GET',
     url: '/api/notes/search',
-    data: { search }
+    data: { searchString }
   });
 };
 
