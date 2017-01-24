@@ -28,7 +28,7 @@ class NoteSearch extends React.Component {
   render() {
     const searchForm = () => {
       return (
-        <form className="note-search-form">
+        <form className="note-search-form" onSubmit={ this.handleSubmit }>
           <input
             className="note-search-input-field"
             type="text"
