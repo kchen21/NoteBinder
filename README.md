@@ -66,15 +66,17 @@ The `tags` table consists of `id` and `name` columns, while the `taggings` table
 
 The 'Account Update' page can be accessed via a link on the upper-right corner of the page. It is rendered using the `AccountUpdate` component. On the page, the user can update his/her full name and email, and also upload an avatar. Avatar uploading is implemented using the Paperclip library mentioned earlier and Amazon Web Services. Once a user updates his/her details, he/she will be redirected to the path `/notes/new`, where he/she can see his updated avatar on the top of the sidebar and an updated welcome message on the upper-right of the page.
 
+## Note Search
+
+Users can search for notes that contain specific phrases or words. Searching occurs on the backend. Given a search string, `ActiveRecord` queries the database for matches in either note titles or bodies.
+
+On the frontend, the `NoteSearch` component renders a form for inputting a search string. When the form is submitted, an index of notes that match the search string is rendered. Clicking on one of `NoteSearch`'s index elements renders its child, `Note`.
+
 ## To Be Implemented
 
 ### Note Creation Through NotebookNotesIndex
 
 Users will be able to create a note through `NotebookNotesIndex`. The value of the Notebook selector on the 'New Note' page will be pre-selected when the `NewNote` component mounts.
-
-### Note Search
-
-Users will be able to search for notes. While entering search criteria in the search bar, the list of notes that match the input will re-render, so that the search results update as each character is inputted.
 
 ### Notebook Search
 
