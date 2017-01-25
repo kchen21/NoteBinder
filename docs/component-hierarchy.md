@@ -50,25 +50,18 @@
  - TaggedNotesIndex
   + Note
 
-
 **AccountUpdateContainer**
  - AccountUpdate
 
+**NoteSearchContainer**
+ - NoteSearch
+  + Note
+
 <!-- TODO -->
 
-**SearchResultsContainer**
-- Search
-- NotesIndex
+**NotebookSearchContainer**
 
-**Search**
-
-**NotebooksSearch**
- - AutoSearch
- - AutoSearchResults
-
-**TagsSearch**
- - AutoSearch
- - AutoSearchResults
+**TagSearchContainer**
 
 ## Routes
 
@@ -80,23 +73,24 @@
 | "/notes" | "NotesIndexContainer" |
 | "/notes/new" | "NewNoteContainer" |
 | "/notes/:noteId" | "NoteContainer" |
-| "/tags/:tagId/notes/:noteId" | "NoteContainer" |
+| "/notes/:noteId/new-tag" | "NewTagContainer" |
 | "/notebooks" | "NotebooksIndexContainer" |
 | "/notebooks/new" | "NewNotebookContainer" |
 | "/notebooks/update/:notebookId" | "NotebookUpdateContainer" |
-| "/notebooks/:notebookId" | "NotebookNotesIndexContainer" |
+| "/notebooks/:notebookId/notes" | "NotebookNotesIndexContainer" |
 | "/notebooks/:notebookId/notes/:noteId" | "NotebookContainer" |
-| "/notes/:noteId/new-tag" | "NewTagContainer" |
 | "/notebooks/:notebookId/notes/:noteId/new-tag" | "NewTagContainer" |
 | "/tags" | "TagsIndexContainer" |
 | "/tags/new" | "NewTagContainer" |
 | "/tags/:tagId/notes" | "TaggedNotesIndexContainer" |
+| "/tags/:tagId/notes/:noteId" | "NoteContainer" |
 | "/tags/:tagId/notes/:noteId/new-tag" | "NewTagContainer" |
 | "/account/update" | "AccountUpdateContainer" |
+| "/note-search" | "NoteSearchContainer" |
+| "/note-search/:noteId" | "NoteContainer" |
+| "/note-search/:noteId/new-tag" | "NewTagContainer" |
 
 <!-- TODO -->
 
-| "/search-results" | "SearchResultsContainer" |
-| "/search" | "Search" |
-| "/tags-search" | "TagsSearch" |
-| "/notebooks-search" | "NotebooksSearch" |
+| "/tag-search" | "TagSearch" |
+| "/notebook-search" | "NotebookSearch" |
