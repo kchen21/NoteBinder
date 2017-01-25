@@ -13,6 +13,12 @@ class NoteSearch extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+      this.props.fetchAllNotes();
+      this.props.fetchAllNotebooks();
+      this.props.fetchAllTags();
+  }
+
   handleChange(prop) {
     return (e) => {
       return this.setState({ [prop]: e.currentTarget.value });
