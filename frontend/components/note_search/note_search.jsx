@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class NoteSearch extends React.Component {
   constructor(props) {
@@ -40,6 +41,7 @@ class NoteSearch extends React.Component {
       );
     };
 
+    const notes = this.props.notes;
     const searchNoteList = [];
 
     const modifyBodyText = (bodyText) => {
@@ -60,7 +62,7 @@ class NoteSearch extends React.Component {
     };
 
     for (let id in this.state.searchNoteIds) {
-      let note = this.state.notes[id];
+      let note = notes[id];
       searchNoteList.push(
         <li className="search-notes-index-item-wrapper" key={ id }>
           <Link to={ "/note-search/" + id }>

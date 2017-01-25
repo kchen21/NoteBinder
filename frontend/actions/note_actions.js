@@ -55,7 +55,7 @@ export const fetchNoteSearchResults = (searchString) => {
       return dispatch(receiveNoteSearchResults(searchNoteIds));
     };
 
-    return NoteAPIUtil.fetchNoteSearchResults().then(successCallback);
+    return NoteAPIUtil.fetchNoteSearchResults(searchString).then(successCallback);
   };
 };
 
