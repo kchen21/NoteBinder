@@ -30,8 +30,9 @@
         id: 1,
         title: "Sample Note",
         body: "for planning purposes",
-        author_name: 1,
         notebook_id: 1,
+        updated_at: "2016-12-16T07:01:42.436Z",
+        author_name: 1,
         tags_ids: {
           1: 1
         }

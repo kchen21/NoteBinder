@@ -1,6 +1,6 @@
 json.ignore_nil!
 
-json.extract! note, :id, :title, :body, :notebook_id
+json.extract! note, :id, :title, :body, :notebook_id, :updated_at
 
 json.author_name note.author.full_name
 
