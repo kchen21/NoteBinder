@@ -35,7 +35,7 @@ const mergeSort = (arr, cb) => {
         sortedArr.push(sortedRightHalf.shift());
         break;
       default:
-        throw new Error('Invalid Callback');
+        throw new Error('Invalid callback');
     }
   }
 

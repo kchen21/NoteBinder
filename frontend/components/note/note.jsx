@@ -70,7 +70,24 @@ class Note extends React.Component {
 
     if (confirmation === true) {
       this.props.destroyNote(this.props.currentNote.id).then(() => {
-        this.props.router.push('/notes');
+        const path = this.props.path.split("/");
+        
+        switch (path[1]) {
+          case "notes":
+            this.props.router.push('/notes');
+            break;
+          case "notebooks":
+            this.props.router.push(`/notebooks/${path[2]}`);
+            break;
+          case "tags":
+            this.props.router.push(`/tags/${path[2]}`);
+            break;
+          case "note-search":
+            this.props.router.push('/note-search');
+            break;
+          default:
+            throw new Error("Invalid pathname");
+        }
       });
     } else {
       return;

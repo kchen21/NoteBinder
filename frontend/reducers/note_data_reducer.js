@@ -24,6 +24,7 @@ const noteDataReducer = (state = _defaultState, action) => {
       return newState;
     case REMOVE_NOTE:
       delete newState.notes[action.id];
+      delete newState.searchNoteIds[action.id];
       return newState;
     case RECEIVE_ERRORS:
       newState.errors = action.errors;
