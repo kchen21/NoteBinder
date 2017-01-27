@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import * as IndexFunctions from '../../helper_functions/index_functions';
 
 class NotesIndex extends React.Component {
   constructor(props) {
@@ -13,8 +14,11 @@ class NotesIndex extends React.Component {
   }
 
   render() {
-    const notes = this.props.notes || {};
+    let notes = this.props.notes || {};
     const noteList = [];
+
+    notes = IndexFunctions.notesObjToArr(notes);
+    notes = IndexFunctions.mergeSortNotes(notes);
 
     const modifyBodyText = (bodyText) => {
       if (bodyText.length > 111) {
@@ -33,11 +37,12 @@ class NotesIndex extends React.Component {
       );
     };
 
-    for (let id in notes) {
+    for (let i = 0; i < notes.length; i++) {
+      let note = notes[i];
       noteList.push(
-        <li className="notes-index-item-wrapper" key={ id }>
-          <Link to={ "/notes/" + id }>
-            { preview(notes[id]) }
+        <li className="notes-index-item-wrapper" key={ note.id }>
+          <Link to={ "/notes/" + note.id }>
+            { preview(note) }
           </Link>
         </li>
       );
