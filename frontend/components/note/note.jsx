@@ -66,29 +66,33 @@ class Note extends React.Component {
   handleTrashClick(e) {
     e.preventDefault();
 
+    const currentNoteId = this.props.currentNote.id;
     const confirmation = confirm("Delete this note?");
 
     if (confirmation === true) {
-      this.props.destroyNote(this.props.currentNote.id).then(() => {
-        const path = this.props.path.split("/");
-        
-        switch (path[1]) {
-          case "notes":
+      const path = this.props.path.split("/");
+      switch (path[1]) {
+        case "notes":
+          this.props.destroyNote(currentNoteId).then(() => {
             this.props.router.push('/notes');
-            break;
-          case "notebooks":
-            this.props.router.push(`/notebooks/${path[2]}`);
-            break;
-          case "tags":
-            this.props.router.push(`/tags/${path[2]}`);
-            break;
-          case "note-search":
-            this.props.router.push('/note-search');
-            break;
-          default:
-            throw new Error("Invalid pathname");
-        }
-      });
+          });
+          break;
+        case "notebooks":
+          const currentNotebookId = path[2];
+          this.props.removeNoteIdFromNotebook(currentNotebookId, currentNoteId);
+          this.props.destroyNote(currentNoteId).then(() => {
+            this.props.router.push(`/notebooks/${currentNotebookId}/notes`);
+          });
+          break;
+        case "tags":
+          this.props.router.push(`/tags/${path[2]}`);
+          break;
+        case "note-search":
+          this.props.router.push('/note-search');
+          break;
+        default:
+          throw new Error("Invalid pathname");
+      }
     } else {
       return;
     }
