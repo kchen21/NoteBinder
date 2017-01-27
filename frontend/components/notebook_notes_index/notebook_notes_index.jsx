@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import * as IndexFunctions from '../../helper_functions/index_functions';
 
 class NotebookNotesIndex extends React.Component {
   constructor(props) {
@@ -14,7 +15,11 @@ class NotebookNotesIndex extends React.Component {
 
   render() {
     const notes = this.props.notes || {};
-    const noteList = [];
+    const currentNotebookNoteIds = this.props.currentNotebook.note_ids;
+    const currentNotebookNoteList = [];
+
+    let currentNotebookNotes = IndexFunctions.idsObjToNotesArr(notes, currentNotebookNoteIds);
+    currentNotebookNotes = IndexFunctions.mergeSortNotes(currentNotebookNotes);
 
     const modifyBodyText = (bodyText) => {
       if (bodyText.length > 111) {
@@ -33,16 +38,15 @@ class NotebookNotesIndex extends React.Component {
       );
     };
 
-    for (let id in notes) {
-      if (this.props.currentNotebook.note_ids[id]) {
-        noteList.push(
-          <li className="notes-index-item-wrapper" key={ id }>
-            <Link to={ "/notebooks/" + this.props.notebookId + "/notes/" + id }>
-              { preview(notes[id]) }
-            </Link>
-          </li>
-        );
-      }
+    for (let i = 0; i < currentNotebookNotes.length; i++) {
+      let note = currentNotebookNotes[i];
+      currentNotebookNoteList.push(
+        <li className="notes-index-item-wrapper" key={ note.id }>
+          <Link to={ "/notebooks/" + this.props.notebookId + "/notes/" + note.id }>
+            { preview(note) }
+          </Link>
+        </li>
+      );
     }
 
     return (
@@ -50,11 +54,11 @@ class NotebookNotesIndex extends React.Component {
         <section className="notes-index">
           <section className="notes-index-header">
             <h1>{ this.props.currentNotebook.title }</h1>
-            <p>{ noteList.length + " Notes" }</p>
+            <p>{ currentNotebookNoteList.length + " Notes" }</p>
           </section>
           <section className="notes-index-main">
             <ul>
-              { noteList }
+              { currentNotebookNoteList }
             </ul>
           </section>
         </section>
