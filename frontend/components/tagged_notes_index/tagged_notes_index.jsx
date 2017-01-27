@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import * as IndexFunctions from '../../helper_functions/index_functions';
 
 class TaggedNotesIndex extends React.Component {
   constructor(props) {
@@ -14,7 +15,11 @@ class TaggedNotesIndex extends React.Component {
 
   render() {
     const notes = this.props.notes || {};
-    const noteList = [];
+    const currentTagNoteIds = this.props.currentTag.note_ids;
+    const currentTagNoteList = [];
+
+    let currentTagNotes = IndexFunctions.idsObjToNotesArr(notes, currentTagNoteIds);
+    currentTagNotes = IndexFunctions.mergeSortNotes(currentTagNotes);
 
     const modifyBodyText = (bodyText) => {
       if (bodyText.length > 111) {
@@ -33,16 +38,15 @@ class TaggedNotesIndex extends React.Component {
       );
     };
 
-    for (let id in notes) {
-      if (this.props.currentTag.note_ids[id]) {
-        noteList.push(
-          <li className="notes-index-item-wrapper" key={ id }>
-            <Link to={ "/tags/" + this.props.tagId + "/notes/" + id }>
-              { preview(notes[id]) }
-            </Link>
-          </li>
-        );
-      }
+    for (let i = 0; i < currentTagNotes.length; i++) {
+      let note = currentTagNotes[i];
+      currentTagNoteList.push(
+        <li className="notes-index-item-wrapper" key={ note.id }>
+          <Link to={ "/tags/" + this.props.tagId + "/notes/" + note.id }>
+            { preview(note) }
+          </Link>
+        </li>
+      );
     }
 
     return (
@@ -50,11 +54,11 @@ class TaggedNotesIndex extends React.Component {
         <section className="notes-index">
           <section className="notes-index-header">
             <h1>{ this.props.currentTag.name }</h1>
-            <p>{ noteList.length + " Notes" }</p>
+            <p>{ currentTagNoteList.length + " Notes" }</p>
           </section>
           <section className="notes-index-main">
             <ul>
-              { noteList }
+              { currentTagNoteList }
             </ul>
           </section>
         </section>
