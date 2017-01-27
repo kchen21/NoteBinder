@@ -10,6 +10,16 @@ export const notesObjToArr = (notesObj) => {
   return notes;
 };
 
+export const idsObjToNotesArr = (notesObj, idsObj) => {
+  const notes = [];
+
+  for (let id in idsObj) {
+    notes.push(notesObj[id]);
+  }
+
+  return notes;
+};
+
 export const sortNotesByUpdatedAt = (note1, note2) => {
   if (note1.updated_at > note2.updated_at) {
     return -1;

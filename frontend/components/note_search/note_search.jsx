@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import * as IndexFunctions from '../../helper_functions/index_functions';
 
 class NoteSearch extends React.Component {
   constructor(props) {
@@ -48,7 +49,11 @@ class NoteSearch extends React.Component {
     };
 
     const notes = this.props.notes;
+    const searchNoteIds = this.props.searchNoteIds;
     const searchNoteList = [];
+
+    let searchNotes = IndexFunctions.idsObjToNotesArr(notes, searchNoteIds);
+    searchNotes = IndexFunctions.mergeSortNotes(searchNotes);
 
     const modifyBodyText = (bodyText) => {
       if (bodyText.length > 111) {
@@ -67,11 +72,11 @@ class NoteSearch extends React.Component {
       );
     };
 
-    for (let id in this.state.searchNoteIds) {
-      let note = notes[id];
+    for (let i = 0; i < searchNotes.length; i++) {
+      let note = searchNotes[i];
       searchNoteList.push(
-        <li className="search-notes-index-item-wrapper" key={ id }>
-          <Link to={ "/note-search/" + id }>
+        <li className="search-notes-index-item-wrapper" key={ note.id }>
+          <Link to={ "/note-search/" + note.id }>
             { preview(note) }
           </Link>
         </li>
