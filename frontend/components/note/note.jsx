@@ -54,13 +54,7 @@ class Note extends React.Component {
     e.preventDefault();
     const note = Object.assign({}, this.state);
     note.id = this.props.currentNote.id;
-    this.props.updateNote(note).then(() => {
-      if (this.props.path === `/notes/${note.id}`) {
-        return;
-      } else {
-        this.props.router.push(`/notebooks/${note.notebook_id}/notes/${note.id}`);
-      }
-    });
+    this.props.updateNote(note);
   }
 
   handleTrashClick(e) {
