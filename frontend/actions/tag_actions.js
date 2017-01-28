@@ -3,6 +3,7 @@ import * as TagAPIUtil from '../util/tag_util';
 export const RECEIVE_ALL_TAGS = 'RECEIVE_ALL_TAGS';
 export const RECEIVE_TAG = 'RECEIVE_TAG';
 export const REMOVE_TAG = 'REMOVE_TAG';
+export const REMOVE_NOTE_ID_FROM_TAG = 'REMOVE_NOTE_ID_FROM_TAG';
 
 export const receiveAllTags = (tags) => ({
   type: RECEIVE_ALL_TAGS,
@@ -17,6 +18,12 @@ export const receiveTag = (tag) => ({
 export const removeTag = (id) => ({
   type: REMOVE_TAG,
   id
+});
+
+export const removeNoteIdFromTag = (tagId, noteId) => ({
+  type: REMOVE_NOTE_ID_FROM_TAG,
+  tagId,
+  noteId
 });
 
 // thunk action creators

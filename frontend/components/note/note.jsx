@@ -85,7 +85,11 @@ class Note extends React.Component {
           });
           break;
         case "tags":
-          this.props.router.push(`/tags/${path[2]}`);
+          const currentTagId = path[2];
+          this.props.removeNoteIdFromTag(currentTagId, currentNoteId);
+          this.props.destroyNote(currentNoteId).then(() => {
+            this.props.router.push(`/tags/${path[2]}/notes`);
+          });
           break;
         case "note-search":
           this.props.router.push('/note-search');

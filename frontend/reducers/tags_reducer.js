@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_TAGS, RECEIVE_TAG, REMOVE_TAG } from '../actions/tag_actions';
+import { RECEIVE_ALL_TAGS, RECEIVE_TAG, REMOVE_TAG, REMOVE_NOTE_ID_FROM_TAG } from '../actions/tag_actions';
 import { merge } from 'lodash';
 
 const tagsReducer = (state = {}, action) => {
@@ -14,6 +14,9 @@ const tagsReducer = (state = {}, action) => {
       return newState;
     case REMOVE_TAG:
       delete newState[action.id];
+      return newState;
+    case REMOVE_NOTE_ID_FROM_TAG:
+      delete newState[action.tagId].note_ids[action.noteId];
       return newState;
     default:
       return state;
