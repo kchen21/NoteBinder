@@ -20,7 +20,11 @@ export const idsObjToNotesArr = (notesObj, idsObj) => {
   return notes;
 };
 
-export const sortNotesByUpdatedAt = (note1, note2) => {
+export const mergeSortNotes = (notes) => {
+  return mergeSort(notes, sortNotesByUpdatedAt);
+};
+
+const sortNotesByUpdatedAt = (note1, note2) => {
   if (note1.updated_at > note2.updated_at) {
     return -1;
   } else if (note1.updated_at === note2.updated_at) {
@@ -28,8 +32,4 @@ export const sortNotesByUpdatedAt = (note1, note2) => {
   } else {
     return 1;
   }
-};
-
-export const mergeSortNotes = (notes) => {
-  return mergeSort(notes, sortNotesByUpdatedAt);
 };
