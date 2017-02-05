@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import * as IndexFunctions from '../../helper_functions/index_functions';
+import formatDate from '../../helper_functions/format_date';
 
 class NotebookNotesIndex extends React.Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class NotebookNotesIndex extends React.Component {
       return (
         <div className="notes-index-item">
           <h2>{ note.title }</h2>
+          <p>Last Updated: { formatDate(note.updated_at) }</p>
           <p>{ modifyBodyText(jQuery(note.body).text()) }</p>
         </div>
       );
