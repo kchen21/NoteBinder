@@ -13,7 +13,7 @@ const MONTHS = {
   "12": "December"
 };
 
-export const formatDate = (time) => {
+const formatDate = (time) => {
   time = time.split("-");
   const year = time[0];
   const month = MONTHS[time[1]];
@@ -21,3 +21,5 @@ export const formatDate = (time) => {
 
   return month + " " + day + ", " + year;
 };
+
+export default formatDate;
