@@ -189,11 +189,16 @@ img {
   position: relative;
 }
 
-.sidebar-avatar {
+.sidebar-avatar > img {
   width: 48px;
   height: 48px;
   margin: 12px auto 6px auto;
   border: 1px solid #ececec;
+}
+
+.sidebar-avatar >img:hover {
+  cursor: pointer;
+  opacity: 0.75;
 }
 
 .sidebar-tools {

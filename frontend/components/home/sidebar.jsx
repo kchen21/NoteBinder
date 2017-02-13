@@ -12,8 +12,8 @@ const Sidebar = ({ currentUser }) => {
 
   return (
     <div className="home-sidebar">
-      <Link to="/account/update">
-        <img className="sidebar-avatar" src={ avatarUrl } />
+      <Link className="sidebar-avatar" to="/account/update">
+        <img src={ avatarUrl } />
       </Link>
 
       <ul className="sidebar-tools">
