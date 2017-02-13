@@ -12,7 +12,9 @@ const Sidebar = ({ currentUser }) => {
 
   return (
     <div className="home-sidebar">
-      <img className="sidebar-avatar" src={ avatarUrl } />
+      <Link to="/account/update">
+        <img className="sidebar-avatar" src={ avatarUrl } />
+      </Link>
 
       <ul className="sidebar-tools">
         <li>
