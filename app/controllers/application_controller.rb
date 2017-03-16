@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :signed_in?, :current_notebook
+  helper_method :current_user, :signed_in?
 
   def sign_in(user)
     @current_user = user

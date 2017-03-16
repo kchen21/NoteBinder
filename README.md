@@ -1,10 +1,10 @@
-# Notebinder
+# NoteBinder
 
-[Notebinder live][heroku]
+[NoteBinder live][heroku]
 
 [heroku]: http://notebinder.herokuapp.com
 
-Notebinder is an Evernote-inspired full-stack web application built using Ruby on Rails on the backend and React.js on the frontend, with a Redux architectural framework. It utilizes a PostgreSQL database to store data.
+NoteBinder is an Evernote-inspired full-stack web application built using Ruby on Rails on the backend and React.js on the frontend, with a Redux architectural framework. It utilizes a PostgreSQL database to store data.
 
 ## Features and Implementation
 
@@ -77,7 +77,3 @@ On the frontend, the `NoteSearch` component renders a form for inputting a searc
 ### Note Creation Through NotebookNotesIndex
 
 Users will be able to create a note through `NotebookNotesIndex`. The value of the Notebook selector on the 'New Note' page will be pre-selected when the `NewNote` component mounts.
-
-### Notebook Search
-
-In addition to searching through notes, users will also be able to search through notebooks.
