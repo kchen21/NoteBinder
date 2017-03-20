@@ -174,8 +174,7 @@ img {
 /* --- HOME --- */
 
 .home-sidebar {
-  display: block;
-  float: left;
+  display: inline-block;
   width: 72px;
   height: 100vh;
   background: #f8f8f8;
@@ -183,8 +182,7 @@ img {
 }
 
 .home-main {
-  display: block;
-  float: left;
+  display: inline-block;
   width: calc(100vw - 72px);
   position: relative;
 }
@@ -296,18 +294,16 @@ img {
 /* --- NOTES --- */
 
 .notes-index {
-  display: block;
-  float: left;
+  display: inline-block;
   width: 352px;
   border-left: 1px solid #ececec;
   border-right: 1px solid #ececec;
+  position: fixed;
+  left: 72px;
 }
 
 .notes-index-children {
-  display: block;
-  float: left;
-  width: calc(100vw - 424px);
-  min-width: 724px;
+  display: inline-block;
   height: 100vh;
 }
 
@@ -392,11 +388,15 @@ img {
 /* --- NOTE --- */
 
 .note {
-  display: block;
+  display: inline-block;
   height: calc(100vh - 60px);
+  width: calc(100vw - 424px);
   margin: 30px 0;
   padding: 0 18px 12px 18px;
   overflow-y: scroll;
+  position: fixed;
+  left: 424px;
+  min-width: 724px;
 }
 
 .note > h1 {
