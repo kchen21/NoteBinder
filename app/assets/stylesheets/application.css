@@ -274,27 +274,6 @@ img {
   opacity: 0.75;
 }
 
-.home-main-footer {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  font-family: caecilia, times, serif;
-  font-weight: 400;
-  font-size: 16px;
-  color: #4a4a4a;
-}
-
-.home-main-footer > a {
-  float: left;
-  text-decoration: underline;
-  padding: 6px 10px 6px 0;
-}
-
-.home-main-footer > a:hover {
-  cursor: pointer;
-  opacity: 0.75;
-}
-
 /* --- NOTES --- */
 
 .notes-index {

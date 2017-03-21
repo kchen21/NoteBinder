@@ -49,6 +49,26 @@ const Sidebar = ({ currentUser }) => {
           </Link>
         </li>
       </ul>
+
+      <ul className="sidebar-links">
+          <li>
+            <a href="http://www.kennethchen.info">
+              <img src={ window.assets.portfolio } />
+            </a>
+          </li>
+
+          <li>
+            <a href="https://github.com/kchen21/NoteBinder">
+              <img src={ window.assets.github } />
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.linkedin.com/in/kchen21">
+              <img src={ window.assets.linkedin } />
+            </a>
+          </li>
+      </ul>
     </div>
   );
 };
