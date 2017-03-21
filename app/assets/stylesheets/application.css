@@ -413,12 +413,20 @@ img {
   margin-bottom: 36px;
 }
 
+.note-new-tag-icon {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+}
+
 .note-trash-icon {
   float: right;
   width: 36px;
   height: 36px;
   margin-right: 48px;
   border: 1px solid #ececec;
+  border-radius: 4px;
 }
 
 .note-trash-icon:hover {
@@ -549,6 +557,7 @@ img {
   width: 38px;
   height: 38px;
   border: 1px solid #ececec;
+  border-radius: 4px;
 }
 
 .new-notebook-icon:hover {
@@ -820,6 +829,7 @@ img {
   width: 38px;
   height: 38px;
   border: 1px solid #ececec;
+  border-radius: 4px;
 }
 
 .new-tag-icon:hover {
