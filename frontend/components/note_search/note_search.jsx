@@ -86,7 +86,7 @@ class NoteSearch extends React.Component {
     }
 
     return (
-      <div className="group">
+      <div>
         <section className="search-notes-index">
           <section className="search-notes-index-header">
             <h1>NOTE SEARCH</h1>

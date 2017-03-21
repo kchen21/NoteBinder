@@ -52,7 +52,7 @@ class NotebookNotesIndex extends React.Component {
     }
 
     return (
-      <div className="group">
+      <div>
         <section className="notes-index">
           <section className="notes-index-header">
             <h1>{ this.props.currentNotebook.title }</h1>

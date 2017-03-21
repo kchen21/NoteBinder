@@ -45,7 +45,7 @@ class TagsIndex extends React.Component {
     }
 
     return (
-      <div className="group">
+      <div>
         <section className="tags-index">
           <section className="tags-index-header">
             <h1>TAGS</h1>
