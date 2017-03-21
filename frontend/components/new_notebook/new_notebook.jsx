@@ -47,7 +47,7 @@ class NewNotebook extends React.Component {
         <ul>
           { errors }
         </ul>
-        <form className="group" onSubmit={this.handleSubmit}>
+        <form className="notebook-form group" onSubmit={this.handleSubmit}>
           <div className="notebook-form-input">
             <label htmlFor="new-notebook-title">Title</label>
             <input
