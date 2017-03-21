@@ -194,8 +194,9 @@ img {
 .sidebar-avatar > img {
   width: 48px;
   height: 48px;
-  margin: 12px auto 6px auto;
-  border: 1px solid #ececec;
+  margin: 12px auto;
+  border: 1px solid #1fae52;
+  border-radius: 50%;
 }
 
 .sidebar-avatar >img:hover {
@@ -204,7 +205,8 @@ img {
 }
 
 .sidebar-tools {
-  margin: 50px auto;
+  /*margin: 50px auto;*/
+  margin: 75px auto 50px auto;
 }
 
 .sidebar-options {
@@ -215,7 +217,8 @@ img {
   width: 36px;
   height: 36px;
   margin: 6px auto;
-  border: 1px solid #ececec;
+  border: 1px solid #1fae52;
+  border-radius: 4px;
   background: #fff;
 }
 
@@ -228,11 +231,31 @@ img {
   width: 36px;
   height: 36px;
   margin: 6px auto;
-  border: 1px solid #ececec;
+  border: 1px solid #1fae52;
+  border-radius: 4px;
   background: #fff;
 }
 
 .sidebar-option > img:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.sidebar-links {
+  margin-top: 220px;
+  margin-bottom: 17px;
+}
+
+.sidebar-link > img {
+  width: 48px;
+  height: 48px;
+  margin: 6px auto;
+  border: 1px solid #1fae52;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.sidebar-link > img:hover {
   cursor: pointer;
   opacity: 0.75;
 }
