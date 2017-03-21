@@ -662,6 +662,7 @@ img {
   height: 36px;
   margin-right: 48px;
   border: 1px solid #ececec;
+  border-radius: 4px;
 }
 
 .notebook-trash-icon:hover {
