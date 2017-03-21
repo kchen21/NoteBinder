@@ -779,11 +779,10 @@ img {
 
 .tags-index-children {
   display: inline-block;
+  float: right;
   width: calc(100vw - 424px);
   min-width: 724px;
   height: 100vh;
-  position: fixed;
-  left: 424px;
 }
 
 .tags-index-header {
