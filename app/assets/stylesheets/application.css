@@ -195,8 +195,8 @@ img {
   width: 48px;
   height: 48px;
   margin: 12px auto;
-  border: 1px solid #1fae52;
-  border-radius: 50%;
+  border: 1px solid #ececec;
+  border-radius: 4px;
 }
 
 .sidebar-avatar >img:hover {
@@ -205,19 +205,24 @@ img {
 }
 
 .sidebar-tools {
-  /*margin: 50px auto;*/
   margin: 75px auto 50px auto;
 }
 
 .sidebar-options {
-  margin: 50px auto;
+  margin: 25px auto;
+  padding-bottom: 180px;
+  border-bottom: 1px solid #ececec;
+}
+
+.sidebar-links {
+  margin-bottom: 25px;
 }
 
 .sidebar-tool > img {
   width: 36px;
   height: 36px;
   margin: 6px auto;
-  border: 1px solid #1fae52;
+  border: 1px solid #ececec;
   border-radius: 4px;
   background: #fff;
 }
@@ -231,7 +236,7 @@ img {
   width: 36px;
   height: 36px;
   margin: 6px auto;
-  border: 1px solid #1fae52;
+  border: 1px solid #ececec;
   border-radius: 4px;
   background: #fff;
 }
@@ -241,16 +246,11 @@ img {
   opacity: 0.75;
 }
 
-.sidebar-links {
-  margin-top: 220px;
-  margin-bottom: 17px;
-}
-
 .sidebar-link > img {
   width: 48px;
   height: 48px;
   margin: 6px auto;
-  border: 1px solid #1fae52;
+  border: 1px solid #ececec;
   border-radius: 4px;
   background: #fff;
 }
