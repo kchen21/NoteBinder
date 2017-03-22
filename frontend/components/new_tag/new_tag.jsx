@@ -34,6 +34,18 @@ class NewTag extends React.Component {
     }
   }
 
+  showQuote() {
+    if (this.props.path === '/tags/new') {
+      return (
+        <div className="quote">
+          <p>{ "AND WHAT, YOU ASK, DOES WRITING TEACH US?" }</p>
+          <p>{ "FIRST AND FOREMOST, IT REMINDS US THAT WE ARE ALIVE AND THAT IT IS A GIFT AND A PRIVILEDE, NOT A RIGHT." }</p>
+          <p>{ "RAY BRADBURY" }</p>
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <div className="tag">
@@ -53,6 +65,7 @@ class NewTag extends React.Component {
 
           <input className="tag-submit-button" type="submit" value="Save" />
         </form>
+        { this.showQuote() }
       </div>
     );
   }
