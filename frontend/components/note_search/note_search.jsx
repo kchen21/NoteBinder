@@ -67,9 +67,9 @@ class NoteSearch extends React.Component {
     const preview = (note) => {
       return (
         <div className="search-notes-index-item">
-          <h2>{ note.title }</h2>
+          <h2 className="title">{ note.title }</h2>
           <p>Last Updated: { formatDate(note.updated_at) }</p>
-          <p>{ modifyBodyText(jQuery(note.body).text()) }</p>
+          <p className="body">{ modifyBodyText(jQuery(note.body).text()) }</p>
         </div>
       );
     };

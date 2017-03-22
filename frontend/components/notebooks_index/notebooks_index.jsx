@@ -17,12 +17,12 @@ class NotebooksIndex extends React.Component {
     const preview = (notebook) => {
       return (
         <div className="notebooks-index-item">
-          <h2>{ notebook.title }</h2>
+          <h2 className="title">{ notebook.title }</h2>
           <p>
             { Object.keys(notebook.note_ids).length + " Notes" }
             <Link className="notebook-update-link" to={"/notebooks/update/" + notebook.id }>Update Notebook Details</Link>
           </p>
-          <p>{ notebook.description.slice(0, 111) }</p>
+          <p className="description">{ notebook.description.slice(0, 111) }</p>
         </div>
       );
     };

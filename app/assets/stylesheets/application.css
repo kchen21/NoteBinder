@@ -357,13 +357,13 @@ img {
   overflow: hidden;
 }
 
-.notes-index-item > h2 {
+.notes-index-item > .title {
   word-wrap: break-word;
   margin-bottom: 6px;
   font-family: caecilia, times, serif;
   font-weight: 400;
   font-size: 16px;
-  color: #4a4a4a;
+  color: #2dbe60;
 }
 
 .notes-index-item > p {
@@ -375,13 +375,17 @@ img {
   color: #878787;
 }
 
+.notes-index-item > .body {
+  color: #000;
+}
+
 .notes-index-item:hover {
   cursor: pointer;
   background: #2dbe60;
   color: #fff;
 }
 
-.notes-index-item:hover > h2 {
+.notes-index-item:hover > .title {
   cursor: pointer;
   background: #2dbe60;
   color: #fff;
@@ -585,13 +589,13 @@ img {
   overflow: hidden;
 }
 
-.notebooks-index-item > h2 {
+.notebooks-index-item > .title {
   word-wrap: break-word;
   margin-bottom: 6px;
   font-family: caecilia, times, serif;
   font-weight: 400;
   font-size: 16px;
-  color: #4a4a4a;
+  color: #2dbe60;
 }
 
 .notebooks-index-item > p {
@@ -603,13 +607,17 @@ img {
   color: #878787;
 }
 
+.notebooks-index-item > .description {
+  color: #000;
+}
+
 .notebooks-index-item:hover {
   cursor: pointer;
   background: #2dbe60;
   color: #fff;
 }
 
-.notebooks-index-item:hover > h2 {
+.notebooks-index-item:hover > .title {
   cursor: pointer;
   background: #2dbe60;
   color: #fff;
@@ -1137,13 +1145,13 @@ img {
   overflow: hidden;
 }
 
-.search-notes-index-item > h2 {
+.search-notes-index-item > .title {
   word-wrap: break-word;
   margin-bottom: 6px;
   font-family: caecilia, times, serif;
   font-weight: 400;
   font-size: 16px;
-  color: #4a4a4a;
+  color: #2dbe60;
 }
 
 .search-notes-index-item > p {
@@ -1155,13 +1163,17 @@ img {
   color: #878787;
 }
 
+.search-notes-index-item > .body {
+  color: #000;
+}
+
 .search-notes-index-item:hover {
   cursor: pointer;
   background: #2dbe60;
   color: #fff;
 }
 
-.search-notes-index-item:hover > h2 {
+.search-notes-index-item:hover > .title {
   cursor: pointer;
   background: #2dbe60;
   color: #fff;
