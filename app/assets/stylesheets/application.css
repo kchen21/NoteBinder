@@ -903,6 +903,8 @@ img {
 .tag > img {
   width: 36px;
   margin: 0 auto 10px auto;
+  border: 1px solid #ececec;
+  border-radius: 4px;
 }
 
 .tag > h1 {
@@ -934,7 +936,7 @@ img {
 .tag-submit-button {
   display: block;
   padding: 9px 14px;
-  border: 1px solid #2dbe60;
+  border: 1px solid #1fae52;
   border-radius: 5px;
   margin: 0 auto;
   background-color: #2dbe60;
@@ -948,6 +950,28 @@ img {
 .tag-submit-button:hover {
   cursor: pointer;
   opacity: 0.75;
+}
+
+.tag > .quote > .question {
+  text-align: center;
+  margin-top: 120px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 32px;
+}
+
+.tag > .quote > .answer {
+  text-align: center;
+  margin-top: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 32px;
+  color: #878787;
+}
+
+.tag > .quote > .author {
+  text-align: center;
+  margin-top: 15px;
+  font-family: 'Roboto', sans-serif;
+  color: #2dbe60;
 }
 
 /* --- ACCOUNT UPDATE --- */

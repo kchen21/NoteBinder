@@ -38,9 +38,9 @@ class NewTag extends React.Component {
     if (this.props.path === '/tags/new') {
       return (
         <div className="quote">
-          <p>{ "AND WHAT, YOU ASK, DOES WRITING TEACH US?" }</p>
-          <p>{ "FIRST AND FOREMOST, IT REMINDS US THAT WE ARE ALIVE AND THAT IT IS A GIFT AND A PRIVILEDE, NOT A RIGHT." }</p>
-          <p>{ "RAY BRADBURY" }</p>
+          <p className="question">{ "AND WHAT, YOU ASK, DOES WRITING TEACH US?" }</p>
+          <p className ="answer">{ "FIRST AND FOREMOST, IT REMINDS US THAT WE ARE ALIVE AND THAT IT IS A GIFT AND A PRIVILEGE, NOT A RIGHT." }</p>
+          <p className="author">{ "- RAY BRADBURY" }</p>
         </div>
       );
     }
@@ -51,7 +51,7 @@ class NewTag extends React.Component {
       <div className="tag">
         <img src={ window.assets.tags } />
         <h1>CREATE TAG</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={ this.handleSubmit }>
           <div className="tag-form-input">
             <label htmlFor="new-tag-name"></label>
             <input
