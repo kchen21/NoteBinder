@@ -55,7 +55,7 @@ class NotebookNotesIndex extends React.Component {
       <div>
         <section className="notes-index">
           <section className="notes-index-header">
-            <h1>{ this.props.currentNotebook.title }</h1>
+            <h1>{ this.props.currentNotebook.title.toUpperCase() }</h1>
             <p>{ currentNotebookNoteList.length + " Notes" }</p>
           </section>
           <section className="notes-index-main">

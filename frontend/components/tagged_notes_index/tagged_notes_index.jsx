@@ -55,7 +55,7 @@ class TaggedNotesIndex extends React.Component {
       <div>
         <section className="notes-index">
           <section className="notes-index-header">
-            <h1>{ this.props.currentTag.name }</h1>
+            <h1>{ "TAG: " + this.props.currentTag.name.toUpperCase() }</h1>
             <p>{ currentTagNoteList.length + " Notes" }</p>
           </section>
           <section className="notes-index-main">
