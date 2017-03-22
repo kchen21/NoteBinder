@@ -189,22 +189,24 @@ class AuthForm extends React.Component {
     }
 
     return (
-      <div className="auth-form">
-        <section className="form-header">
-          <ul>
-            { header }
-          </ul>
-        </section>
-        <section className="form-main">
-          <ul>
-            { form }
-            { errors }
-          </ul>
-        </section>
-        <section className="form-footer">
-          <ul>
-            { footer }
-          </ul>
+      <div className="auth">
+        <section className="auth-form">
+          <section className="form-header">
+            <ul>
+              { header }
+            </ul>
+          </section>
+          <section className="form-main">
+            <ul>
+              { form }
+              { errors }
+            </ul>
+          </section>
+          <section className="form-footer">
+            <ul>
+              { footer }
+            </ul>
+          </section>
         </section>
       </div>
     );

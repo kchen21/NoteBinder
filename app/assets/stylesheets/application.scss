@@ -68,7 +68,22 @@ img {
 
 /* --- AUTH FORM --- */
 
+.auth {
+  height: 100vh;
+  background-image: url(image-path('auth_bg.jpg'));
+  background-repeat: no-repeat;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
 .auth-form {
+  display: block;
+  width: 600px;
+  margin: 0 auto;
+  padding: 12px;
+  background-color: #fff;
+  border: 1px solid #1fae52;
+  border-radius: 4px;
   vertical-align: middle;
 }
 
@@ -82,9 +97,10 @@ img {
 
 .form-main {
   display: block;
-  width: 500px;
+  width: 480px;
   margin: 0 auto;
-  border: 1px solid #ececec;
+  border: 1px solid #1fae52;
+  border-radius: 4px;
   font-family: gotham, helvetica, arial, sans-serif;
 }
 
@@ -107,14 +123,14 @@ img {
   display: block;
   width: 320px;
   margin: 0 auto;
-  padding-top: 20px;
+  padding-top: 12px;
 }
 
 .form-input > input {
   display: block;
   width: 100%;
-  border: 1px solid #ececec;
-  border-radius: 7px;
+  border: 1px solid #1fae52;
+  border-radius: 4px;
   padding: 5px;
 }
 
