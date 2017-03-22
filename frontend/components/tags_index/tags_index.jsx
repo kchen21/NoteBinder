@@ -28,6 +28,14 @@ class TagsIndex extends React.Component {
     const tags = this.props.tags || {};
     const tagList = [];
 
+    const tagsOrTag = () => {
+      if (tagList.length === 1) {
+        return "Tag";
+      } else {
+        return "Tags";
+      }
+    };
+
     for (let id in tags) {
       tagList.push(
         <li className="tags-index-tag-wrapper group" key={ id }>
@@ -54,7 +62,7 @@ class TagsIndex extends React.Component {
                 <img src={ window.assets.new_tag } />
               </Link>
             </div>
-            <p>{ tagList.length + " Tags" }</p>
+            <p>{ tagList.length + " " + tagsOrTag() }</p>
           </section>
           <section className="notebooks-index-main">
             <ul>

@@ -56,6 +56,14 @@ class NoteSearch extends React.Component {
     let searchNotes = IndexFunctions.idsObjToNotesArr(notes, searchNoteIds);
     searchNotes = IndexFunctions.mergeSortNotes(searchNotes);
 
+    const notesOrNote = () => {
+      if (searchNoteList.length === 1) {
+        return "Note";
+      } else {
+        return "Notes";
+      }
+    };
+
     const modifyBodyText = (bodyText) => {
       if (bodyText.length > 111) {
         return bodyText.slice(0, 111) + "...";
@@ -91,7 +99,7 @@ class NoteSearch extends React.Component {
           <section className="search-notes-index-header">
             <h1>NOTE SEARCH</h1>
             { searchForm() }
-            <p>{ searchNoteList.length + " Notes"}</p>
+            <p>{ searchNoteList.length + " " + notesOrNote() }</p>
           </section>
           <section className="search-notes-index-main">
             <ul>

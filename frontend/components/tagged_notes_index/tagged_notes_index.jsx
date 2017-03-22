@@ -22,6 +22,14 @@ class TaggedNotesIndex extends React.Component {
     let currentTagNotes = IndexFunctions.idsObjToNotesArr(notes, currentTagNoteIds);
     currentTagNotes = IndexFunctions.mergeSortNotes(currentTagNotes);
 
+    const notesOrNote = () => {
+      if (currentTagNoteList.length === 1) {
+        return "Note";
+      } else {
+        return "Notes";
+      }
+    };
+
     const modifyBodyText = (bodyText) => {
       if (bodyText.length > 111) {
         return bodyText.slice(0, 111) + "...";
@@ -56,7 +64,7 @@ class TaggedNotesIndex extends React.Component {
         <section className="notes-index">
           <section className="notes-index-header">
             <h1>{ "TAG: " + this.props.currentTag.name.toUpperCase() }</h1>
-            <p>{ currentTagNoteList.length + " Notes" }</p>
+            <p>{ currentTagNoteList.length + " " + notesOrNote() }</p>
           </section>
           <section className="notes-index-main">
             <ul>

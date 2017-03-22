@@ -21,6 +21,14 @@ class NotesIndex extends React.Component {
     notes = IndexFunctions.notesObjToArr(notes);
     notes = IndexFunctions.mergeSortNotes(notes);
 
+    const notesOrNote = () => {
+      if (noteList.length === 1) {
+        return "Note";
+      } else {
+        return "Notes";
+      }
+    };
+
     const modifyBodyText = (bodyText) => {
       if (bodyText.length > 111) {
         return bodyText.slice(0, 111) + "...";
@@ -55,7 +63,7 @@ class NotesIndex extends React.Component {
         <section className="notes-index">
           <section className="notes-index-header">
             <h1>NOTES</h1>
-            <p>{ noteList.length + " Notes" }</p>
+            <p>{ noteList.length + " " + notesOrNote() }</p>
           </section>
           <section className="notes-index-main">
             <ul>

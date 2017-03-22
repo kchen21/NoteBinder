@@ -14,6 +14,14 @@ class NotebooksIndex extends React.Component {
     const notebooks = this.props.notebooks || {};
     const notebookList = [];
 
+    const notebooksOrNotebook = () => {
+      if (notebookList.length === 1) {
+        return "Notebook";
+      } else {
+        return "Notebooks";
+      }
+    };
+
     const preview = (notebook) => {
       return (
         <div className="notebooks-index-item">
@@ -47,7 +55,7 @@ class NotebooksIndex extends React.Component {
                 <img src={ window.assets.new_notebook } />
               </Link>
             </div>
-            <p>{ notebookList.length + " Notebooks" }</p>
+            <p>{ notebookList.length + " " + notebooksOrNotebook() }</p>
           </section>
           <section className="notebooks-index-main">
             <ul>

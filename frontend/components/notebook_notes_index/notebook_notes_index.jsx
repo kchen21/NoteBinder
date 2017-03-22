@@ -22,6 +22,14 @@ class NotebookNotesIndex extends React.Component {
     let currentNotebookNotes = IndexFunctions.idsObjToNotesArr(notes, currentNotebookNoteIds);
     currentNotebookNotes = IndexFunctions.mergeSortNotes(currentNotebookNotes);
 
+    const notesOrNote = () => {
+      if (currentNotebookNoteList.length === 1) {
+        return "Note";
+      } else {
+        return "Notes";
+      }
+    };
+
     const modifyBodyText = (bodyText) => {
       if (bodyText.length > 111) {
         return bodyText.slice(0, 111) + "...";
@@ -56,7 +64,7 @@ class NotebookNotesIndex extends React.Component {
         <section className="notes-index">
           <section className="notes-index-header">
             <h1>{ this.props.currentNotebook.title.toUpperCase() }</h1>
-            <p>{ currentNotebookNoteList.length + " Notes" }</p>
+            <p>{ currentNotebookNoteList.length + " " + notesOrNote() }</p>
           </section>
           <section className="notes-index-main">
             <ul>
