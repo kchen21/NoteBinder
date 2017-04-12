@@ -191,7 +191,7 @@ img {
 
 .home-sidebar {
   display: block;
-  position: fixed;
+  position: absolute;
   left: 0;
   width: 72px;
   height: 100vh;
@@ -201,7 +201,7 @@ img {
 
 .home-main {
   display: block;
-  position: fixed;
+  position: absolute;
   left: 72px;
   width: calc(100vw - 72px);
   min-width: 1076px;
