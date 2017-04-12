@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import ReactQuill from 'react-quill';
+import Modal from 'react-modal';
 import Tags from './tags';
+import ConfirmDeleteModalStyle from '../../custom_modal_styles/confirm_delete_modal_style';
 
 class Note extends React.Component {
   constructor(props) {
@@ -16,6 +18,7 @@ class Note extends React.Component {
     this.handleBodyChange = this.handleBodyChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleTrashClick = this.handleTrashClick.bind(this);
+    this.onConfirmDeleteModalClose = this.onConfirmDeleteModalClose.bind(this);
     this.handleNotebookChange = this.handleNotebookChange.bind(this);
   }
 
@@ -35,7 +38,8 @@ class Note extends React.Component {
       this.setState({
         title: newProps.currentNote.title,
         body: newProps.currentNote.body,
-        notebook_id: newProps.currentNote.notebook_id
+        notebook_id: newProps.currentNote.notebook_id,
+        confirmDeleteModalOpen: false
       });
     }
   }
@@ -60,41 +64,56 @@ class Note extends React.Component {
   handleTrashClick(e) {
     e.preventDefault();
 
-    const currentNoteId = this.props.currentNote.id;
-    const confirmation = confirm("Delete this note?");
-
-    if (confirmation === true) {
-      const path = this.props.path.split("/");
-      switch (path[1]) {
-        case "notes":
-          this.props.destroyNote(currentNoteId).then(() => {
-            this.props.router.push('/notes');
-          });
-          break;
-        case "notebooks":
-          const currentNotebookId = path[2];
-          this.props.removeNoteIdFromNotebook(currentNotebookId, currentNoteId);
-          this.props.destroyNote(currentNoteId).then(() => {
-            this.props.router.push(`/notebooks/${currentNotebookId}/notes`);
-          });
-          break;
-        case "tags":
-          const currentTagId = path[2];
-          this.props.removeNoteIdFromTag(currentTagId, currentNoteId);
-          this.props.destroyNote(currentNoteId).then(() => {
-            this.props.router.push(`/tags/${path[2]}/notes`);
-          });
-          break;
-        case "note-search":
-          this.props.router.push('/note-search');
-          break;
-        default:
-          throw new Error("Invalid pathname");
-      }
-    } else {
-      return;
-    }
+    this.setState({ confirmDeleteModalOpen: true });
   }
+
+  onConfirmDeleteModalOpen() {
+    ConfirmDeleteModalStyle.content.opacity = 100;
+  }
+
+  onConfirmDeleteModalClose() {
+    this.setState({ confirmDeleteModalOpen: false });
+    ConfirmDeleteModalStyle.content.opacity = 0;
+  }
+
+  // handleTrashClick(e) {
+  //   e.preventDefault();
+  //
+  //   const currentNoteId = this.props.currentNote.id;
+  //   const confirmation = confirm("Delete this note?");
+  //
+  //   if (confirmation === true) {
+  //     const path = this.props.path.split("/");
+  //     switch (path[1]) {
+  //       case "notes":
+  //         this.props.destroyNote(currentNoteId).then(() => {
+  //           this.props.router.push('/notes');
+  //         });
+  //         break;
+  //       case "notebooks":
+  //         const currentNotebookId = path[2];
+  //         this.props.removeNoteIdFromNotebook(currentNotebookId, currentNoteId);
+  //         this.props.destroyNote(currentNoteId).then(() => {
+  //           this.props.router.push(`/notebooks/${currentNotebookId}/notes`);
+  //         });
+  //         break;
+  //       case "tags":
+  //         const currentTagId = path[2];
+  //         this.props.removeNoteIdFromTag(currentTagId, currentNoteId);
+  //         this.props.destroyNote(currentNoteId).then(() => {
+  //           this.props.router.push(`/tags/${path[2]}/notes`);
+  //         });
+  //         break;
+  //       case "note-search":
+  //         this.props.router.push('/note-search');
+  //         break;
+  //       default:
+  //         throw new Error("Invalid pathname");
+  //     }
+  //   } else {
+  //     return;
+  //   }
+  // }
 
   handleNotebookChange(e) {
     this.setState({ notebook_id: e.target.value });
@@ -173,6 +192,17 @@ class Note extends React.Component {
 
             <input className="note-submit-button" type="submit" value="Save" />
           </form>
+
+          <Modal
+            isOpen={this.state.confirmDeleteModalOpen}
+            onAfterOpen={this.onConfirmDeleteModalOpen}
+            onRequestClose={this.onConfirmDeleteModalClose}
+            style={ConfirmDeleteModalStyle}
+            contentLabel="Confirm Delete Modal">
+
+            <button onClick={this.onConfirmDeleteModalClose}>Close</button>
+            ...content
+          </Modal>
         </div>
     );
   }
