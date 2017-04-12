@@ -528,6 +528,33 @@ img {
   opacity: 0.75;
 }
 
+.modal-message {
+  margin: 4px 0;
+  font-family: gotham, helvetica, arial, sans-serif;
+  color: #2dbe60;
+}
+
+.modal-buttons {
+  width: auto;
+}
+
+.modal-button {
+  display: block;
+  float: right;
+  margin: 2px;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
+  padding: 4px;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 400;
+  color: #606060;
+}
+
+.modal-button:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
 /* --- NOTEBOOKS --- */
 
 .notebooks-index {

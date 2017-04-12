@@ -19,6 +19,7 @@ class Note extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleTrashClick = this.handleTrashClick.bind(this);
     this.onConfirmDeleteModalClose = this.onConfirmDeleteModalClose.bind(this);
+    this.deleteNote = this.deleteNote.bind(this);
     this.handleNotebookChange = this.handleNotebookChange.bind(this);
   }
 
@@ -76,44 +77,39 @@ class Note extends React.Component {
     ConfirmDeleteModalStyle.content.opacity = 0;
   }
 
-  // handleTrashClick(e) {
-  //   e.preventDefault();
-  //
-  //   const currentNoteId = this.props.currentNote.id;
-  //   const confirmation = confirm("Delete this note?");
-  //
-  //   if (confirmation === true) {
-  //     const path = this.props.path.split("/");
-  //     switch (path[1]) {
-  //       case "notes":
-  //         this.props.destroyNote(currentNoteId).then(() => {
-  //           this.props.router.push('/notes');
-  //         });
-  //         break;
-  //       case "notebooks":
-  //         const currentNotebookId = path[2];
-  //         this.props.removeNoteIdFromNotebook(currentNotebookId, currentNoteId);
-  //         this.props.destroyNote(currentNoteId).then(() => {
-  //           this.props.router.push(`/notebooks/${currentNotebookId}/notes`);
-  //         });
-  //         break;
-  //       case "tags":
-  //         const currentTagId = path[2];
-  //         this.props.removeNoteIdFromTag(currentTagId, currentNoteId);
-  //         this.props.destroyNote(currentNoteId).then(() => {
-  //           this.props.router.push(`/tags/${path[2]}/notes`);
-  //         });
-  //         break;
-  //       case "note-search":
-  //         this.props.router.push('/note-search');
-  //         break;
-  //       default:
-  //         throw new Error("Invalid pathname");
-  //     }
-  //   } else {
-  //     return;
-  //   }
-  // }
+  deleteNote(e) {
+    e.preventDefault();
+
+    const currentNoteId = this.props.currentNote.id;
+    const path = this.props.path.split("/");
+
+    switch (path[1]) {
+      case "notes":
+        this.props.destroyNote(currentNoteId).then(() => {
+          this.props.router.push('/notes');
+        });
+        break;
+      case "notebooks":
+        const currentNotebookId = path[2];
+        this.props.removeNoteIdFromNotebook(currentNotebookId, currentNoteId);
+        this.props.destroyNote(currentNoteId).then(() => {
+          this.props.router.push(`/notebooks/${currentNotebookId}/notes`);
+        });
+        break;
+      case "tags":
+        const currentTagId = path[2];
+        this.props.removeNoteIdFromTag(currentTagId, currentNoteId);
+        this.props.destroyNote(currentNoteId).then(() => {
+          this.props.router.push(`/tags/${path[2]}/notes`);
+        });
+        break;
+      case "note-search":
+        this.props.router.push('/note-search');
+        break;
+      default:
+        throw new Error("Invalid pathname");
+    }
+  }
 
   handleNotebookChange(e) {
     this.setState({ notebook_id: e.target.value });
@@ -200,8 +196,11 @@ class Note extends React.Component {
             style={ConfirmDeleteModalStyle}
             contentLabel="Confirm Delete Modal">
 
-            <button onClick={this.onConfirmDeleteModalClose}>Close</button>
-            ...content
+            <p className="modal-message">Delete this note?</p>
+            <section className="modal-buttons group">
+              <button className="modal-button" onClick={this.onConfirmDeleteModalClose}>Cancel</button>
+              <button className="modal-button" onClick={this.deleteNote}>OK</button>
+            </section>
           </Modal>
         </div>
     );

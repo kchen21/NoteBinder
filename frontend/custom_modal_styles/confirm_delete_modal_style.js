@@ -5,16 +5,15 @@ module.exports = {
     left              : 0,
     right             : 0,
     bottom            : 0,
-    backgroundColor   : 'rgba(255, 255, 255, 0.75)'
+    backgroundColor   : 'rgba(238, 238, 238, 0.75)'
   },
   content: {
-    position                   : 'absolute',
-    top                        : '100px',
-    left                       : '100px',
-    right                      : '100px',
-    bottom                     : '100px',
-    backgroundColor            : '#eee',
-    border                     : '1px solid #ccc',
+    top                        : '33.3%',
+    left                       : '40%',
+    right                      : '40%',
+    bottom                     : 'auto',
+    backgroundColor            : '#fff',
+    border                     : '1px solid #000',
     background                 : '#fff',
     borderRadius               : '4px',
     outline                    : 'none',
