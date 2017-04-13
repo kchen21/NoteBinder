@@ -17,7 +17,7 @@ module.exports = {
     background                 : '#fff',
     borderRadius               : '4px',
     outline                    : 'none',
-    padding                    : '20px',
+    padding                    : '10px',
     opacity                    : '0',
     transition                 : 'opacity 1s'
   }
