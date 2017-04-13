@@ -1,11 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Modal from 'react-modal';
+import ConfirmDeleteModalStyle from '../../custom_modal_styles/confirm_delete_modal_style';
 
 class TagsIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      confirmDeleteModalOpen: false,
+      idOfTagToDestroy: null
+    };
 
     this.handleTrashClick = this.handleTrashClick.bind(this);
+    this.onConfirmDeleteModalClose = this.onConfirmDeleteModalClose.bind(this);
+    this.deleteTag = this.deleteTag.bind(this);
   }
 
   componentDidMount() {
@@ -13,15 +21,32 @@ class TagsIndex extends React.Component {
   }
 
   handleTrashClick(id) {
-    const confirmation = confirm("Delete this tag?");
+    this.setState({
+      confirmDeleteModalOpen: true,
+      idOfTagToDestroy: id
+    });
+  }
 
-    if (confirmation === true) {
-      this.props.destroyTag(id).then(() => {
-        this.props.router.push('/tags');
-      });
-    } else {
-      return;
-    }
+  onConfirmDeleteModalOpen() {
+    ConfirmDeleteModalStyle.content.opacity = 100;
+  }
+
+  onConfirmDeleteModalClose() {
+    this.setState({
+      confirmDeleteModalOpen: false,
+      idOfTagToDestroy: null
+    });
+    ConfirmDeleteModalStyle.content.opacity = 0;
+  }
+
+  deleteTag(e) {
+    e.preventDefault();
+
+    this.props.destroyTag(this.state.idOfTagToDestroy).then(() => {
+      this.props.router.push('/tags');
+    });
+
+    this.setState({ confirmDeleteModalOpen: false });
   }
 
   render() {
@@ -73,6 +98,20 @@ class TagsIndex extends React.Component {
         <section className="tags-index-children">
           { this.props.children }
         </section>
+
+        <Modal
+          isOpen={this.state.confirmDeleteModalOpen}
+          onAfterOpen={this.onConfirmDeleteModalOpen}
+          onRequestClose={this.onConfirmDeleteModalClose}
+          style={ConfirmDeleteModalStyle}
+          contentLabel="Confirm Delete Modal">
+
+          <p className="modal-message">Delete this tag?</p>
+          <section className="modal-buttons group">
+            <button className="modal-button" onClick={this.onConfirmDeleteModalClose}>Cancel</button>
+            <button className="modal-button" onClick={this.deleteTag}>OK</button>
+          </section>
+        </Modal>
       </div>
     );
   }
