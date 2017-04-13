@@ -11,7 +11,8 @@ class Note extends React.Component {
     this.state = {
       title: this.props.currentNote.title,
       body: this.props.currentNote.body,
-      notebook_id: this.props.currentNote.notebook_id
+      notebook_id: this.props.currentNote.notebook_id,
+      confirmDeleteModalOpen: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -39,8 +40,7 @@ class Note extends React.Component {
       this.setState({
         title: newProps.currentNote.title,
         body: newProps.currentNote.body,
-        notebook_id: newProps.currentNote.notebook_id,
-        confirmDeleteModalOpen: false
+        notebook_id: newProps.currentNote.notebook_id
       });
     }
   }

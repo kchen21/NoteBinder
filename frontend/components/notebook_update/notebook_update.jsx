@@ -1,4 +1,6 @@
 import React from 'react';
+import Modal from 'react-modal';
+import ConfirmDeleteModalStyle from '../../custom_modal_styles/confirm_delete_modal_style';
 
 class NotebookUpdate extends React.Component {
   constructor(props) {
@@ -6,11 +8,14 @@ class NotebookUpdate extends React.Component {
     this.state = {
       title: this.props.currentNotebook.title,
       description: this.props.currentNotebook.description || "",
+      confirmDeleteModalOpen: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleTrashClick = this.handleTrashClick.bind(this);
+    this.onConfirmDeleteModalClose = this.onConfirmDeleteModalClose.bind(this);
+    this.deleteNotebook = this.deleteNotebook.bind(this);
   }
 
   componentDidMount() {
@@ -49,15 +54,24 @@ class NotebookUpdate extends React.Component {
   handleTrashClick(e) {
     e.preventDefault();
 
-    const confirmation = confirm("Delete this notebook?");
+    this.setState({ confirmDeleteModalOpen: true });
+  }
 
-    if (confirmation === true) {
-      this.props.destroyNotebook(this.props.currentNotebook.id).then(() => {
-        this.props.router.push('/notebooks');
-      });
-    } else {
-      return;
-    }
+  onConfirmDeleteModalOpen() {
+    ConfirmDeleteModalStyle.content.opacity = 100;
+  }
+
+  onConfirmDeleteModalClose() {
+    this.setState({ confirmDeleteModalOpen: false });
+    ConfirmDeleteModalStyle.content.opacity = 0;
+  }
+
+  deleteNotebook(e) {
+    e.preventDefault();
+
+    this.props.destroyNotebook(this.props.currentNotebook.id).then(() => {
+      this.props.router.push('/notebooks');
+    });
   }
 
   render() {
@@ -96,6 +110,20 @@ class NotebookUpdate extends React.Component {
 
           <input className="notebook-submit-button" type="submit" value="Save" />
         </form>
+
+        <Modal
+          isOpen={this.state.confirmDeleteModalOpen}
+          onAfterOpen={this.onConfirmDeleteModalOpen}
+          onRequestClose={this.onConfirmDeleteModalClose}
+          style={ConfirmDeleteModalStyle}
+          contentLabel="Confirm Delete Modal">
+
+          <p className="modal-message">Delete this notebook?</p>
+          <section className="modal-buttons group">
+            <button className="modal-button" onClick={this.onConfirmDeleteModalClose}>Cancel</button>
+            <button className="modal-button" onClick={this.deleteNotebook}>OK</button>
+          </section>
+        </Modal>
       </div>
     );
   }
