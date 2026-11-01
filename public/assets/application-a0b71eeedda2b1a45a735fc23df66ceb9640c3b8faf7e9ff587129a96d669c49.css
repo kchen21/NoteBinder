@@ -1,0 +1,2186 @@
+/*!
+ * Quill Editor v1.0.0-beta.9
+ * https://quilljs.com/
+ * Copyright (c) 2014, Jason Chen
+ * Copyright (c) 2013, salesforce.com
+ */
+.ql-container {
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  height: 100%;
+  margin: 0px;
+  position: relative;
+}
+.ql-clipboard {
+  left: -100000px;
+  height: 1px;
+  overflow-y: hidden;
+  position: absolute;
+  top: 50%;
+}
+.ql-clipboard p {
+  margin: 0;
+  padding: 0;
+}
+.ql-editor {
+  box-sizing: border-box;
+  cursor: text;
+  line-height: 1.42;
+  height: 100%;
+  outline: none;
+  overflow-y: auto;
+  padding: 12px 15px;
+  tab-size: 4;
+  -moz-tab-size: 4;
+  text-align: left;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.ql-editor p,
+.ql-editor ol,
+.ql-editor ul,
+.ql-editor pre,
+.ql-editor blockquote,
+.ql-editor h1,
+.ql-editor h2,
+.ql-editor h3,
+.ql-editor h4,
+.ql-editor h5,
+.ql-editor h6 {
+  margin: 0;
+  padding: 0;
+  counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8;
+}
+.ql-editor ol,
+.ql-editor ul {
+  padding-left: 20px;
+}
+.ql-editor ol > li,
+.ql-editor ul > li {
+  list-style-type: none;
+}
+.ql-editor ul > li::before {
+  content: '\25CF';
+}
+.ql-editor li::before {
+  display: inline-block;
+  margin-right: 4px;
+  text-align: right;
+  white-space: nowrap;
+  width: 15px;
+}
+.ql-editor ol li {
+  counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8;
+  counter-increment: list-num;
+}
+.ql-editor ol li:before {
+  content: counter(list-num, decimal) '. ';
+}
+.ql-editor ol li.ql-indent-1 {
+  counter-increment: list-1;
+}
+.ql-editor ol li.ql-indent-1:before {
+  content: counter(list-1, lower-alpha) '. ';
+}
+.ql-editor ol li.ql-indent-1 {
+  counter-reset: list-2 list-3 list-4 list-5 list-6 list-7 list-8;
+}
+.ql-editor ol li.ql-indent-2 {
+  counter-increment: list-2;
+}
+.ql-editor ol li.ql-indent-2:before {
+  content: counter(list-2, lower-roman) '. ';
+}
+.ql-editor ol li.ql-indent-2 {
+  counter-reset: list-3 list-4 list-5 list-6 list-7 list-8;
+}
+.ql-editor ol li.ql-indent-3 {
+  counter-increment: list-3;
+}
+.ql-editor ol li.ql-indent-3:before {
+  content: counter(list-3, decimal) '. ';
+}
+.ql-editor ol li.ql-indent-3 {
+  counter-reset: list-4 list-5 list-6 list-7 list-8;
+}
+.ql-editor ol li.ql-indent-4 {
+  counter-increment: list-4;
+}
+.ql-editor ol li.ql-indent-4:before {
+  content: counter(list-4, lower-alpha) '. ';
+}
+.ql-editor ol li.ql-indent-4 {
+  counter-reset: list-5 list-6 list-7 list-8;
+}
+.ql-editor ol li.ql-indent-5 {
+  counter-increment: list-5;
+}
+.ql-editor ol li.ql-indent-5:before {
+  content: counter(list-5, lower-roman) '. ';
+}
+.ql-editor ol li.ql-indent-5 {
+  counter-reset: list-6 list-7 list-8;
+}
+.ql-editor ol li.ql-indent-6 {
+  counter-increment: list-6;
+}
+.ql-editor ol li.ql-indent-6:before {
+  content: counter(list-6, decimal) '. ';
+}
+.ql-editor ol li.ql-indent-6 {
+  counter-reset: list-7 list-8;
+}
+.ql-editor ol li.ql-indent-7 {
+  counter-increment: list-7;
+}
+.ql-editor ol li.ql-indent-7:before {
+  content: counter(list-7, lower-alpha) '. ';
+}
+.ql-editor ol li.ql-indent-7 {
+  counter-reset: list-8;
+}
+.ql-editor ol li.ql-indent-8 {
+  counter-increment: list-8;
+}
+.ql-editor ol li.ql-indent-8:before {
+  content: counter(list-8, lower-roman) '. ';
+}
+.ql-editor .ql-indent-1 {
+  padding-left: 40px;
+}
+.ql-editor .ql-indent-2 {
+  padding-left: 80px;
+}
+.ql-editor .ql-indent-3 {
+  padding-left: 120px;
+}
+.ql-editor .ql-indent-4 {
+  padding-left: 160px;
+}
+.ql-editor .ql-indent-5 {
+  padding-left: 200px;
+}
+.ql-editor .ql-indent-6 {
+  padding-left: 240px;
+}
+.ql-editor .ql-indent-7 {
+  padding-left: 280px;
+}
+.ql-editor .ql-indent-8 {
+  padding-left: 320px;
+}
+.ql-editor .ql-video {
+  display: block;
+  max-width: 100%;
+}
+.ql-editor .ql-video.ql-align-center {
+  margin: 0 auto;
+}
+.ql-editor .ql-video.ql-align-right {
+  margin: 0 0 0 auto;
+}
+.ql-editor .ql-bg-black {
+  background-color: #000;
+}
+.ql-editor .ql-bg-red {
+  background-color: #e60000;
+}
+.ql-editor .ql-bg-orange {
+  background-color: #f90;
+}
+.ql-editor .ql-bg-yellow {
+  background-color: #ff0;
+}
+.ql-editor .ql-bg-green {
+  background-color: #008a00;
+}
+.ql-editor .ql-bg-blue {
+  background-color: #06c;
+}
+.ql-editor .ql-bg-purple {
+  background-color: #93f;
+}
+.ql-editor .ql-color-white {
+  color: #fff;
+}
+.ql-editor .ql-color-red {
+  color: #e60000;
+}
+.ql-editor .ql-color-orange {
+  color: #f90;
+}
+.ql-editor .ql-color-yellow {
+  color: #ff0;
+}
+.ql-editor .ql-color-green {
+  color: #008a00;
+}
+.ql-editor .ql-color-blue {
+  color: #06c;
+}
+.ql-editor .ql-color-purple {
+  color: #93f;
+}
+.ql-editor .ql-font-serif {
+  font-family: Georgia, Times New Roman, serif;
+}
+.ql-editor .ql-font-monospace {
+  font-family: Monaco, Courier New, monospace;
+}
+.ql-editor .ql-size-small {
+  font-size: 10px;
+}
+.ql-editor .ql-size-large {
+  font-size: 18px;
+}
+.ql-editor .ql-size-huge {
+  font-size: 32px;
+}
+.ql-editor .ql-direction-rtl {
+  direction: rtl;
+  text-align: inherit;
+}
+.ql-editor .ql-align-center {
+  text-align: center;
+}
+.ql-editor .ql-align-justify {
+  text-align: justify;
+}
+.ql-editor .ql-align-right {
+  text-align: right;
+}
+.ql-editor.ql-blank::before {
+  color: rgba(0,0,0,0.6);
+  content: attr(data-placeholder);
+  font-style: italic;
+  pointer-events: none;
+  position: absolute;
+}
+.ql-snow.ql-toolbar:after,
+.ql-snow .ql-toolbar:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+.ql-snow.ql-toolbar button,
+.ql-snow .ql-toolbar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 24px;
+  outline: none;
+  padding: 3px 5px;
+  width: 28px;
+}
+.ql-snow.ql-toolbar button svg,
+.ql-snow .ql-toolbar button svg {
+  float: left;
+  height: 100%;
+}
+.ql-snow.ql-toolbar input.ql-image[type=file],
+.ql-snow .ql-toolbar input.ql-image[type=file] {
+  display: none;
+}
+.ql-snow.ql-toolbar button:hover,
+.ql-snow .ql-toolbar button:hover,
+.ql-snow.ql-toolbar button.ql-active,
+.ql-snow .ql-toolbar button.ql-active,
+.ql-snow.ql-toolbar .ql-picker-label:hover,
+.ql-snow .ql-toolbar .ql-picker-label:hover,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active,
+.ql-snow.ql-toolbar .ql-picker-item:hover,
+.ql-snow .ql-toolbar .ql-picker-item:hover,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected {
+  color: #06c;
+}
+.ql-snow.ql-toolbar button:hover .ql-fill,
+.ql-snow .ql-toolbar button:hover .ql-fill,
+.ql-snow.ql-toolbar button.ql-active .ql-fill,
+.ql-snow .ql-toolbar button.ql-active .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+.ql-snow.ql-toolbar button:hover .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar button:hover .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill {
+  fill: #06c;
+}
+.ql-snow.ql-toolbar button:hover .ql-stroke,
+.ql-snow .ql-toolbar button:hover .ql-stroke,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+.ql-snow.ql-toolbar button:hover .ql-stroke-mitter,
+.ql-snow .ql-toolbar button:hover .ql-stroke-mitter,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke-mitter,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke-mitter,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-mitter,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-mitter,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-mitter,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-mitter,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-mitter,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-mitter,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-mitter,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-mitter {
+  stroke: #06c;
+}
+.ql-snow {
+  box-sizing: border-box;
+}
+.ql-snow * {
+  box-sizing: border-box;
+}
+.ql-snow .ql-hidden {
+  display: none;
+}
+.ql-snow .ql-out-bottom,
+.ql-snow .ql-out-top {
+  visibility: hidden;
+}
+.ql-snow .ql-tooltip {
+  position: absolute;
+}
+.ql-snow .ql-tooltip a {
+  cursor: pointer;
+  text-decoration: none;
+}
+.ql-snow .ql-formats {
+  display: inline-block;
+  vertical-align: middle;
+}
+.ql-snow .ql-formats:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+.ql-snow .ql-toolbar.snow,
+.ql-snow .ql-stroke {
+  fill: none;
+  stroke: #444;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+.ql-snow .ql-stroke-mitter {
+  fill: none;
+  stroke: #444;
+  stroke-mitterlimit: 10;
+  stroke-width: 2;
+}
+.ql-snow .ql-fill,
+.ql-snow .ql-stroke.ql-fill {
+  fill: #444;
+}
+.ql-snow .ql-empty {
+  fill: none;
+}
+.ql-snow .ql-even {
+  fill-rule: evenodd;
+}
+.ql-snow .ql-thin,
+.ql-snow .ql-stroke.ql-thin {
+  stroke-width: 1;
+}
+.ql-snow .ql-transparent {
+  opacity: 0.4;
+}
+.ql-snow .ql-direction svg:last-child {
+  display: none;
+}
+.ql-snow .ql-direction.ql-active svg:last-child {
+  display: inline;
+}
+.ql-snow .ql-direction.ql-active svg:first-child {
+  display: none;
+}
+.ql-snow .ql-editor h1 {
+  font-size: 2em;
+}
+.ql-snow .ql-editor h2 {
+  font-size: 1.5em;
+}
+.ql-snow .ql-editor h3 {
+  font-size: 1.17em;
+}
+.ql-snow .ql-editor h4 {
+  font-size: 1em;
+}
+.ql-snow .ql-editor h5 {
+  font-size: 0.83em;
+}
+.ql-snow .ql-editor h6 {
+  font-size: 0.67em;
+}
+.ql-snow .ql-editor a {
+  text-decoration: underline;
+}
+.ql-snow .ql-editor blockquote {
+  border-left: 4px solid #ccc;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding-left: 16px;
+}
+.ql-snow .ql-editor code,
+.ql-snow .ql-editor pre {
+  background-color: #f0f0f0;
+  border-radius: 3px;
+}
+.ql-snow .ql-editor pre {
+  white-space: pre-wrap;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px 10px;
+}
+.ql-snow .ql-editor code {
+  font-size: 85%;
+  padding-bottom: 2px;
+  padding-top: 2px;
+}
+.ql-snow .ql-editor code:before,
+.ql-snow .ql-editor code:after {
+  content: "\A0";
+  letter-spacing: -2px;
+}
+.ql-snow .ql-editor pre.ql-syntax {
+  background-color: #23241f;
+  color: #f8f8f2;
+  overflow: visible;
+}
+.ql-snow .ql-editor img {
+  max-width: 100%;
+}
+.ql-snow .ql-picker {
+  color: #444;
+  display: inline-block;
+  float: left;
+  font-size: 14px;
+  font-weight: 500;
+  height: 24px;
+  position: relative;
+  vertical-align: middle;
+}
+.ql-snow .ql-picker-label {
+  cursor: pointer;
+  display: inline-block;
+  height: 100%;
+  padding-left: 8px;
+  padding-right: 2px;
+  position: relative;
+  width: 100%;
+}
+.ql-snow .ql-picker-label::before {
+  display: inline-block;
+  line-height: 22px;
+}
+.ql-snow .ql-picker-options {
+  background-color: #fff;
+  display: none;
+  min-width: 100%;
+  padding: 4px 8px;
+  position: absolute;
+  white-space: nowrap;
+}
+.ql-snow .ql-picker-options .ql-picker-item {
+  cursor: pointer;
+  display: block;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-label {
+  color: #ccc;
+  z-index: 2;
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-fill {
+  fill: #ccc;
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
+  stroke: #ccc;
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  display: block;
+  margin-top: -1px;
+  top: 100%;
+  z-index: 1;
+}
+.ql-snow .ql-color-picker,
+.ql-snow .ql-icon-picker {
+  width: 28px;
+}
+.ql-snow .ql-color-picker .ql-picker-label,
+.ql-snow .ql-icon-picker .ql-picker-label {
+  padding: 2px 4px;
+}
+.ql-snow .ql-color-picker .ql-picker-label svg,
+.ql-snow .ql-icon-picker .ql-picker-label svg {
+  right: 4px;
+}
+.ql-snow .ql-icon-picker .ql-picker-options {
+  padding: 4px 0px;
+}
+.ql-snow .ql-icon-picker .ql-picker-item {
+  height: 24px;
+  padding: 2px 4px;
+}
+.ql-snow .ql-color-picker .ql-picker-options {
+  padding: 3px 5px;
+  width: 152px;
+}
+.ql-snow .ql-color-picker .ql-picker-item {
+  border: 1px solid transparent;
+  float: left;
+  height: 16px;
+  margin: 2px;
+  padding: 0px;
+  width: 16px;
+}
+.ql-snow .ql-color-picker .ql-picker-item.ql-primary-color {
+  margin-bottom: toolbarPadding;
+}
+.ql-snow .ql-picker:not(.ql-color-picker):not(.ql-icon-picker) svg {
+  position: absolute;
+  margin-top: -9px;
+  right: 0;
+  top: 50%;
+  width: 18px;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-label]:not([data-label=''])::before {
+  content: attr(data-label);
+}
+.ql-snow .ql-picker.ql-header {
+  width: 98px;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item::before {
+  content: 'Normal';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="1"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="1"]::before {
+  content: 'Heading 1';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="2"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before {
+  content: 'Heading 2';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="3"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="3"]::before {
+  content: 'Heading 3';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="4"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="4"]::before {
+  content: 'Heading 4';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="5"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="5"]::before {
+  content: 'Heading 5';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="6"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="6"]::before {
+  content: 'Heading 6';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="1"]::before {
+  font-size: 2em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before {
+  font-size: 1.5em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="3"]::before {
+  font-size: 1.17em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="4"]::before {
+  font-size: 1em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="5"]::before {
+  font-size: 0.83em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="6"]::before {
+  font-size: 0.67em;
+}
+.ql-snow .ql-picker.ql-font {
+  width: 108px;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item::before {
+  content: 'Sans Serif';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value=serif]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=serif]::before {
+  content: 'Serif';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value=monospace]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before {
+  content: 'Monospace';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=serif]::before {
+  font-family: Georgia, Times New Roman, serif;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before {
+  font-family: Monaco, Courier New, monospace;
+}
+.ql-snow .ql-picker.ql-size {
+  width: 98px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item::before {
+  content: 'Normal';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=small]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=small]::before {
+  content: 'Small';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=large]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=large]::before {
+  content: 'Large';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=huge]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=huge]::before {
+  content: 'Huge';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=small]::before {
+  font-size: 10px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=large]::before {
+  font-size: 18px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=huge]::before {
+  font-size: 32px;
+}
+.ql-snow .ql-color-picker.ql-background .ql-picker-item {
+  background-color: #fff;
+}
+.ql-snow .ql-color-picker.ql-color .ql-picker-item {
+  background-color: #000;
+}
+.ql-toolbar.ql-snow {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  padding: 8px;
+}
+.ql-toolbar.ql-snow .ql-formats {
+  margin-right: 15px;
+}
+.ql-toolbar.ql-snow .ql-picker-label {
+  border: 1px solid transparent;
+}
+.ql-toolbar.ql-snow .ql-picker-options {
+  border: 1px solid transparent;
+  box-shadow: rgba(0,0,0,0.2) 0 2px 8px;
+}
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label {
+  border-color: #ccc;
+}
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  border-color: #ccc;
+}
+.ql-toolbar.ql-snow .ql-color-picker .ql-picker-item.ql-selected,
+.ql-toolbar.ql-snow .ql-color-picker .ql-picker-item:hover {
+  border-color: #000;
+}
+.ql-toolbar.ql-snow + .ql-container.ql-snow {
+  border-top: 0px;
+}
+.ql-snow .ql-tooltip {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 5px #ddd;
+  color: #444;
+  margin-top: 10px;
+  padding: 5px 12px;
+  white-space: nowrap;
+}
+.ql-snow .ql-tooltip::before {
+  content: "Visit URL:";
+  line-height: 26px;
+  margin-right: 8px;
+}
+.ql-snow .ql-tooltip input[type=text] {
+  display: none;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  height: 26px;
+  margin: 0px;
+  padding: 3px 5px;
+  width: 170px;
+}
+.ql-snow .ql-tooltip a.ql-preview {
+  display: inline-block;
+  max-width: 200px;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+.ql-snow .ql-tooltip a.ql-action::after {
+  border-right: 1px solid #ccc;
+  content: 'Edit';
+  margin-left: 16px;
+  padding-right: 8px;
+}
+.ql-snow .ql-tooltip a.ql-remove::before {
+  content: 'Remove';
+  margin-left: 8px;
+}
+.ql-snow .ql-tooltip a {
+  line-height: 26px;
+}
+.ql-snow .ql-tooltip.ql-editing a.ql-preview,
+.ql-snow .ql-tooltip.ql-editing a.ql-remove {
+  display: none;
+}
+.ql-snow .ql-tooltip.ql-editing input[type=text] {
+  display: inline-block;
+}
+.ql-snow .ql-tooltip.ql-editing a.ql-action::after {
+  border-right: 0px;
+  content: 'Save';
+  padding-right: 0px;
+}
+.ql-snow .ql-tooltip[data-mode=link]::before {
+  content: "Enter link:";
+}
+.ql-snow .ql-tooltip[data-mode=formula]::before {
+  content: "Enter formula:";
+}
+.ql-snow .ql-tooltip[data-mode=video]::before {
+  content: "Enter video:";
+}
+.ql-snow a {
+  color: #06c;
+}
+.ql-container.ql-snow {
+  border: 1px solid #ccc;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+/* --- RESET --- */
+/* line 19, app/assets/stylesheets/application.scss */
+html, body, header, nav, h1, a, ul, li,
+main, section, img, div, h2, p,
+form, fieldset, label, input, textarea,
+button, article, footer, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  box-sizing: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+/* --- ELEMENTS --- */
+/* line 38, app/assets/stylesheets/application.scss */
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.1666666666;
+  background: #fff;
+  color: #000;
+}
+
+/* line 47, app/assets/stylesheets/application.scss */
+ul {
+  list-style: none;
+}
+
+/* line 51, app/assets/stylesheets/application.scss */
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* line 57, app/assets/stylesheets/application.scss */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- CLEARFIX --- */
+/* line 63, app/assets/stylesheets/application.scss */
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+/* --- AUTH FORM --- */
+/* line 71, app/assets/stylesheets/application.scss */
+.auth {
+  height: 100vh;
+  background-image: url(/assets/auth_bg-475d24826f0b3aab80b130bf384150fb604d75699609cd41b789cbde8c6ca677.jpg);
+  background-repeat: no-repeat;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+/* line 79, app/assets/stylesheets/application.scss */
+.auth-form {
+  display: block;
+  width: 600px;
+  margin: 0 auto;
+  padding: 12px;
+  background-color: #fff;
+  border: 1px solid #1fae52;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+/* line 90, app/assets/stylesheets/application.scss */
+.form-header {
+  display: block;
+  margin: 20px;
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 28px;
+}
+
+/* line 98, app/assets/stylesheets/application.scss */
+.form-main {
+  display: block;
+  width: 480px;
+  margin: 0 auto;
+  border: 1px solid #1fae52;
+  border-radius: 4px;
+  font-family: gotham, helvetica, arial, sans-serif;
+}
+
+/* line 107, app/assets/stylesheets/application.scss */
+.form-footer {
+  display: block;
+  margin: 40px 0;
+  text-align: center;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 14px;
+}
+
+/* line 115, app/assets/stylesheets/application.scss */
+.logo {
+  display: block;
+  width: auto;
+  height: 180px;
+  margin: 0 auto;
+}
+
+/* line 122, app/assets/stylesheets/application.scss */
+.form-input {
+  display: block;
+  width: 320px;
+  margin: 0 auto;
+  padding-top: 12px;
+}
+
+/* line 129, app/assets/stylesheets/application.scss */
+.form-input > input {
+  display: block;
+  width: 100%;
+  border: 1px solid #1fae52;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+/* line 137, app/assets/stylesheets/application.scss */
+.submit-button {
+  display: block;
+  width: 320px;
+  margin: 20px auto;
+  border: 1px solid #1fae52;
+  border-radius: 7px;
+  padding: 20px 40px;
+  background: #2dbe60;
+  text-align: center;
+  color: #fff;
+}
+
+/* line 149, app/assets/stylesheets/application.scss */
+.submit-button:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* line 154, app/assets/stylesheets/application.scss */
+.auth-form-error {
+  text-align: center;
+  color: #f00;
+  font-family: gotham, helvetica, arial, sans-serif;
+}
+
+/* line 160, app/assets/stylesheets/application.scss */
+.auth-form-error:last-of-type {
+  margin-bottom: 20px;
+}
+
+/* line 164, app/assets/stylesheets/application.scss */
+.guest-button {
+  display: block;
+  width: 240px;
+  margin: 10px auto;
+  border: 1px solid #1fae52;
+  border-radius: 7px;
+  padding: 15px 40px;
+  background: #2dbe60;
+  text-align: center;
+  color: #fff;
+}
+
+/* line 176, app/assets/stylesheets/application.scss */
+.guest-button:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* line 181, app/assets/stylesheets/application.scss */
+.page-change {
+  color: #2dbe60;
+}
+
+/* line 185, app/assets/stylesheets/application.scss */
+.page-change:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* --- HOME --- */
+/* line 192, app/assets/stylesheets/application.scss */
+.home-sidebar {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 72px;
+  height: 100vh;
+  background: #f8f8f8;
+  overflow-y: scroll;
+}
+
+/* line 202, app/assets/stylesheets/application.scss */
+.home-main {
+  display: block;
+  position: absolute;
+  left: 72px;
+  width: calc(100vw - 72px);
+  min-width: 1076px;
+}
+
+/* line 210, app/assets/stylesheets/application.scss */
+.sidebar-avatar > img {
+  width: 48px;
+  height: 48px;
+  margin: 12px auto;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+}
+
+/* line 218, app/assets/stylesheets/application.scss */
+.sidebar-avatar > img:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* line 223, app/assets/stylesheets/application.scss */
+.sidebar-tools {
+  margin: 75px auto 50px auto;
+}
+
+/* line 227, app/assets/stylesheets/application.scss */
+.sidebar-options {
+  margin: 25px auto;
+  padding-bottom: 180px;
+  border-bottom: 1px solid #ececec;
+}
+
+/* line 233, app/assets/stylesheets/application.scss */
+.sidebar-links {
+  margin-bottom: 25px;
+}
+
+/* line 237, app/assets/stylesheets/application.scss */
+.sidebar-tool > img {
+  width: 36px;
+  height: 36px;
+  margin: 6px auto;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  background: #fff;
+}
+
+/* line 246, app/assets/stylesheets/application.scss */
+.sidebar-tool > img:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* line 251, app/assets/stylesheets/application.scss */
+.sidebar-option > img {
+  width: 36px;
+  height: 36px;
+  margin: 6px auto;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  background: #fff;
+}
+
+/* line 260, app/assets/stylesheets/application.scss */
+.sidebar-option > img:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* line 265, app/assets/stylesheets/application.scss */
+.sidebar-link > img {
+  width: 48px;
+  height: 48px;
+  margin: 6px auto;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  background: #fff;
+}
+
+/* line 274, app/assets/stylesheets/application.scss */
+.sidebar-link > img:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* line 279, app/assets/stylesheets/application.scss */
+.account-items {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: caecilia, times, serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #4a4a4a;
+}
+
+/* line 289, app/assets/stylesheets/application.scss */
+.account-items > p {
+  float: left;
+  padding: 6px 8px 6px 0;
+  color: #2dbe60;
+}
+
+/* line 295, app/assets/stylesheets/application.scss */
+.account-items > a {
+  float: left;
+  text-decoration: underline;
+  padding: 6px 8px 6px 0;
+  color: #2dbe60;
+}
+
+/* line 302, app/assets/stylesheets/application.scss */
+.account-items > a:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* line 307, app/assets/stylesheets/application.scss */
+.account-items > button {
+  float: left;
+  text-decoration: underline;
+  padding: 6px 10px 6px 0;
+  color: #2dbe60;
+}
+
+/* line 314, app/assets/stylesheets/application.scss */
+.account-items > button:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* --- NOTES --- */
+/* line 321, app/assets/stylesheets/application.scss */
+.notes-index {
+  display: inline-block;
+  width: 352px;
+  border-left: 1px solid #ececec;
+  border-right: 1px solid #ececec;
+}
+
+/* line 328, app/assets/stylesheets/application.scss */
+.notes-index-children {
+  display: inline-block;
+  height: 100vh;
+  float: right;
+}
+
+/* line 334, app/assets/stylesheets/application.scss */
+.notes-index-header {
+  display: block;
+  height: 106px;
+  padding: 24px 0 0 24px;
+  border-bottom: 1px solid #ececec;
+}
+
+/* line 341, app/assets/stylesheets/application.scss */
+.notes-index-header > h1 {
+  margin-bottom: 32px;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 21px;
+  font-weight: 300;
+  color: #878787;
+}
+
+/* line 349, app/assets/stylesheets/application.scss */
+.notes-index-header > p {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #ababab;
+}
+
+/* line 356, app/assets/stylesheets/application.scss */
+.notes-index-main {
+  height: calc(100vh - 106px);
+  overflow-y: scroll;
+}
+
+/* line 361, app/assets/stylesheets/application.scss */
+.notes-index-item-wrapper {
+  border-bottom: 1px solid #ececec;
+}
+
+/* line 365, app/assets/stylesheets/application.scss */
+.notes-index-item-wrapper:last-child {
+  border-bottom: 0;
+}
+
+/* line 369, app/assets/stylesheets/application.scss */
+.notes-index-item {
+  display: block;
+  height: 120px;
+  padding: 8px 27px;
+  overflow: hidden;
+}
+
+/* line 376, app/assets/stylesheets/application.scss */
+.notes-index-item > .title {
+  word-wrap: break-word;
+  margin-bottom: 6px;
+  font-family: caecilia, times, serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #2dbe60;
+}
+
+/* line 385, app/assets/stylesheets/application.scss */
+.notes-index-item > p {
+  word-wrap: break-word;
+  margin: 8px 0;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #878787;
+}
+
+/* line 394, app/assets/stylesheets/application.scss */
+.notes-index-item > .body {
+  color: #000;
+}
+
+/* line 398, app/assets/stylesheets/application.scss */
+.notes-index-item:hover {
+  cursor: pointer;
+  background: #2dbe60;
+  color: #fff;
+}
+
+/* line 404, app/assets/stylesheets/application.scss */
+.notes-index-item:hover > .title {
+  cursor: pointer;
+  background: #2dbe60;
+  color: #fff;
+}
+
+/* line 410, app/assets/stylesheets/application.scss */
+.notes-index-item:hover > p {
+  cursor: pointer;
+  background: #2dbe60;
+  color: #fff;
+}
+
+/* --- NOTE --- */
+/* line 418, app/assets/stylesheets/application.scss */
+.note {
+  display: inline-block;
+  width: calc(100vw - 424px);
+  min-width: 724px;
+  height: calc(100vh - 30px);
+  margin-top: 30px;
+  padding: 12px 18px;
+  overflow-y: scroll;
+}
+
+/* line 428, app/assets/stylesheets/application.scss */
+.note > h1 {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 300;
+  font-size: 21px;
+  color: #878787;
+  margin-bottom: 36px;
+}
+
+/* line 436, app/assets/stylesheets/application.scss */
+.note-new-tag-icon {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+}
+
+/* line 443, app/assets/stylesheets/application.scss */
+.note-trash-icon {
+  float: right;
+  width: 36px;
+  height: 36px;
+  margin-right: 48px;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+}
+
+/* line 452, app/assets/stylesheets/application.scss */
+.note-trash-icon:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* line 460, app/assets/stylesheets/application.scss */
+.note-error {
+  display: block;
+  width: 250px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 14px;
+  color: #f00;
+}
+
+/* line 470, app/assets/stylesheets/application.scss */
+.note-form {
+  padding: 0 48px;
+}
+
+/* line 474, app/assets/stylesheets/application.scss */
+.note-form-select {
+  margin-top: 10px;
+}
+
+/* line 478, app/assets/stylesheets/application.scss */
+.note-form-select > label {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 13px;
+  color: #878787;
+}
+
+/* line 484, app/assets/stylesheets/application.scss */
+.note-form-select > select {
+  margin-left: 6px;
+}
+
+/* line 488, app/assets/stylesheets/application.scss */
+.note-form-input {
+  display: block;
+  margin: 10px 0;
+}
+
+/* line 493, app/assets/stylesheets/application.scss */
+.note-form-input > label {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 13px;
+  color: #878787;
+}
+
+/* line 499, app/assets/stylesheets/application.scss */
+.note-title-input-field {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 12px 15px;
+  font-family: caecilia, times, serif;
+  font-weight: 300;
+  font-size: 28px;
+  color: #2dbe60;
+}
+
+/* line 509, app/assets/stylesheets/application.scss */
+.ql-editor {
+  min-height: 300px;
+}
+
+/* line 513, app/assets/stylesheets/application.scss */
+.note-submit-button {
+  display: block;
+  float: right;
+  padding: 7px 10px;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
+  text-align: center;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #606060;
+}
+
+/* line 526, app/assets/stylesheets/application.scss */
+.note-submit-button:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* line 531, app/assets/stylesheets/application.scss */
+.modal-message {
+  margin: 8px 0;
+  font-family: gotham, helvetica, arial, sans-serif;
+  color: #1fae52;
+}
+
+/* line 537, app/assets/stylesheets/application.scss */
+.modal-buttons {
+  width: auto;
+}
+
+/* line 541, app/assets/stylesheets/application.scss */
+.modal-button {
+  display: block;
+  float: right;
+  margin: 2px;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
+  padding: 4px;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 400;
+  color: #606060;
+}
+
+/* line 553, app/assets/stylesheets/application.scss */
+.modal-button:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* --- NOTEBOOKS --- */
+/* line 560, app/assets/stylesheets/application.scss */
+.notebooks-index {
+  display: inline-block;
+  width: 352px;
+  border-left: 1px solid #ececec;
+  border-right: 1px solid #ececec;
+}
+
+/* line 567, app/assets/stylesheets/application.scss */
+.notebooks-index-header {
+  position: relative;
+}
+
+/* line 571, app/assets/stylesheets/application.scss */
+.notebooks-index-children {
+  display: inline-block;
+  width: calc(100vw - 424px);
+  min-width: 724px;
+  height: 100vh;
+}
+
+/* line 578, app/assets/stylesheets/application.scss */
+.notebooks-index-header {
+  display: block;
+  height: 106px;
+  padding: 24px 0 0 24px;
+  border-bottom: 1px solid #ececec;
+}
+
+/* line 585, app/assets/stylesheets/application.scss */
+.notebooks-index-header > h1 {
+  padding: 0 186px 32px 0;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 21px;
+  font-weight: 300;
+  color: #878787;
+}
+
+/* line 593, app/assets/stylesheets/application.scss */
+.notebooks-index-header > p {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #ababab;
+}
+
+/* line 600, app/assets/stylesheets/application.scss */
+.new-notebook-icon {
+  position: absolute;
+  top: 11px;
+  right: 148px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+}
+
+/* line 610, app/assets/stylesheets/application.scss */
+.new-notebook-icon:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* line 615, app/assets/stylesheets/application.scss */
+.notebooks-index-main {
+  height: calc(100vh - 106px);
+  overflow-y: scroll;
+}
+
+/* line 620, app/assets/stylesheets/application.scss */
+.notebooks-index-item-wrapper {
+  border-bottom: 1px solid #ececec;
+}
+
+/* line 624, app/assets/stylesheets/application.scss */
+.notebooks-index-item-wrapper:last-child {
+  border-bottom: 0;
+}
+
+/* line 628, app/assets/stylesheets/application.scss */
+.notebooks-index-item {
+  display: block;
+  height: 120px;
+  padding: 8px 27px;
+  overflow: hidden;
+}
+
+/* line 635, app/assets/stylesheets/application.scss */
+.notebooks-index-item > .title {
+  word-wrap: break-word;
+  margin-bottom: 6px;
+  font-family: caecilia, times, serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #2dbe60;
+}
+
+/* line 644, app/assets/stylesheets/application.scss */
+.notebooks-index-item > p {
+  word-wrap: break-word;
+  margin: 8px 0;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #878787;
+}
+
+/* line 653, app/assets/stylesheets/application.scss */
+.notebooks-index-item > .description {
+  color: #000;
+}
+
+/* line 657, app/assets/stylesheets/application.scss */
+.notebooks-index-item:hover {
+  cursor: pointer;
+  background: #2dbe60;
+  color: #fff;
+}
+
+/* line 663, app/assets/stylesheets/application.scss */
+.notebooks-index-item:hover > .title {
+  cursor: pointer;
+  background: #2dbe60;
+  color: #fff;
+}
+
+/* line 669, app/assets/stylesheets/application.scss */
+.notebooks-index-item:hover > p {
+  cursor: pointer;
+  background: #2dbe60;
+  color: #fff;
+}
+
+/* line 675, app/assets/stylesheets/application.scss */
+.edit-notebook-icon {
+  float: right;
+  width: 38px;
+  height: 38px;
+}
+
+/* line 681, app/assets/stylesheets/application.scss */
+.edit-notebook-icon:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* --- NOTEBOOK --- */
+/* line 688, app/assets/stylesheets/application.scss */
+.notebook {
+  display: inline-block;
+  width: calc(100vw - 424px);
+  min-width: 724px;
+  height: calc(100vh - 30px);
+  margin-top: 30px;
+  padding: 12px 18px;
+  overflow-y: scroll;
+}
+
+/* line 698, app/assets/stylesheets/application.scss */
+.notebook > h1 {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 300;
+  font-size: 21px;
+  color: #878787;
+  margin-bottom: 36px;
+}
+
+/* line 706, app/assets/stylesheets/application.scss */
+.notebook-trash-icon {
+  float: right;
+  width: 36px;
+  height: 36px;
+  margin-right: 48px;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+}
+
+/* line 715, app/assets/stylesheets/application.scss */
+.notebook-trash-icon:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* line 720, app/assets/stylesheets/application.scss */
+.notebook > p {
+  margin-left: 48px;
+  height: 48px;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 14px;
+  color: #f00;
+}
+
+/* line 728, app/assets/stylesheets/application.scss */
+.notebook-error {
+  display: block;
+  width: 250px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 14px;
+  color: #f00;
+}
+
+/* line 738, app/assets/stylesheets/application.scss */
+.notebook-form {
+  padding: 0 48px;
+}
+
+/* line 742, app/assets/stylesheets/application.scss */
+.notebook-form-input {
+  display: block;
+  margin: 10px 0;
+}
+
+/* line 747, app/assets/stylesheets/application.scss */
+.notebook-form-input > label {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 13px;
+  color: #878787;
+}
+
+/* line 753, app/assets/stylesheets/application.scss */
+.notebook-title-input-field {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 12px 15px;
+  font-family: caecilia, times, serif;
+  font-weight: 300;
+  font-size: 28px;
+  color: #2dbe60;
+}
+
+/* line 763, app/assets/stylesheets/application.scss */
+.notebook-form-input > textarea {
+  display: block;
+  width: 100%;
+  min-height: 300px;
+  border: 1px solid #ccc;
+  padding: 12px 15px;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 13px;
+  color: #383838;
+}
+
+/* line 774, app/assets/stylesheets/application.scss */
+.notebook-submit-button {
+  display: block;
+  float: right;
+  padding: 7px 10px;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
+  text-align: center;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #606060;
+}
+
+/* line 787, app/assets/stylesheets/application.scss */
+.notebook-submit-button:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* --- NOTE TAGS --- */
+/* line 794, app/assets/stylesheets/application.scss */
+.note-new-tag-icon {
+  float: left;
+  width: 38px;
+  height: 38px;
+  margin: 0 0 10px 48px;
+  border: 1px solid #ececec;
+}
+
+/* line 802, app/assets/stylesheets/application.scss */
+.note-new-tag-icon:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* line 807, app/assets/stylesheets/application.scss */
+.note-tags {
+  float: left;
+  width: calc(100% - 182px);
+}
+
+/* line 812, app/assets/stylesheets/application.scss */
+.note-tags-index-tag-wrapper {
+  display: block;
+  float: left;
+  margin: 0 0 6px 6px;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  padding: 1px 8px;
+  background: #f8f8f8;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 12px;
+  color: #383838;
+}
+
+/* line 825, app/assets/stylesheets/application.scss */
+.note-tags-index-tag-wrapper:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* --- TAGS --- */
+/* line 832, app/assets/stylesheets/application.scss */
+.tags-index {
+  display: inline-block;
+  width: 352px;
+  border-left: 1px solid #ececec;
+  border-right: 1px solid #ececec;
+}
+
+/* line 839, app/assets/stylesheets/application.scss */
+.tags-index-header {
+  position: relative;
+}
+
+/* line 843, app/assets/stylesheets/application.scss */
+.tags-index-children {
+  display: inline-block;
+  float: right;
+  width: calc(100vw - 424px);
+  min-width: 724px;
+  height: 100vh;
+}
+
+/* line 851, app/assets/stylesheets/application.scss */
+.tags-index-header {
+  display: block;
+  height: 106px;
+  padding: 24px 0 0 24px;
+  border-bottom: 1px solid #ececec;
+}
+
+/* line 858, app/assets/stylesheets/application.scss */
+.tags-index-header > h1 {
+  padding: 0 264px 32px 0;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 21px;
+  font-weight: 300;
+  color: #878787;
+}
+
+/* line 866, app/assets/stylesheets/application.scss */
+.tags-index-header > p {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #ababab;
+}
+
+/* line 873, app/assets/stylesheets/application.scss */
+.new-tag-icon {
+  position: absolute;
+  top: 11px;
+  right: 226px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+}
+
+/* line 883, app/assets/stylesheets/application.scss */
+.new-tag-icon:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* line 888, app/assets/stylesheets/application.scss */
+.tags-index-main {
+  height: calc(100vh - 106px);
+  overflow-y: scroll;
+}
+
+/* line 893, app/assets/stylesheets/application.scss */
+.tags-index-tag-wrapper {
+  margin: 6px;
+}
+
+/* line 897, app/assets/stylesheets/application.scss */
+.tags-index-tag {
+  float: left;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  padding: 1px 8px;
+  background: #f8f8f8;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 12px;
+  color: #383838;
+}
+
+/* line 908, app/assets/stylesheets/application.scss */
+.tags-index-tag:hover {
+  cursor: pointer;
+  background: #2dbe60;
+  color: #ffffff;
+}
+
+/* line 914, app/assets/stylesheets/application.scss */
+.tags-index-tag-note-count {
+  display: inline;
+  padding-left: 12px;
+  color: #228B22;
+}
+
+/* line 920, app/assets/stylesheets/application.scss */
+.tag-trash-icon {
+  float: left;
+  width: 18px;
+  height: 18px;
+  margin-left: 6px;
+}
+
+/* line 927, app/assets/stylesheets/application.scss */
+.tag-trash-icon:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* --- NEW TAG --- */
+/* line 934, app/assets/stylesheets/application.scss */
+.tag {
+  display: inline-block;
+  width: calc(100vw - 424px);
+  min-width: 724px;
+  margin: 30px 0;
+  padding: 12px 0;
+}
+
+/* line 942, app/assets/stylesheets/application.scss */
+.tag > img {
+  width: 36px;
+  margin: 0 auto 10px auto;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+}
+
+/* line 949, app/assets/stylesheets/application.scss */
+.tag > h1 {
+  text-align: center;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 300;
+  font-size: 21px;
+  color: #878787;
+  margin-bottom: 10px;
+}
+
+/* line 958, app/assets/stylesheets/application.scss */
+.tag-form-input {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* line 963, app/assets/stylesheets/application.scss */
+.tag-name-input-field {
+  width: 200px;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  margin: 0 6px;
+  padding: 1px 8px;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 300;
+  font-size: 32px;
+  color: #606060;
+}
+
+/* line 975, app/assets/stylesheets/application.scss */
+.tag-submit-button {
+  display: block;
+  padding: 9px 14px;
+  border: 1px solid #1fae52;
+  border-radius: 5px;
+  margin: 0 auto;
+  background-color: #2dbe60;
+  text-align: center;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: #ffffff;
+}
+
+/* line 989, app/assets/stylesheets/application.scss */
+.tag-submit-button:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* line 994, app/assets/stylesheets/application.scss */
+.tag > .quote > .question {
+  text-align: center;
+  margin-top: 120px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 32px;
+}
+
+/* line 1001, app/assets/stylesheets/application.scss */
+.tag > .quote > .answer {
+  text-align: center;
+  margin-top: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 32px;
+  color: #878787;
+}
+
+/* line 1009, app/assets/stylesheets/application.scss */
+.tag > .quote > .author {
+  text-align: center;
+  margin-top: 15px;
+  font-family: 'Roboto', sans-serif;
+  color: #2dbe60;
+}
+
+/* --- ACCOUNT UPDATE --- */
+/* line 1018, app/assets/stylesheets/application.scss */
+.account-update {
+  height: 100vh;
+  vertical-align: middle;
+  padding-bottom: 40px;
+  overflow-y: scroll;
+}
+
+/* line 1025, app/assets/stylesheets/application.scss */
+.account-update-logo {
+  display: block;
+  width: auto;
+  height: 180px;
+  margin: 0 auto;
+}
+
+/* line 1032, app/assets/stylesheets/application.scss */
+.account-update > h1 {
+  display: block;
+  margin: 20px;
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 28px;
+}
+
+/* line 1040, app/assets/stylesheets/application.scss */
+.account-update-form {
+  display: block;
+  width: 500px;
+  margin: 0 auto;
+  border: 1px solid #ececec;
+  font-family: gotham, helvetica, arial, sans-serif;
+}
+
+/* line 1048, app/assets/stylesheets/application.scss */
+.avatar-preview {
+  display: block;
+  width: 100px;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+/* line 1056, app/assets/stylesheets/application.scss */
+.update-avatar {
+  display: block;
+  width: 320px;
+  margin: 0 auto;
+}
+
+/* line 1062, app/assets/stylesheets/application.scss */
+.update-avatar > input {
+  display: block;
+  width: 100%;
+}
+
+/* line 1067, app/assets/stylesheets/application.scss */
+.update-full-name {
+  display: block;
+  width: 320px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+/* line 1074, app/assets/stylesheets/application.scss */
+.update-full-name > input {
+  display: block;
+  width: 100%;
+  border: 1px solid #ececec;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+/* line 1082, app/assets/stylesheets/application.scss */
+.update-email {
+  display: block;
+  width: 320px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+/* line 1089, app/assets/stylesheets/application.scss */
+.update-email > input {
+  display: block;
+  width: 100%;
+  border: 1px solid #ececec;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+/* line 1097, app/assets/stylesheets/application.scss */
+.account-update-submit-button {
+  display: block;
+  width: 320px;
+  margin: 20px auto;
+  border: 1px solid #1fae52;
+  border-radius: 7px;
+  padding: 20px 40px;
+  background: #2dbe60;
+  text-align: center;
+  color: #fff;
+}
+
+/* line 1109, app/assets/stylesheets/application.scss */
+.account-update-submit-button:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* line 1114, app/assets/stylesheets/application.scss */
+.account-update-form-error {
+  text-align: center;
+  color: #f00;
+  font-family: gotham, helvetica, arial, sans-serif;
+}
+
+/* line 1120, app/assets/stylesheets/application.scss */
+.account-update-form-error:last-of-type {
+  margin-bottom: 20px;
+}
+
+/* --- NOTE SEARCH --- */
+/* line 1126, app/assets/stylesheets/application.scss */
+.search-notes-index {
+  display: inline-block;
+  width: 352px;
+  border-left: 1px solid #ececec;
+  border-right: 1px solid #ececec;
+}
+
+/* line 1133, app/assets/stylesheets/application.scss */
+.search-notes-index-children {
+  display: inline-block;
+  width: calc(100vw - 424px);
+  min-width: 724px;
+  height: 100vh;
+}
+
+/* line 1140, app/assets/stylesheets/application.scss */
+.search-notes-index-header {
+  display: block;
+  height: 106px;
+  padding: 24px 0 0 24px;
+  border-bottom: 1px solid #ececec;
+}
+
+/* line 1147, app/assets/stylesheets/application.scss */
+.search-notes-index-header > h1 {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 21px;
+  font-weight: 300;
+  color: #878787;
+}
+
+/* line 1154, app/assets/stylesheets/application.scss */
+.note-search-form {
+  margin: 5px 0;
+}
+
+/* line 1158, app/assets/stylesheets/application.scss */
+.note-search-input-field {
+  width: 50%;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  padding: 1px 2px;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 16px;
+  color: #2dbe60;
+}
+
+/* line 1168, app/assets/stylesheets/application.scss */
+.note-search-submit-button {
+  margin-left: 4px;
+  border: 1px solid #1fae52;
+  border-radius: 4px;
+  padding: 1px 8px;
+  background: #2dbe60;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 16px;
+  color: #fff;
+}
+
+/* line 1179, app/assets/stylesheets/application.scss */
+.note-search-submit-button:hover {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* line 1184, app/assets/stylesheets/application.scss */
+.search-notes-index-header > p {
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #ababab;
+}
+
+/* line 1191, app/assets/stylesheets/application.scss */
+.search-notes-index-main {
+  height: calc(100vh - 106px);
+  overflow-y: scroll;
+}
+
+/* line 1196, app/assets/stylesheets/application.scss */
+.search-notes-index-item-wrapper {
+  border-bottom: 1px solid #ececec;
+}
+
+/* line 1200, app/assets/stylesheets/application.scss */
+.search-notes-index-item-wrapper:last-child {
+  border-bottom: 0;
+}
+
+/* line 1204, app/assets/stylesheets/application.scss */
+.search-notes-index-item {
+  display: block;
+  height: 120px;
+  padding: 8px 27px;
+  overflow: hidden;
+}
+
+/* line 1211, app/assets/stylesheets/application.scss */
+.search-notes-index-item > .title {
+  word-wrap: break-word;
+  margin-bottom: 6px;
+  font-family: caecilia, times, serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #2dbe60;
+}
+
+/* line 1220, app/assets/stylesheets/application.scss */
+.search-notes-index-item > p {
+  word-wrap: break-word;
+  margin: 8px 0;
+  font-family: gotham, helvetica, arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #878787;
+}
+
+/* line 1229, app/assets/stylesheets/application.scss */
+.search-notes-index-item > .body {
+  color: #000;
+}
+
+/* line 1233, app/assets/stylesheets/application.scss */
+.search-notes-index-item:hover {
+  cursor: pointer;
+  background: #2dbe60;
+  color: #fff;
+}
+
+/* line 1239, app/assets/stylesheets/application.scss */
+.search-notes-index-item:hover > .title {
+  cursor: pointer;
+  background: #2dbe60;
+  color: #fff;
+}
+
+/* line 1245, app/assets/stylesheets/application.scss */
+.search-notes-index-item:hover > p {
+  cursor: pointer;
+  background: #2dbe60;
+  color: #fff;
+}
