@@ -84,6 +84,4 @@ test:
 #
 production:
   <<: *default
-  database: NoteBinder_production
-  username: NoteBinder
-  password: <%= ENV['NOTEBINDER_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
