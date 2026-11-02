@@ -15,4 +15,4 @@ bundle exec rails assets:precompile
 bundle exec rails assets:clean
 
 # 4. Run any database migrations safely
-bundle exec rails db:migrate
+RAILS_ENV=production bundle exec rails db:migrate
