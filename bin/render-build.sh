@@ -14,6 +14,7 @@ bundle exec rails assets:clobber
 bundle exec rails assets:precompile
 bundle exec rails assets:clean
 
-# 4. Run database migrations and seed the database
+# 4. Run database migrations and re-seed the database
 bundle exec rails db:migrate
+bundle exec rails db:truncate
 bundle exec rails db:seed
