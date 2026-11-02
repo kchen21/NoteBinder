@@ -16,5 +16,5 @@ bundle exec rails assets:clean
 
 # 4. Run database migrations and re-seed the database
 bundle exec rails db:migrate
-bundle exec rails db:truncate
+bundle exec rails db:purge
 bundle exec rails db:seed
