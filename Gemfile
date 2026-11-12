@@ -60,3 +60,5 @@ group :production do
   gem 'newrelic_rpm'
   gem 'rails_12factor' # error feedback
 end
+
+gem "dockerfile-rails", "~> 1.7", group: :development
