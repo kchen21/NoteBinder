@@ -44,7 +44,8 @@ ENV PATH="/usr/local/node/bin:$PATH"
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
-RUN bundle install -v 4.0.24 && \
+RUN gem install bundler -v 4.0.24 && \
+    bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
 
 # Install node modules
