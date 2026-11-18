@@ -28,9 +28,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'kt-paperclip', '~> 8.0.0'
+gem 'kt-paperclip', '~> 8.0'
 gem 'figaro'
-gem 'aws-sdk', '>= 2.0'
+gem 'aws-sdk-s3', '~> 1.244'
 
 gem 'mutex_m'
 
