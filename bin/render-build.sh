@@ -4,7 +4,7 @@ set -o errexit
 
 # 0. Install Ruby gems and Node packages
 bundle install
-npm install
+npm install --force
 
 # 1. Compile the custom Webpack bundle
 npm run build
