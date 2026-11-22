@@ -14,7 +14,5 @@ bundle exec rails assets:clobber
 bundle exec rails assets:precompile
 bundle exec rails assets:clean
 
-# 3. Purge, migrate, and seed the database
-bundle exec rails db:purge
-bundle exec rails db:migrate
-bundle exec rails db:seed
+# 3. Recreate all tables and seed
+DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rails db:schema:load db:seed
