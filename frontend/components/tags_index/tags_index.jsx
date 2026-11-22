@@ -27,16 +27,13 @@ class TagsIndex extends React.Component {
     });
   }
 
-  onConfirmDeleteModalOpen() {
-    ConfirmDeleteModalStyle.content.opacity = 100;
-  }
+  onConfirmDeleteModalOpen() {}
 
   onConfirmDeleteModalClose() {
     this.setState({
       confirmDeleteModalOpen: false,
       idOfTagToDestroy: null
     });
-    ConfirmDeleteModalStyle.content.opacity = 0;
   }
 
   deleteTag(e) {

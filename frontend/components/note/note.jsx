@@ -68,13 +68,10 @@ class Note extends React.Component {
     this.setState({ confirmDeleteModalOpen: true });
   }
 
-  onConfirmDeleteModalOpen() {
-    ConfirmDeleteModalStyle.content.opacity = 100;
-  }
+  onConfirmDeleteModalOpen() {}
 
   onConfirmDeleteModalClose() {
     this.setState({ confirmDeleteModalOpen: false });
-    ConfirmDeleteModalStyle.content.opacity = 0;
   }
 
   deleteNote(e) {
