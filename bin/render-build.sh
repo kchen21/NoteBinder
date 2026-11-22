@@ -14,5 +14,5 @@ bundle exec rails assets:clobber
 bundle exec rails assets:precompile
 bundle exec rails assets:clean
 
-# 3. Recreate all tables and seed
+# 3. Drop, recreate, and seed tables
 DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rails db:schema:load db:seed
