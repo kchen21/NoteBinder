@@ -52,7 +52,7 @@ const Sidebar = ({ currentUser }) => {
 
       <ul className="sidebar-links">
           <li>
-            <a className="sidebar-link" href="https://kchen21.github.io/">
+            <a className="sidebar-link" href="https://kchen21.github.io">
               <img src={ window.assets.portfolio } />
             </a>
           </li>
