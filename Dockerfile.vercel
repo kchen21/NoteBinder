@@ -2,7 +2,10 @@
 # check=error=true
 
 ARG RUBY_VERSION=4.0.9
-FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
+ARG NODE_VERSION=26.13.1
+
+FROM docker.io/library/node:${NODE_VERSION}-slim AS node
+FROM docker.io/library/ruby:${RUBY_VERSION}-slim AS base
 
 WORKDIR /rails
 
@@ -10,9 +13,9 @@ WORKDIR /rails
 RUN gem update --system --no-document && \
     gem install -N bundler
 
-# Install base runtime packages (ImageMagick, PostgreSQL client, jemalloc, curl, xz-utils)
+# Install base runtime packages (ImageMagick, PostgreSQL client, jemalloc, curl)
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl imagemagick libjemalloc2 libpq5 postgresql-client xz-utils && \
+    apt-get install --no-install-recommends -y curl imagemagick libjemalloc2 libpq5 postgresql-client && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Set production environment and default Vercel port
@@ -22,12 +25,11 @@ ENV BUNDLE_DEPLOYMENT="1" \
     RAILS_ENV="production" \
     PORT="80"
 
-# Install precompiled Node.js 26.13.1 binary directly
-ARG NODE_VERSION=26.13.1
-ENV PATH=/usr/local/node/bin:$PATH
-RUN mkdir -p /usr/local/node && \
-    curl -fsSL "https://nodejs.org{NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz" | \
-    tar -xJ -C /usr/local/node --strip-components=1
+# Copy Node.js and npm directly from the official Node image
+COPY --from=node /usr/local/bin/node /usr/local/bin/
+COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
+RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm && \
+    ln -s /usr/local/lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx
 
 
 # --- Build Stage ---
@@ -37,8 +39,6 @@ FROM base AS build
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential git libffi-dev libpq-dev libyaml-dev node-gyp pkg-config python-is-python3 && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
-
-ENV PATH="/usr/local/node/bin:$PATH"
 
 # Install application gems using your exact Bundler version
 COPY Gemfile Gemfile.lock ./
