@@ -2,7 +2,7 @@
 
 [NoteBinder live][website]
 
-[website]: http://www.notebinder.us
+[website]: https://note-binder-chi.vercel.app
 
 NoteBinder is an Evernote-inspired full-stack web application built using Ruby on Rails on the backend and React.js on the frontend, with a Redux architectural framework. It utilizes a PostgreSQL database to store data.
 
